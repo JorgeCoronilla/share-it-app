@@ -2,11 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 @import './ui/styles/home.css';
+@import './ui/styles/header.css';
+@import './ui/styles/menu.css';
+@import './ui/styles/themeSwitcher.css';
+@import './ui/styles/addButtons.css';
+@import './ui/styles/dashboard.css';
+@import './ui/styles/gruopsCard.css';
 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --dark-backgorund-color: black;
+  --light-backgorund-color: white;
+
+  --dark-title: linear-gradient(45deg, #cffafe, #818cf8, #f472b6);
+  --light-title: linear-gradient(45deg, #6191c9, #3f51ee, #ff1b91);
+
+  --dark-switcher: rgb(248, 167, 255);
+  --light-switcher: rgb(211, 53, 158);
+
+  --switch-height-home: 1em;
+  --switch-height-dashboard: 5em;
+
+  --dark-text: rgb(209 213 219);
+  --light-text: rgb(66, 66, 66);
+
+  --stain-1-dark: #818df848;
+  --stain-1-light: #e081f865;
+
+  --stain-2-dark: #f881ca44;
+  --stain-2-light: #79a2c9;
+
+  --menu-background-dark: rgb(0, 0, 0, 0.9);
+  --menu-background-light: rgb(255, 255, 255, 0.9);
+
+  --shadows-dark: rgba(248, 248, 248, 0.288) 0px 2px 8px 0px;
+  --shadows-light: rgba(0, 0, 0, 0.288) 0px 2px 8px 0px;
+
+  --menu-background: var(--menu-background-dark);
+  --shadows: var(--shadows-dark);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,5 +50,38 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+
+    --background-color: var(--dark-backgorund-color);
+    --title: var(--dark-title);
+    --switcher: var(--dark-switcher);
+    --text: var(--dark-text);
+    --menu-background-dark: rgb(0, 0, 0, 0.7);
   }
+}
+
+.dark {
+  --background-color: var(--dark-backgorund-color);
+  --title: var(--dark-title);
+  --switcher: var(--dark-switcher);
+  --text: var(--dark-text);
+  --stain-1-color: var(--stain-1-dark);
+  --stain-2-color: var(--stain-2-dark);
+  --menu-background: var(--menu-background-dark);
+  --shadows: var(--shadows-dark);
+}
+
+.light {
+  --background-color: var(--light-backgorund-color);
+  --title: var(--light-title);
+  --switcher: var(--light-switcher);
+  --text: var(--light-text);
+  --stain-1-color: var(--stain-1-light);
+  --stain-2-color: var(--stain-2-light);
+  --menu-background: var(--menu-background-light);
+  --shadows: var(--shadows-light);
+}
+
+.spacer {
+  width: 100%;
+  height: 9em;
 }

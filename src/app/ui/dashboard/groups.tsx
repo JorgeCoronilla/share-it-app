@@ -4,6 +4,7 @@ import * as React from 'react';
 function IconUsers(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
+      className="groups-icon"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"

@@ -1,67 +1,54 @@
 body {
-  background-color: rgb(0, 0, 0);
+  background-color: var(--background-color);
+  transition: background-color 0.4s ease-in-out;
 }
 
-.header-container {
-  position: fixed;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1em 1.2em 1em;
-  height: 4em;
-  box-shadow: rgba(248, 248, 248, 0.288) 0px 2px 8px 0px;
+.blur-stain-1 {
+  position: absolute;
+  top: 28em;
+  right: 1em;
+  width: 11.25em;
+  height: 21.25em;
+  background-color: var(--stain-1-color);
+  border-radius: 50%;
+  filter: blur(10rem);
+  z-index: -10;
 }
 
-.user-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.blur-stain-2 {
+  position: absolute;
+  top: -23rem;
+  left: -35rem;
+  width: 1rem;
+  height: 40rem;
+  background-color: var(--stain-2-color);
+  border-radius: 50%;
+  filter: blur(10rem);
+  z-index: -10;
 }
 
-.user-name {
-  color: rgb(218, 218, 218);
-  padding: 0;
-  margin: 0.6em 0.9em 0 0;
-  font-size: 1.2em;
+@media screen and (max-width: 768px) {
+  .blur-stain-2 {
+    left: -10em;
+    width: 20em;
+    top: -8em;
+    filter: blur(10em);
+  }
+  .blur-stain-1 {
+    left: 5em;
+    width: 20em;
+    top: 20em;
+    filter: blur(8em);
+  }
 }
-.avatar-container {
-  width: 36px;
-  height: 36px;
-  background-color: aquamarine;
-  border-radius: 10em;
-  padding: 0.4em 0.8em;
+.title {
+  font-size: 3.5rem;
+  background: var(--title);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 900;
 }
 
-.menu {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: rgb(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  padding: 0.8em 0 0.5em;
-  box-shadow: rgba(248, 248, 248, 0.811) 0px 2px 8px 0px;
-}
-
-.menu-button {
-  padding: 0.5em 0.2em 0;
-  margin: 0 1em;
-  color: rgb(218, 218, 218);
-  width: 6.3em;
-}
-
-.menu-button-active {
-  padding: 0.5em 0.2em 0;
-  background-color: rgba(255, 255, 254, 0.192);
-  margin: 0 1em;
-  color: rgb(218, 218, 218);
-  border-radius: 4px;
-  width: 6.3em;
-}
-.menu-button svg,
-.menu-button-active svg {
-  margin: 0.5em auto;
+.normal-text {
+  color: var(--text);
 }

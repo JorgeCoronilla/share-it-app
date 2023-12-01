@@ -1,0 +1,27 @@
+.add-button {
+  position: fixed;
+
+  right: 1em;
+  padding: 0.5em 0.7em 0.3em;
+  border-radius: 2em;
+  background-color: var(--switcher);
+  color: var(--background-color);
+  font-weight: 400;
+  font-size: 1.2em;
+  box-shadow: var(--shadows);
+}
+.add-button > div {
+  display: flex;
+}
+
+.pencil-icon,
+.groups-icon {
+  margin: 0.2em 0.5em 0 0;
+}
+
+.expense {
+  bottom: 6em;
+}
+.group {
+  bottom: 9em;
+}

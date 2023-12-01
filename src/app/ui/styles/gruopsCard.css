@@ -1,0 +1,41 @@
+.group-card-container {
+  display: flex;
+  margin-top: 1em;
+  padding: 0.5em 0;
+  /* box-shadow: var(--shadows); */
+  border-radius: 8px;
+  border: 1px solid rgb(240, 240, 240);
+  border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+.card-icon-container {
+  width: 25%;
+}
+
+.card-icon-container svg {
+  width: 100%;
+  font-size: 5em;
+  color: var(--text);
+}
+
+.card-text-container {
+  width: 75%;
+  padding: 0.5em 1em;
+}
+
+.card-title {
+  font-size: 1.2em;
+  color: var(--text);
+  font-weight: 900;
+}
+.card-debt {
+  color: var(--text);
+}
+.card-debt span {
+  font-weight: 600;
+}
+
+.card-friends {
+  color: var(--switcher);
+  font-weight: 600;
+}
