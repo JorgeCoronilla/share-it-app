@@ -1,6 +1,9 @@
+import { getGroups } from '../lib/data';
 import GroupCard from '../ui/dashboard/groupCard';
 
-export default function Page() {
+export default async function Page() {
+  const userData = await getGroups('uid1');
+  console.log('resultado', userData);
   return (
     <main className="dashboard-container">
       <div className="spacer"></div>
