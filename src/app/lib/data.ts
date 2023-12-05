@@ -1,32 +1,46 @@
-import { createClient } from '@libsql/client';
+import { createClient, Client, Row } from '@libsql/client';
+
+let client: Client | undefined;
+
+if (process.env.DB_URL && process.env.DB_AUTH_TOKEN) {
+  client = createClient({
+    url: process.env.DB_URL,
+    authToken: process.env.DB_AUTH_TOKEN,
+  });
+} else {
+  console.error('DB credentials not found');
+}
+
+export const getUser = async (user: string) => {
+  if (!client) {
+    throw new Error('DB client not initialized: Wrong credentials');
+  }
+};
 
 export const getGroups = async (user: string) => {
-  if (typeof process.env.DB_URL === 'string') {
-    const client = createClient({
-      url: process.env.DB_URL,
-      authToken: process.env.DB_AUTH_TOKEN,
+  if (!client) {
+    throw new Error('DB client not initialized: Wrong credentials');
+  }
+
+  try {
+    const groups = await client.execute({
+      sql: 'SELECT g.group_id, g.group_name, g.group_icon, g.group_info, ug.user_balance  FROM groups g JOIN user_group ug ON g.group_id = ug.group_id WHERE ug.user_id = ?',
+      args: [user],
     });
 
-    try {
-      const groups = await client.execute({
-        sql: 'SELECT * FROM user_group WHERE user_id = ?',
-        args: [user],
-      });
-
-      console.log(groups.rows);
-      if (groups.rows.length === 0) {
-        return [];
-      }
-
-      const groupsInfo = await client.execute({
-        sql: 'SELECT groups.group_id, groups.group_name, transactions.id, transactions.date, transactions.name AS transaction_name, transactions.amount, transactions.icon FROM user_group  JOIN groups ON user_group.group_id = groups.group_id JOIN transactions ON user_group.group_id = transactions.group_id WHERE user_group.user_id = ?',
-        args: [user],
-      });
-
-      console.log(groupsInfo.rows);
-      return groupsInfo.rows;
-    } catch (e) {
-      console.error(e);
+    if (groups.rows.length === 0) {
+      return null;
     }
+
+    let userData: GroupData[] | null = null;
+    userData = groups.rows.map((row: Row) => ({
+      id: row.group_id as string,
+      name: row.group_name as string,
+      icon: row.group_icon as string,
+      balance: row.user_balance as number,
+    }));
+    return userData;
+  } catch (e) {
+    console.error(e);
   }
 };
