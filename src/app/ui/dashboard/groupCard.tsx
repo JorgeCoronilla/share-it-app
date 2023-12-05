@@ -1,32 +1,72 @@
 import { getGroups } from '@/app/lib/data';
 import IconAccountBoxOutline from './account';
+import Link from 'next/link';
 
 export default async function GroupCard() {
   const userData = await getGroups('uuid1');
-
+  console.log(userData);
   if (!userData || userData.length === 0) {
     return <p className="mt-4 text-gray-400">No data available.</p>;
   }
-  console.log('Weeee', userData);
+  let totalUserBalance = 0;
+  userData.forEach(({ userDebt }) => {
+    totalUserBalance += userDebt;
+  });
   return (
     <div>
+      {totalUserBalance >= 0 ? (
+        <p className="card-debt ">
+          En total te deben <span className="positive">{totalUserBalance}</span>{' '}
+          €
+        </p>
+      ) : (
+        <p className="card-debt">
+          En total debes{' '}
+          <span className="negative">{totalUserBalance * -1}</span> €
+        </p>
+      )}
       {userData &&
-        userData.map((group) => (
-          <div
-            className="group-card-container"
-            key={group.id}
-          >
-            <div className="card-icon-container">
-              <IconAccountBoxOutline />
-            </div>
-            <div className="card-text-container">
-              <h2 className="card-title">{group.name}</h2>
-              <p className="card-debt">
-                debes <span>{group.balance} €</span>
-              </p>
-            </div>
-          </div>
-        ))}
+        userData.map(
+          ({
+            id,
+            name,
+            icon,
+            info,
+            balance,
+            members,
+            group_balance,
+            userDebt,
+          }) => {
+            return (
+              <Link
+                href={`/dashboard/${id}`}
+                key={id}
+              >
+                <div
+                  className="group-card-container"
+                  key={id}
+                >
+                  <div className="card-icon-container">
+                    <IconAccountBoxOutline />
+                  </div>
+                  <div className="card-text-container">
+                    <h2 className="card-title">{name}</h2>
+                    {userDebt >= 0 ? (
+                      <p className="card-debt">
+                        Te deben <span className="positive">{userDebt}</span> €
+                      </p>
+                    ) : (
+                      <p className="card-debt">
+                        Debes <span className="negative">{userDebt * -1}</span>{' '}
+                        €
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </Link>
+            );
+          }
+        )}
     </div>
   );
 }

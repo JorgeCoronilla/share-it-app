@@ -85,3 +85,11 @@
   width: 100%;
   height: 9em;
 }
+
+.positive {
+  color: rgb(95, 167, 95);
+}
+
+.negative {
+  color: rgb(201, 49, 49);
+}

@@ -11,8 +11,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Menu />
       <ThemeSwitcher pageClass="dashboard" />
       <AddGroupButton />
-      <AddExpenseButton />
-      {children}
+      <AddExpenseButton />{' '}
+      <main className="dashboard-container">{children}</main>
     </>
   );
 }
