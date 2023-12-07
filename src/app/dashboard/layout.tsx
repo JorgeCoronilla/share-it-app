@@ -12,7 +12,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <ThemeSwitcher pageClass="dashboard" />
       <AddGroupButton />
       <AddExpenseButton />{' '}
-      <main className="dashboard-container">{children}</main>
+      <main className="dashboard-container">
+        <div className="spacer"></div>
+        {children}
+      </main>
     </>
   );
 }

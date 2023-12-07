@@ -1,12 +1,30 @@
-export default function Page() {
+import { getUser } from '@/app/lib/data';
+
+export default async function Page() {
+  const user = await getUser('uuid1');
+  if (!user) {
+    return <p className="mt-4 text-gray-400">No data available.</p>;
+  }
+  console.log(user);
   return (
-    <main>
-      <div className="flex flex-col items-center justify-center pt-80 pb-10 px-10">
-        <h1 className="text-6xl text-center font-black bg-gradient-to-r from-cyan-100 via-indigo-400 to-pink-400 inline-block text-transparent bg-clip-text">
-          Cuenta
-        </h1>
-        <p className="text-gray-300 mt-10">List of groups</p>
+    <>
+      {/* <img
+        src="/icons/garden.svg"
+        alt="garden-icon"
+      /> */}
+      <div className="group-card-container">
+        <div className="card-icon-container">
+          <img
+            src={user.avatar}
+            alt="Avatar"
+          />
+        </div>
+        <div className="card-text-container">
+          <h2 className="card-title">{user.name}</h2>
+
+          <p className="card-debt">{user.email}</p>
+        </div>
       </div>
-    </main>
+    </>
   );
 }
