@@ -1,10 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import IconAccountBoxOutline from './account';
-import IconActivityLog from './activity';
-import IconUser from './friends';
-import IconUsers from './groups';
+import IconAccountBoxOutline from '../iconsComponents/accountIcon';
+import IconActivityLog from '../iconsComponents/activityIcon';
+import IconUser from '../iconsComponents/friendsIcon';
+import IconUsers from '../iconsComponents/groupsIcon';
 import { usePathname } from 'next/navigation';
 export default function Menu() {
   const pathName = usePathname();

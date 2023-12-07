@@ -1,5 +1,4 @@
 import { getGroups } from '@/app/lib/data';
-import IconAccountBoxOutline from './account';
 import Link from 'next/link';
 
 export default async function GroupCard() {
@@ -15,10 +14,10 @@ export default async function GroupCard() {
   return (
     <div>
       {totalUserBalance >= 0 ? (
-        <p className="card-debt ">
+        <h4 className="main-text">
           En total te deben <span className="positive">{totalUserBalance}</span>{' '}
           €
-        </p>
+        </h4>
       ) : (
         <p className="card-debt">
           En total debes{' '}
@@ -43,11 +42,14 @@ export default async function GroupCard() {
                 key={id}
               >
                 <div
-                  className="group-card-container"
+                  className="card-container"
                   key={id}
                 >
                   <div className="card-icon-container">
-                    <IconAccountBoxOutline />
+                    <img
+                      src={`/icons/${icon}.svg`}
+                      alt="garden-icon"
+                    />
                   </div>
                   <div className="card-text-container">
                     <h2 className="card-title">{name}</h2>

@@ -1,7 +1,7 @@
 // icon:account-box-outline | Material Design Icons https://materialdesignicons.com/ | Austin Andrews
 import * as React from 'react';
 
-function IconAccountBoxOutline(props: React.SVGProps<SVGSVGElement>) {
+function AccountIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -15,4 +15,4 @@ function IconAccountBoxOutline(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default IconAccountBoxOutline;
+export default AccountIcon;

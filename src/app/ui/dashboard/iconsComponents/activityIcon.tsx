@@ -1,7 +1,7 @@
 // icon:activity-log | Radix Icons https://icons.radix-ui.com/ | WorkOS
 import * as React from 'react';
 
-function IconActivityLog(props: React.SVGProps<SVGSVGElement>) {
+function ActivityIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       fill="none"
@@ -20,4 +20,4 @@ function IconActivityLog(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default IconActivityLog;
+export default ActivityIcon;

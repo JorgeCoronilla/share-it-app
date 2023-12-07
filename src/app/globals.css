@@ -43,6 +43,9 @@
 
   --menu-background: var(--menu-background-dark);
   --shadows: var(--shadows-dark);
+
+  --icon-color-dark: invert(100%);
+  --icon-color-light: invert(0%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -56,6 +59,7 @@
     --switcher: var(--dark-switcher);
     --text: var(--dark-text);
     --menu-background-dark: rgb(0, 0, 0, 0.7);
+    --icon-color: var(--icon-color-dark);
   }
 }
 
@@ -68,6 +72,7 @@
   --stain-2-color: var(--stain-2-dark);
   --menu-background: var(--menu-background-dark);
   --shadows: var(--shadows-dark);
+  --icon-color: var(--icon-color-dark);
 }
 
 .light {
@@ -79,6 +84,7 @@
   --stain-2-color: var(--stain-2-light);
   --menu-background: var(--menu-background-light);
   --shadows: var(--shadows-light);
+  --icon-color: var(--icon-color-light);
 }
 
 .spacer {

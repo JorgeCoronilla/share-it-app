@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
-import IconPencilFill from './pencilIcon';
-import IconUsers from './groups';
+import IconUsers from '../iconsComponents/groupsIcon';
 
 export default function AddGroupButton() {
   const [display, setDisplay] = useState(false);

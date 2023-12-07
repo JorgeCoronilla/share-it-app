@@ -1,5 +1,4 @@
 import { getActivity } from '@/app/lib/data';
-import IconAccountBoxOutline from '@/app/ui/dashboard/account';
 
 export default async function Page() {
   const activity = await getActivity('uuid1');
@@ -14,12 +13,15 @@ export default async function Page() {
           return (
             <>
               <div
-                className="group-card-container"
+                className="card-container"
                 key={id}
               >
                 <h2 className="card-title">{group_name}</h2>
                 <div className="card-icon-container">
-                  <IconAccountBoxOutline />
+                  <img
+                    src={`/icons/${icon}.svg`}
+                    alt="garden-icon"
+                  />
                 </div>
                 <div className="card-text-container">
                   <h2 className="card-title">{description}</h2>

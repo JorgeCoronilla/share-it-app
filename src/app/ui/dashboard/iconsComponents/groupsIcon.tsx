@@ -1,7 +1,7 @@
 // icon:users | Feathericons https://feathericons.com/ | Cole Bemis
 import * as React from 'react';
 
-function IconUsers(props: React.SVGProps<SVGSVGElement>) {
+function GroupsIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       className="groups-icon"
@@ -22,4 +22,4 @@ function IconUsers(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default IconUsers;
+export default GroupsIcon;

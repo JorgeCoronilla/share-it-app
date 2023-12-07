@@ -1,4 +1,11 @@
-.group-card-container {
+.main-text {
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-bottom: 2em;
+  color: var(--text);
+}
+
+.card-container {
   display: flex;
   margin-top: 1em;
   padding: 0.5em 0;
@@ -10,12 +17,12 @@
 
 .card-icon-container {
   width: 25%;
+  padding: 0.8em;
 }
 
-.card-icon-container svg {
+.card-icon-container img {
   width: 100%;
-  font-size: 5em;
-  color: var(--text);
+  filter: var(--icon-color);
 }
 
 .card-text-container {

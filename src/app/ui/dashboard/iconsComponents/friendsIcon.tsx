@@ -1,7 +1,7 @@
 // icon:user | Feathericons https://feathericons.com/ | Cole Bemis
 import * as React from 'react';
 
-function IconUser(props: React.SVGProps<SVGSVGElement>) {
+function FriendsIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       fill="none"
@@ -20,4 +20,4 @@ function IconUser(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default IconUser;
+export default FriendsIcon;

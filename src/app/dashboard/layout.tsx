@@ -1,7 +1,7 @@
-import AddExpenseButton from '../ui/dashboard/addExpenseButtons';
-import AddGroupButton from '../ui/dashboard/addGroupButton';
-import Header from '../ui/dashboard/header';
-import Menu from '../ui/dashboard/menu';
+import AddExpenseButton from '../ui/dashboard/buttons/addExpenseButtons';
+import AddGroupButton from '../ui/dashboard/buttons/addGroupButton';
+import Header from '../ui/dashboard/header/header';
+import Menu from '../ui/dashboard/menu/menu';
 import ThemeSwitcher from '../ui/global/themeSwitcher';
 
 export default function Layout({ children }: { children: React.ReactNode }) {

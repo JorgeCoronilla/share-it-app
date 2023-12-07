@@ -1,4 +1,4 @@
-import IconAccountBoxOutline from '../account';
+import IconAccountBoxOutline from '../iconsComponents/accountIcon';
 
 export default function FriendCard() {
   return (

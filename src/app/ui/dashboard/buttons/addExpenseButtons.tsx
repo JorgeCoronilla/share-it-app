@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import IconPencilFill from './pencilIcon';
+import IconPencilFill from '../iconsComponents/pencilIcon';
 
 export default function AddExpenseButton() {
   const [display, setDisplay] = useState(false);
