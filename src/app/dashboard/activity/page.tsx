@@ -16,19 +16,21 @@ export default async function Page() {
                 className="card-container"
                 key={id}
               >
-                <h2 className="card-title">{group_name}</h2>
                 <div className="card-icon-container">
                   <img
                     src={`/icons/${icon}.svg`}
-                    alt="garden-icon"
+                    alt={icon}
+                    className="card-icon"
                   />
                 </div>
                 <div className="card-text-container">
-                  <h2 className="card-title">{description}</h2>
-                  <p className="normal-text">{user_name}</p>
-                  <p className="normal-text">{date}</p>
-                  <p className="normal-text">{description}</p>
-                  <p className="normal-text">{amount}</p>
+                  <h2 className="card-title">{group_name}</h2>
+                  <h2 className="activity-card-title">{user_name}</h2>
+                  <p className="normal-text ">{description}</p>
+                  <div className="activity-card-amount highlight">
+                    <p>{amount} €</p>
+                    <p>{date.split(' ')[0]}</p>
+                  </div>
                 </div>
               </div>
             </>

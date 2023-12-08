@@ -8,16 +8,27 @@ export default async function Page() {
   console.log(user);
   return (
     <>
-      {/* <img
-        src="/icons/garden.svg"
-        alt="garden-icon"
-      /> */}
+      <div className="spacer"></div>
       <div className="group-card-container">
-        <div className="card-icon-container">
-          <img
-            src={user.avatar}
-            alt="Avatar"
-          />
+        <div
+          className="account-avatar-container"
+          key={user.id}
+        >
+          {user.avatar === '' ? (
+            <p
+              className="avatar-container"
+              key={user.id}
+            >
+              {user.name.charAt(0)}
+            </p>
+          ) : (
+            <img
+              src={user.avatar}
+              alt="Avatar"
+              key={user.id}
+              className="avatar"
+            />
+          )}
         </div>
         <div className="card-text-container">
           <h2 className="card-title">{user.name}</h2>

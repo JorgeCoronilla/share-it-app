@@ -48,7 +48,8 @@ export default async function GroupCard() {
                   <div className="card-icon-container">
                     <img
                       src={`/icons/${icon}.svg`}
-                      alt="garden-icon"
+                      alt={icon}
+                      className="card-icon"
                     />
                   </div>
                   <div className="card-text-container">

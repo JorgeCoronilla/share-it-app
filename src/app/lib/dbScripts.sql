@@ -42,6 +42,7 @@ INSERT INTO groups (group_id, group_name, group_icon, group_info, group_balance)
 INSERT INTO groups (group_id, group_name, group_icon, group_info, group_balance) VALUES ('uuid2G', 'Coche', 'car_icon', 'Cositas del coche', 153.98);
 INSERT INTO groups (group_id, group_name, group_icon, group_info, group_balance) VALUES ('uuid3G', 'Compras', 'shopping_icon', 'Super y demás', 0);
 INSERT INTO groups (group_id, group_name, group_icon, group_info, group_balance) VALUES ('uuid4G', 'Vacaciones', 'plane_icon', 'Viajecitos y escapadas' ,0);
+INSERT INTO groups (group_id, group_name, group_icon, group_info, group_balance) VALUES ('uuid5G', 'Vacaciones Perú', 'plane_icon', 'Viajecitos y escapadas' ,0);
 
 
 INSERT INTO user_group (user_group_id, user_id, group_id, user_balance, status) VALUES ('uuid1UG', 'uuid1', 'uuid1G', 79.49, 'active');

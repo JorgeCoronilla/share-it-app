@@ -8,6 +8,9 @@
 @import './ui/styles/addButtons.css';
 @import './ui/styles/dashboard.css';
 @import './ui/styles/gruopsCard.css';
+@import './ui/styles/friends.css';
+@import './ui/styles/activity.css';
+@import './ui/styles/newGroup.css';
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -46,6 +49,18 @@
 
   --icon-color-dark: invert(100%);
   --icon-color-light: invert(0%);
+
+  --positive-dark: rgb(195, 167, 231);
+  --positive-light: rgb(165, 125, 216);
+
+  --negattive-dark: rgb(255, 153, 153);
+  --negattive-light: rgb(230, 89, 89);
+
+  --card-border-dark: 2px solid rgb(56, 56, 56);
+  --card-border-light: 2px solid rgb(218, 218, 218);
+
+  --highlight-bg-dark: rgba(255, 255, 255, 0.205);
+  --highlight-bg-light: rgba(0, 0, 0, 0.205);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -60,6 +75,10 @@
     --text: var(--dark-text);
     --menu-background-dark: rgb(0, 0, 0, 0.7);
     --icon-color: var(--icon-color-dark);
+    --positive: var(--positive-dark);
+    --negative: var(--negattive-dark);
+    --card-border: var(--card-border-dark);
+    --highlight-bg: var(--highlight-bg-dark);
   }
 }
 
@@ -73,6 +92,11 @@
   --menu-background: var(--menu-background-dark);
   --shadows: var(--shadows-dark);
   --icon-color: var(--icon-color-dark);
+
+  --positive: var(--positive-dark);
+  --negative: var(--negattive-dark);
+  --card-border: var(--card-border-dark);
+  --highlight-bg: var(--highlight-bg-dark);
 }
 
 .light {
@@ -85,6 +109,10 @@
   --menu-background: var(--menu-background-light);
   --shadows: var(--shadows-light);
   --icon-color: var(--icon-color-light);
+  --positive: var(--positive-light);
+  --negative: var(--negattive-light);
+  --card-border: var(--card-border-light);
+  --highlight-bg: var(--highlight-bg-light);
 }
 
 .spacer {
@@ -93,9 +121,9 @@
 }
 
 .positive {
-  color: rgb(95, 167, 95);
+  color: var(--positive);
 }
 
 .negative {
-  color: rgb(201, 49, 49);
+  color: var(--negative);
 }

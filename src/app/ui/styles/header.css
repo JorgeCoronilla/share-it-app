@@ -8,6 +8,7 @@
   padding: 1em 1.2em 1em;
   height: 4em;
   box-shadow: var(--shadows);
+  z-index: 100;
 }
 
 .user-container {

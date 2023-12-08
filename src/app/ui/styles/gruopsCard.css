@@ -8,38 +8,40 @@
 .card-container {
   display: flex;
   margin-top: 1em;
-  padding: 0.5em 0;
-  /* box-shadow: var(--shadows); */
+  padding: 0 0 0.5em 0;
   border-radius: 8px;
-  border: 1px solid rgb(240, 240, 240);
-  border-bottom: 1px solid rgb(224, 224, 224);
+  border: var(--card-border);
 }
 
 .card-icon-container {
   width: 25%;
   padding: 0.8em;
+  display: flex;
 }
 
-.card-icon-container img {
+.card-icon {
   width: 100%;
   filter: var(--icon-color);
+  display: block;
 }
 
 .card-text-container {
   width: 75%;
-  padding: 0.5em 1em;
+  padding: 0.5em 0.5em 0 0.2em;
 }
 
 .card-title {
-  font-size: 1.2em;
-  color: var(--text);
+  font-size: 1.3em;
+  color: var(--switcher);
   font-weight: 900;
+  margin-bottom: 0.2em;
 }
 .card-debt {
+  font-size: 1.2em;
   color: var(--text);
 }
 .card-debt span {
-  font-weight: 600;
+  font-weight: 900;
 }
 
 .card-friends {

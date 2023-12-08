@@ -1,5 +1,4 @@
 import { getAllFriends } from '@/app/lib/data';
-import Icon from '../../ui/icons/garden.svg';
 export default async function Page() {
   const friends = await getAllFriends('uuid1');
   if (!friends) {
@@ -12,30 +11,32 @@ export default async function Page() {
         return (
           <div
             key={friend.id}
-            className="group-card-container"
+            className="card-container"
           >
-            <div className="card-icon-container">
-              {friend.avatar === '' ? (
-                <p className="normal-text">{friend.name.charAt(0)}</p>
-              ) : (
-                <img
-                  src={friend.avatar}
-                  alt="Avatar"
-                />
-              )}
-            </div>
-            <div className="card-text-container">
-              <h2 className="card-title">{friend.name}</h2>
+            <div
+              className="friends-card-text-container"
+              key={friend.id}
+            >
+              <h2
+                className="card-title"
+                key={friend.id}
+              >
+                {friend.name}
+              </h2>
 
-              <p className="card-debt">{friend.email}</p>
-              <p className="card-debt">Grupor que compartís:</p>
+              <p
+                className="list-title positive"
+                key={friend.id}
+              >
+                Grupos que compartís:
+              </p>
               <ul>
                 {friend.groups_ids.map((group, index) => {
                   return (
                     <>
                       <li
                         key={group}
-                        className="card-debt"
+                        className="groups-list normal-text"
                       >
                         {friend.groups_names[index]}
                       </li>
@@ -43,6 +44,25 @@ export default async function Page() {
                   );
                 })}
               </ul>
+            </div>
+            <div
+              className="card-avatar-container"
+              key={friend.id}
+            >
+              {friend.avatar === '' ? (
+                <p
+                  className="avatar-container"
+                  key={friend.id}
+                >
+                  {friend.name.charAt(0)}
+                </p>
+              ) : (
+                <img
+                  src={friend.avatar}
+                  alt="Avatar"
+                  key={friend.id}
+                />
+              )}
             </div>
           </div>
         );

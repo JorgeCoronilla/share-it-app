@@ -1,0 +1,69 @@
+.new-group-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 101;
+  background-color: var(--background-color);
+  padding: 1em 2em 2em;
+}
+
+.close-modal {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  font-size: 1.5em;
+  color: var(--switcher);
+  cursor: pointer;
+}
+
+.modal-title {
+  color: var(--switcher);
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.new-group-modal label {
+  color: var(--positive);
+  display: block;
+  font-size: 1.5em;
+  margin-bottom: 0.2em;
+  font-weight: 600;
+}
+
+.new-group-modal input {
+  margin-bottom: 1.4em;
+  font-size: 1.4em;
+  padding: 0.5em 0.5em;
+
+  border: 2px solid var(--switcher);
+  background-color: var(--background-color);
+  border-radius: 0.4em;
+  width: 100%;
+  color: var(--text);
+}
+.new-group-modal input:focus {
+  outline: none;
+  border: 2px solid var(--switcher);
+}
+
+.close-modal {
+  background-color: var(--switcher);
+  padding: 0.2em 0.2em;
+  border-radius: 0.4em;
+  width: 2em;
+}
+
+.submit-button {
+  background-color: var(--switcher) !important;
+  padding: 0.5em 0.5em;
+  border-radius: 0.4em;
+  width: 100%;
+  color: var(--background-color);
+
+  font-size: 1.4em;
+  font-weight: 600;
+  border: 2px solid var(--positive);
+  cursor: pointer;
+}
