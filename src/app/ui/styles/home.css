@@ -43,6 +43,7 @@ body {
 }
 .title {
   font-size: 3.5rem;
+  font-size: clamp(3.5rem, -16.5rem + 40vw, 13.5rem);
   background: var(--title);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

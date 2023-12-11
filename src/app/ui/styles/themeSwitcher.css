@@ -1,7 +1,10 @@
+.body {
+  height: 100lvh;
+}
 .switcher-container {
   position: fixed;
   top: 1em;
-  right: 1em;
+  right: 2em;
   z-index: 10;
 }
 .toggle {
