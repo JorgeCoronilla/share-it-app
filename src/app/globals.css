@@ -13,9 +13,11 @@
 @import './ui/styles/newGroup.css';
 
 :root {
+  --title: var(--light-title);
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --menu-background: var(--menu-background-light);
 
   --dark-backgorund-color: black;
   --light-backgorund-color: white;
@@ -44,9 +46,6 @@
   --shadows-dark: rgba(248, 248, 248, 0.288) 0px 2px 8px 0px;
   --shadows-light: rgba(0, 0, 0, 0.288) 0px 2px 8px 0px;
 
-  --menu-background: var(--menu-background-dark);
-  --shadows: var(--shadows-dark);
-
   --icon-color-dark: invert(100%);
   --icon-color-light: invert(0%);
 
@@ -61,20 +60,33 @@
 
   --highlight-bg-dark: rgba(255, 255, 255, 0.205);
   --highlight-bg-light: rgba(0, 0, 0, 0.205);
+  --background-color: var(--light-backgorund-color);
+  --title: var(--light-title);
+  --switcher: var(--light-switcher);
+  --text: var(--light-text);
+  --stain-1-color: var(--stain-1-light);
+  --stain-2-color: var(--stain-2-light);
+  --menu-background: var(--menu-background-light);
+  --shadows: var(--shadows-light);
+  --icon-color: var(--icon-color-light);
+  --positive: var(--positive-light);
+  --negative: var(--negattive-light);
+  --card-border: var(--card-border-light);
+  --highlight-bg: var(--highlight-bg-light);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
     --background-color: var(--dark-backgorund-color);
     --title: var(--dark-title);
     --switcher: var(--dark-switcher);
     --text: var(--dark-text);
-    --menu-background-dark: rgb(0, 0, 0, 0.7);
+    --stain-1-color: var(--stain-1-dark);
+    --stain-2-color: var(--stain-2-dark);
+    --menu-background: var(--menu-background-dark);
+    --shadows: var(--shadows-dark);
     --icon-color: var(--icon-color-dark);
+
     --positive: var(--positive-dark);
     --negative: var(--negattive-dark);
     --card-border: var(--card-border-dark);

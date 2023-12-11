@@ -13,9 +13,9 @@
   border-radius: 2em;
   cursor: pointer;
   display: block;
-  height: 2em;
+  height: 2.05em;
   position: relative;
-  width: 4em;
+  width: 3.92em;
 }
 .switcher-container.dashboard {
   top: var(--switch-height-dashboard);
