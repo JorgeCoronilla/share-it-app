@@ -7,7 +7,7 @@ interface ThemeSwitcherProps {
 }
 
 export default function ThemeSwitcher({ pageClass = '' }: ThemeSwitcherProps) {
-  const [lightTheme, setLightTheme] = useState(true);
+  const [lightTheme, setLightTheme] = useState(false);
   const handleSwitchTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLightTheme(!lightTheme);
     const root = document.body;

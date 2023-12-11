@@ -1,12 +1,13 @@
 body {
   background-color: var(--background-color);
   transition: background-color 0.4s ease-in-out;
+  height: 100lvh;
 }
 
 .blur-stain-1 {
   position: absolute;
   top: 28em;
-  right: 1em;
+  right: 3em;
   width: 11.25em;
   height: 21.25em;
   background-color: var(--stain-1-color);
@@ -36,7 +37,7 @@ body {
   }
   .blur-stain-1 {
     left: 5em;
-    width: 20em;
+    width: 15em;
     top: 20em;
     filter: blur(8em);
   }

@@ -7,7 +7,7 @@ import { useFormState } from 'react-dom';
 export default function AddGroupButton() {
   const initialState = {
     message: false,
-    display: true,
+    display: false,
     user: 'uuid1',
   };
 
@@ -47,7 +47,7 @@ export default function AddGroupButton() {
               </div>
             </button>
             <div className="spacer"></div>
-            <div className="spacer"></div>
+
             <h1 className="modal-title">Crear nuevo grupo</h1>
 
             <form action={formAction}>
