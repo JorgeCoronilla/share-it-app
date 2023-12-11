@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface ThemeSwitcherProps {
   pageClass?: string;
@@ -8,6 +8,15 @@ interface ThemeSwitcherProps {
 
 export default function ThemeSwitcher({ pageClass = '' }: ThemeSwitcherProps) {
   const [lightTheme, setLightTheme] = useState(false);
+  //Sets browser configuration
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    );
+
+    setLightTheme(darkModeMediaQuery.matches);
+  }, []);
+
   const handleSwitchTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLightTheme(!lightTheme);
     const root = document.body;
