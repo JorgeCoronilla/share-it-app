@@ -41,7 +41,7 @@ body {
   .blur-stain-1 {
     left: 5em;
     width: 15em;
-    top: 20em;
+    top: 13em;
     filter: blur(8em);
   }
 }
