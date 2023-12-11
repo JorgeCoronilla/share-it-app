@@ -1,16 +1,27 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import IconUsers from '../iconsComponents/groupsIcon';
-import NewGroup from '../newGroup/newGroup';
 import { createGroup } from '@/app/lib/actions';
+import { useFormState } from 'react-dom';
 
 export default function AddGroupButton() {
+  const initialState = {
+    message: false,
+    display: true,
+    user: 'uuid1',
+  };
+
+  const [state, formAction] = useFormState(createGroup, initialState);
   const [display, setDisplay] = useState(false);
 
-  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
     setDisplay(!display);
-    console.log('click');
   };
+
+  useEffect(() => {
+    setDisplay(state.display);
+  }, [state.display]);
+
   return (
     <>
       <button
@@ -39,7 +50,7 @@ export default function AddGroupButton() {
             <div className="spacer"></div>
             <h1 className="modal-title">Crear nuevo grupo</h1>
 
-            <form action={createGroup}>
+            <form action={formAction}>
               <label>Nombre</label>
               <input
                 type="text"
