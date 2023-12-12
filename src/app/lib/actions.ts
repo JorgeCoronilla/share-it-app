@@ -2,6 +2,8 @@
 import { CreateGroupSchema, CreateGroupFormSchema } from './validations';
 import { randomUUID } from 'crypto';
 import { createClient, Client, Row } from '@libsql/client';
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
 
 //Connect db
 let client: Client | undefined;
@@ -51,13 +53,16 @@ export async function createGroup(
 
     // Commit the transaction if both insertions were successful
     await transaction.commit();
-    return { message: true, display: false, user: prevState.user };
+    revalidatePath('/dashboard');
+
+    return { message: true, display: true, user: prevState.user };
   } catch (e) {
     console.error('Writing db error', e);
     // If an error occurs, rollback the transaction to revert changes
     if (transaction) {
       await transaction.rollback();
     }
-    return { message: false, display: false, user: prevState.user };
+
+    return { message: false, display: true, user: prevState.user };
   }
 }
