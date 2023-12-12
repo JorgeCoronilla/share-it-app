@@ -3,6 +3,7 @@ export const CreateGroupSchema = z.object({
   userId: z.string().uuid(),
   name: z.string().min(3).max(50),
   description: z.string().min(3).max(500),
+  icon: z.string().min(3).max(50),
 });
 
 export const CreateTransactionSchema = z.object({

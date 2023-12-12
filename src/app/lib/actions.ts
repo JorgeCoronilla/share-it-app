@@ -21,18 +21,20 @@ export async function createGroup(
   prevState: { message: boolean; display: boolean; user: string },
   formData: FormData
 ): Promise<{ message: boolean; display: boolean; user: string }> {
-  const { name, description } = CreateGroupFormSchema.parse({
-    name: formData.get('name'),
-    description: formData.get('description'),
-  });
-  const userId = prevState.user;
-  const groupId = randomUUID();
-  console.log(name, description, groupId);
   if (!client) {
     throw new Error('DB client not initialized: Wrong credentials');
   }
   let transaction; // Declare the transaction variable here
   try {
+    const { name, description, icon } = CreateGroupFormSchema.parse({
+      name: formData.get('name'),
+      description: formData.get('description'),
+      icon: formData.get('icon'),
+    });
+
+    const userId = prevState.user;
+    const groupId = randomUUID();
+    console.log(name, description, groupId, icon);
     const groupUserId = randomUUID();
 
     // Starts transaction
@@ -40,7 +42,7 @@ export async function createGroup(
 
     const newGroup = await transaction.execute({
       sql: 'INSERT INTO groups (group_id, group_name, group_icon, group_info, group_balance) VALUES (?, ?, ?, ? ,0)',
-      args: [groupId, name, 'garden_icon', description],
+      args: [groupId, name, icon, description],
     });
     console.log(newGroup);
 

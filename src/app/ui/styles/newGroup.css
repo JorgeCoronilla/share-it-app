@@ -67,3 +67,48 @@
   border: 2px solid var(--positive);
   cursor: pointer;
 }
+.form-container {
+  display: flex;
+}
+.icons-container {
+  width: 6em;
+  height: 9.5em;
+  overflow-y: auto;
+  background-color: rgb(27, 27, 27);
+  padding: 0.2em;
+  margin: 2em 0 1em 2em;
+  border: 2px solid var(--switcher);
+  background-color: var(--background-color);
+  border-radius: 0.4em;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+label.icon {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  padding: 0.3em;
+}
+label.icon:before {
+  display: block;
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+}
+.icon-container {
+  display: block;
+  width: 4em;
+  height: 4em;
+  margin: 0.3em auto 1em;
+}
+
+:checked + label.icon {
+  background-color: var(--positive);
+  border-radius: 0.4em;
+}
