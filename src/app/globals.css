@@ -11,6 +11,7 @@
 @import './ui/styles/friends.css';
 @import './ui/styles/activity.css';
 @import './ui/styles/newGroup.css';
+@import './ui/styles/login.css';
 
 :root {
   --title: var(--light-title);

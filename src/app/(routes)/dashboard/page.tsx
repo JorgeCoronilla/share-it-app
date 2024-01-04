@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import GroupCard from '../ui/dashboard/groupCard';
+import GroupCard from '../../ui/dashboard/groupCard';
 
 export default async function Page() {
   return (

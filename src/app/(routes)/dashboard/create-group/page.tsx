@@ -3,7 +3,7 @@ import { createGroup } from '@/app/lib/actions';
 import { useFormState } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { addGroupMessageInitialState, icons } from '@/app/lib/constants';
+import { addGroupMessageInitialState } from '@/app/lib/constants';
 import IconsSelector from '@/app/ui/dashboard/forms/iconsSelector';
 import TextInputsGroups from '@/app/ui/dashboard/forms/textInputsGroups';
 

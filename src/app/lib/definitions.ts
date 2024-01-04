@@ -44,3 +44,14 @@ interface Activity {
   user_name: string;
   group_name: string;
 }
+
+interface userLogin {
+  email: string;
+  password: string;
+}
+
+interface userRegister {
+  name: string;
+  email: string;
+  password: string;
+}
