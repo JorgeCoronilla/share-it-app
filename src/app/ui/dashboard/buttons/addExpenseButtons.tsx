@@ -1,15 +1,17 @@
 'use client';
 import { useState } from 'react';
 import IconPencilFill from '../iconsComponents/pencilIcon';
+import { useRouter } from 'next/navigation';
 
 export default function AddExpenseButton() {
   const [display, setDisplay] = useState(false);
+  const router = useRouter();
 
-  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
-    setDisplay(!display);
-  };
   return (
-    <button className="add-button expense">
+    <button
+      onClick={() => router.push('/dashboard/create-expense')}
+      className="add-button expense"
+    >
       <div>
         <IconPencilFill />+
       </div>

@@ -9,13 +9,9 @@ export default async function nextjs_future(request: NextRequest) {
   if (isPublicFiles) {
     return NextResponse.next();
   }
-  console.log('request.nextUrl.pathname', request.nextUrl.pathname);
   // Checks cookie
   const cookie = request.cookies.get('access-token');
-  console.log('cookie', cookie);
   if (cookie) {
-    console.log('entra?');
-
     const cookiePairs = cookie.value.split('; ');
     const tokenPair = cookiePairs.find((pair) =>
       pair.startsWith('access-token=')
@@ -34,7 +30,7 @@ export default async function nextjs_future(request: NextRequest) {
       }
     }
   }
-  console.log('TOken not found in the cookie.');
+  console.log('Token not found in the cookie.');
   return NextResponse.redirect(new URL('/', request.url));
 }
 
