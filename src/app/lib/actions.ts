@@ -73,9 +73,8 @@ export async function createExpense(
     };
 
     // const userId = prevState.user;
-    // const groupId = randomUUID();
+    const expenseId = randomUUID();
     console.log(data.group, data.description, data.quantity, data.icon);
-    // const groupUserId = randomUUID();
 
     // // Starts transaction
     // transaction = await client.transaction('write');

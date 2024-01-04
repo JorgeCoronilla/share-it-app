@@ -4,19 +4,26 @@ import { useFormState } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { addGroupMessageInitialState } from '@/app/lib/constants';
-import React from 'react';
+
 import IconsSelector from './iconsSelector';
 
 interface ExpenseFormProps {
   groups?: GroupData[];
+  userID: string;
 }
 
-export default function ExpenseForm({ groups }: ExpenseFormProps) {
-  const router = useRouter();
+export default function ExpenseForm({ groups, userID }: ExpenseFormProps) {
+  const actionMessage = {
+    message: false,
+    display: false,
+    user: userID,
+  };
   const [state, formAction] = useFormState(
     createExpense,
     addGroupMessageInitialState
   );
+  const router = useRouter();
+
   useEffect(() => {
     if (state.display) {
       router.push('/dashboard');
@@ -70,7 +77,7 @@ export default function ExpenseForm({ groups }: ExpenseFormProps) {
             <label>Cantidad</label>
             <input
               type="text"
-              placeholder="Group description"
+              placeholder="3.45"
               name="quantity"
             />
           </div>

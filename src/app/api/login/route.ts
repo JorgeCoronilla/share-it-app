@@ -25,7 +25,6 @@ export async function POST(request: NextRequest) {
       args: [data.email],
     });
 
-    console.log(userFound);
     if (
       userFound.rows.length === 1 &&
       userFound.rows[0].pass !== null &&
@@ -44,17 +43,26 @@ export async function POST(request: NextRequest) {
         );
       }
       console.log('Password validation: ', passwordOk);
+      console.log('User found: ', userFound.rows[0]);
       const token = await new SignJWT({
-        id: userFound.rows[0].id,
+        id: userFound.rows[0].user_id,
         email: userFound.rows[0].email,
-        name: userFound.rows[0].name,
+        name: userFound.rows[0].username,
         avatar: userFound.rows[0].avatar,
       })
         .setProtectedHeader({ alg: 'HS256' })
         .setIssuedAt()
         .setExpirationTime('1day')
         .sign(getJwtSecretKey());
-
+      console.log(
+        {
+          id: userFound.rows[0].user_id,
+          email: userFound.rows[0].email,
+          name: userFound.rows[0].username,
+          avatar: userFound.rows[0].avatar,
+        },
+        token
+      );
       const serialiazed = serialize('access-token', token, {
         httpOnly: true,
         path: '/',
