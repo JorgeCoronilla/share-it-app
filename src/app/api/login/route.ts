@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { serialize } from 'cookie';
 import bcrypt from 'bcrypt';
+import { getJwtSecretKey } from '@/app/lib/auth';
 
 export async function POST(request: NextRequest) {
   try {
@@ -82,22 +83,5 @@ export async function POST(request: NextRequest) {
       { message: 'An unknown error occurred' },
       { status: 500 }
     );
-  }
-}
-
-export function getJwtSecretKey() {
-  const secret = process.env.JWT_SECRET_KEY;
-  if (!secret) {
-    throw new Error('JWT Secret key is not matched');
-  }
-  return new TextEncoder().encode(secret);
-}
-
-export async function verifyJwtToken(token: any) {
-  try {
-    const { payload } = await jwtVerify(token, getJwtSecretKey());
-    return payload;
-  } catch (error) {
-    return null;
   }
 }
