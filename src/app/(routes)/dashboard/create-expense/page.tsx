@@ -17,7 +17,7 @@ export default async function AddExpenseButton() {
     if (tokenPair) {
       const token = tokenPair.split('=')[1];
       const verified = await verifyJwtToken(token);
-      userID = userID = verified?.id?.toString() || '';
+      userID = verified?.id?.toString() || '';
     }
   }
   let userGroups: GroupData[] | undefined = [];

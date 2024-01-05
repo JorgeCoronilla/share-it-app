@@ -55,3 +55,18 @@ interface userRegister {
   email: string;
   password: string;
 }
+
+interface validateRegister {
+  name: boolean;
+  email: boolean;
+  password: boolean;
+  confirmPassword: boolean;
+  all: boolean;
+}
+
+interface Register {
+  email: string;
+  name: string;
+  password: string;
+  passwordConfirmation: string;
+}

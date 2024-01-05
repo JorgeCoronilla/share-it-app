@@ -11,7 +11,6 @@ export default function Page() {
   const getData = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setLogin({ ...login, [name]: value });
-    console.log(login);
   };
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -28,16 +27,15 @@ export default function Page() {
       },
     });
 
-    console.log(userLogged);
-    // const userLogged = await loginUser(login);
+    console.log('Weeee', userLogged);
 
-    // if (userLogged.ok) {
-    //   const data = await userLogged.json();
-    //   router.push(`/dashboard/${data.user.role}`);
-    // } else {
-    //   console.log('Error', userLogged.status);
-    //   setShowError(true);
-    // }
+    if (userLogged.ok) {
+      const data = await userLogged.json();
+      router.push(`/dashboard`);
+    } else {
+      console.log('Error', userLogged.status);
+      setShowError(true);
+    }
   };
   return (
     <div className="loginForm">
@@ -58,6 +56,7 @@ export default function Page() {
           name="password"
           onChange={getData}
         />
+        {showError && <p style={{ color: 'red' }}>User not found</p>}
         <button type="submit">Login</button>
       </form>
     </div>

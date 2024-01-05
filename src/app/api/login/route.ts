@@ -24,7 +24,11 @@ export async function POST(request: NextRequest) {
       sql: 'SELECT * FROM users WHERE email = ?',
       args: [data.email],
     });
-
+    console.log(userFound);
+    if (userFound.rows.length === 0) {
+      console.log('User not found');
+      return NextResponse.json({ message: 'User not found' }, { status: 404 });
+    }
     if (
       userFound.rows.length === 1 &&
       userFound.rows[0].pass !== null &&
