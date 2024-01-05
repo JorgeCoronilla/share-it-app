@@ -1,12 +1,12 @@
-import { getJwtSecretKey, verifyJwtToken } from '@/app/lib/auth';
+import { verifyJwtToken } from '@/app/lib/auth';
 import { getGroups } from '@/app/lib/data';
 import ExpenseForm from '@/app/ui/dashboard/forms/expenseForm';
-import { jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
 export default async function AddExpenseButton() {
   const cookieStore = cookies();
   const user = cookieStore.get('access-token');
-  let userData: User;
+  let userID: string = '';
+
   if (user) {
     const cookiePairs = user.value.split('; ');
     const tokenPair = cookiePairs.find((pair) =>
@@ -16,18 +16,15 @@ export default async function AddExpenseButton() {
     // Gets token from cookie
     if (tokenPair) {
       const token = tokenPair.split('=')[1];
-      const verified: User | null = await verifyJwtToken(token);
-      console.log('Verified: ', verified);
-      userData = {
-        id: verified?.id,
-        email: verified?.email,
-        name: verified?.name,
-        avatar: verified?.avatar,
-      };
+      const verified = await verifyJwtToken(token);
+      userID = userID = verified?.id?.toString() || '';
     }
   }
-  const userGroups = (await getGroups(userData.id)) || undefined;
+  let userGroups: GroupData[] | undefined = [];
+
+  userGroups = (await getGroups(userID)) || undefined;
   console.log('Data: ', userGroups);
+
   return (
     <>
       {userGroups && userGroups.length < 1 ? (
@@ -35,7 +32,7 @@ export default async function AddExpenseButton() {
       ) : (
         <ExpenseForm
           groups={userGroups}
-          userID={userData.id}
+          userID={userID}
         />
       )}
     </>
