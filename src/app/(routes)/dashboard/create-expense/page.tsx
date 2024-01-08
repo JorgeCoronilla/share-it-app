@@ -1,27 +1,11 @@
-import { verifyJwtToken } from '@/app/lib/auth';
-import { getGroups } from '@/app/lib/data';
+import { getUserId } from '@/app/lib/auth';
+import { getGroups } from '@/app/lib/services/groups';
+
 import ExpenseForm from '@/app/ui/forms/expenseForm';
-import { cookies } from 'next/headers';
+
 export default async function AddExpenseButton() {
-  const cookieStore = cookies();
-  const user = cookieStore.get('access-token');
-  let userID: string = '';
-
-  if (user) {
-    const cookiePairs = user.value.split('; ');
-    const tokenPair = cookiePairs.find((pair) =>
-      pair.startsWith('access-token=')
-    );
-
-    // Gets token from cookie
-    if (tokenPair) {
-      const token = tokenPair.split('=')[1];
-      const verified = await verifyJwtToken(token);
-      userID = verified?.id?.toString() || '';
-    }
-  }
+  const userID = await getUserId();
   let userGroups: GroupData[] | undefined = [];
-
   userGroups = (await getGroups(userID)) || undefined;
   console.log('Data: ', userID, userGroups);
 

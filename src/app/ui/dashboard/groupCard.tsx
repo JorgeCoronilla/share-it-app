@@ -1,4 +1,4 @@
-import { getGroups } from '@/app/lib/data';
+import { getGroups } from '@/app/lib/services/groups';
 import Link from 'next/link';
 
 export default async function GroupCard() {

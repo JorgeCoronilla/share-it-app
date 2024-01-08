@@ -1,4 +1,4 @@
-import { getTransactions } from '@/app/lib/data';
+import { getTransactions } from '@/app/lib/services/transactions';
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const transactions = await getTransactions(params.slug);

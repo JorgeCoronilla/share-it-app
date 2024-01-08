@@ -18,3 +18,23 @@ export const CreateTransactionSchema = z.object({
 export const CreateGroupFormSchema = CreateGroupSchema.omit({
   userId: true,
 });
+
+export function validateForm(values: Register) {
+  // Regular expressions
+  const regexTwoCharacters = /^(?![\s]{2,})[a-zA-ZÀ-ÖØ-öø-ÿ\s]{2,50}$/;
+  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const regexPassword =
+    /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  return {
+    name: !regexTwoCharacters.test(values.name),
+    email: !regexEmail.test(values.email),
+    password: !regexPassword.test(values.password),
+    passwordConfirmation: !(values.password === values.passwordConfirmation),
+    allfields: !(
+      regexTwoCharacters.test(values.name) &&
+      regexEmail.test(values.email) &&
+      regexPassword.test(values.password) &&
+      values.password === values.passwordConfirmation
+    ),
+  };
+}

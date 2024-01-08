@@ -16,3 +16,18 @@ export const addMessageInitialState = {
   display: false,
   user: 'uuid1',
 };
+
+export const validation_INITIAL_STATE = {
+  name: false,
+  email: false,
+  password: false,
+  passwordConfirmation: false,
+  allfields: false,
+};
+
+export const form_INITIAL_STATE = {
+  name: '',
+  email: '',
+  password: '',
+  passwordConfirmation: '',
+};

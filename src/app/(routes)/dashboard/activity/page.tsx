@@ -1,4 +1,4 @@
-import { getActivity } from '@/app/lib/data';
+import { getActivity } from '@/app/lib/services/activity';
 
 export default async function Page() {
   const activity = await getActivity('uuid1');
