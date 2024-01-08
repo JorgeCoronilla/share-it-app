@@ -5,9 +5,9 @@ import { revalidatePath } from 'next/cache';
 import client from './db';
 
 export async function createGroup(
-  prevState: { message: boolean; display: boolean; user: string },
+  prevState: InitialMessageState,
   formData: FormData
-): Promise<{ message: boolean; display: boolean; user: string }> {
+): Promise<InitialMessageState> {
   if (!client) {
     throw new Error('DB client not initialized: Wrong credentials');
   }

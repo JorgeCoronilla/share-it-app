@@ -11,7 +11,7 @@ export const icons = [
   'plane_icon',
 ];
 
-export const addGroupMessageInitialState = {
+export const addMessageInitialState = {
   message: false,
   display: false,
   user: 'uuid1',

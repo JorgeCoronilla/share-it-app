@@ -57,3 +57,16 @@ body {
 .normal-text {
   color: var(--text);
 }
+
+.home-links {
+  padding: 1.5em 1.4em;
+  background-color: var(--background-color);
+  opacity: 0.5;
+}
+
+.home-links a {
+  padding: 0.5em;
+  font-size: 1.2em;
+  font-weight: 800;
+  color: var(--text);
+}

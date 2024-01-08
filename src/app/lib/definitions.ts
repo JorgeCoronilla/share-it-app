@@ -70,3 +70,9 @@ interface Register {
   password: string;
   passwordConfirmation: string;
 }
+
+interface InitialMessageState {
+  message: boolean;
+  display: boolean;
+  user: string;
+}

@@ -1,6 +1,6 @@
 import { verifyJwtToken } from '@/app/lib/auth';
 import { getGroups } from '@/app/lib/data';
-import ExpenseForm from '@/app/ui/dashboard/forms/expenseForm';
+import ExpenseForm from '@/app/ui/forms/expenseForm';
 import { cookies } from 'next/headers';
 export default async function AddExpenseButton() {
   const cookieStore = cookies();
@@ -23,11 +23,11 @@ export default async function AddExpenseButton() {
   let userGroups: GroupData[] | undefined = [];
 
   userGroups = (await getGroups(userID)) || undefined;
-  console.log('Data: ', userGroups);
+  console.log('Data: ', userID, userGroups);
 
   return (
     <>
-      {userGroups && userGroups.length < 1 ? (
+      {(userGroups && userGroups.length < 1) || userGroups === undefined ? (
         <p>Nop</p>
       ) : (
         <ExpenseForm
