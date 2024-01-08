@@ -1,4 +1,4 @@
-import { getUser } from '@/app/lib/data';
+import { getUser } from '@/app/lib/services/user';
 
 export default async function Page() {
   const user = await getUser('uuid1');

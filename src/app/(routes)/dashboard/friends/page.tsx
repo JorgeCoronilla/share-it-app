@@ -1,4 +1,5 @@
-import { getAllFriends } from '@/app/lib/data';
+import { getAllFriends } from '@/app/lib/services/friends';
+
 export default async function Page() {
   const friends = await getAllFriends('uuid1');
   if (!friends) {
