@@ -12,7 +12,7 @@ export const getAllFriends = async (user: string) => {
       sql: 'SELECT u.user_id, u.avatar AS user_avatar, u.username AS user_name, u.email AS email,  GROUP_CONCAT(DISTINCT ug.group_id) AS shared_groups_ids, GROUP_CONCAT(DISTINCT g.group_name) AS shared_groups_names FROM users u JOIN user_group ug ON u.user_id = ug.user_id JOIN groups g ON ug.group_id = g.group_id WHERE ug.group_id IN (SELECT group_id FROM user_group WHERE user_id = ?) AND u.user_id != ? GROUP BY u.user_id HAVING COUNT(DISTINCT ug.group_id) = (SELECT COUNT(DISTINCT group_id) FROM user_group WHERE user_id = ?)',
       args: [user, user, user],
     });
-
+    console.log('Getting all friends', friends.rows);
     if (friends.rows.length === 0) {
       return null;
     }

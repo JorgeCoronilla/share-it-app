@@ -4,6 +4,7 @@ import { randomUUID } from 'crypto';
 import { revalidatePath } from 'next/cache';
 import client from '../db/db';
 import { CreateGroupFormSchema } from '../validations';
+import { getUserId } from '../auth';
 
 export async function createGroup(
   prevState: InitialMessageState,
@@ -58,33 +59,56 @@ export async function createGroup(
 }
 
 export async function createExpense(
-  prevState: { message: boolean; display: boolean; user: string },
+  prevState: InitialMessageState,
   formData: FormData
-): Promise<{ message: boolean; display: boolean; user: string }> {
+): Promise<InitialMessageState> {
   if (!client) {
     throw new Error('DB client not initialized: Wrong credentials');
   }
-  let transaction; // Declare the transaction variable here
+  const userID = await getUserId();
   try {
     const data = {
-      group: formData.get('group'),
-      description: formData.get('description'),
-      quantity: formData.get('quantity'),
-      icon: formData.get('icon'),
+      group: formData.get('group')?.toString(),
+      description: formData.get('description')?.toString(),
+      quantity: formData.get('quantity')?.toString(),
+      icon: formData.get('icon')?.toString(),
     };
 
-    // const userId = prevState.user;
     const expenseId = randomUUID();
+    const date = new Date();
     console.log(data.group, data.description, data.quantity, data.icon);
+    if (!data.group || !data.description || !data.quantity || !data.icon) {
+      return { message: true, display: true, user: prevState.user };
+    }
 
-    // // Starts transaction
-    // transaction = await client.transaction('write');
-
-    // const newGroup = await transaction.execute({
-    //   sql: 'INSERT INTO groups (group_id, group_name, group_icon, group_info, group_balance) VALUES (?, ?, ?, ? ,0)',
-    //   args: [groupId, name, icon, description],
-    // });
-    // console.log(newGroup);
+    // Checks if group exists
+    const groupId = await client.execute({
+      sql: 'SELECT group_id FROM groups WHERE group_name = ?',
+      args: [data.group],
+    });
+    console.log(groupId.rows[0].group_id);
+    console.log(
+      expenseId,
+      groupId.rows[0].group_id,
+      userID,
+      date,
+      data.description,
+      data.quantity,
+      data.icon
+    );
+    const newExpense = await client.execute({
+      sql: 'INSERT INTO transactions (transaction_id, group_id, user_id, date, description, amount, transaction_icon) VALUES ( ?, ?, ?, ?, ?,?,?)',
+      args: [
+        expenseId,
+        groupId.rows[0].group_id,
+        userID,
+        date,
+        data.description,
+        data.quantity,
+        data.icon,
+      ],
+    });
+    console.log(newExpense);
 
     // // Second query
     // const userGroup = await transaction.execute({

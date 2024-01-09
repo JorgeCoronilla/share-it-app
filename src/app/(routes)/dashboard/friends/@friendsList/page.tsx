@@ -4,14 +4,14 @@ import CardList from '@/app/ui/dashboard/card/cardList';
 import CardSubtitle from '@/app/ui/dashboard/card/cardSubtitle';
 import CardTitle from '@/app/ui/dashboard/card/cardTitle';
 import NoData from '@/app/ui/global/noData';
-import SectionTitle from '@/app/ui/global/sectionTitle';
 
 export default async function Page() {
-  const friends = await getAllFriends('uuid1');
+  const friends = await getAllFriends('uuid2');
+
   if (!friends) {
     return <NoData message="Todavía no tienes ningún amigo." />;
   }
-  console.log('Component', friends);
+
   return (
     <>
       {friends.map((friend) => {

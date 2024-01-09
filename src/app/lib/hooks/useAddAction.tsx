@@ -20,7 +20,7 @@ export const useAddAction = ({ createFunction }: addActionProps) => {
 
   useEffect(() => {
     if (state.display) {
-      router.push('/dashboard');
+      // router.push('/dashboard');
       console.log('Group created');
     }
   }, [state]);
