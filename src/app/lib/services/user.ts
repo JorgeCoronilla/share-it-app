@@ -1,7 +1,11 @@
 'use server';
+import { getUserId } from '../auth';
 import client from '../db';
 
-export const getUser = async (userId: string) => {
+export const getUser = async (userId?: string) => {
+  if (!userId) {
+    userId = await getUserId();
+  }
   if (!client) {
     throw new Error('DB client not initialized: Wrong credentials');
   }

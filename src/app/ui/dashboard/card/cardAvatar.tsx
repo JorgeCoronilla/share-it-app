@@ -19,7 +19,8 @@ export default function CardAvatar({ user }: Props) {
       className="card-avatar-container"
       key={user.id}
     >
-      {!imageError ? (
+      <p className="avatar-container">{user.name.charAt(0)}</p>
+      {/* {!imageError ? (
         user.avatar === '' ? (
           <p className="avatar-container">{user.name.charAt(0)}</p>
         ) : (
@@ -32,7 +33,7 @@ export default function CardAvatar({ user }: Props) {
         )
       ) : (
         <p className="avatar-container">{user.name.charAt(0)}</p>
-      )}
+      )} */}
     </div>
   );
 }
