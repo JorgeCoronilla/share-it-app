@@ -1,10 +1,10 @@
 import { SignJWT, jwtVerify } from 'jose';
-import client from '@/app/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { serialize } from 'cookie';
 import bcrypt from 'bcrypt';
 import { getJwtSecretKey } from '@/app/lib/auth';
+import client from '@/app/lib/db/db';
 
 export async function POST(request: NextRequest) {
   try {

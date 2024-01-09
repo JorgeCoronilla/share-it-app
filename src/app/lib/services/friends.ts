@@ -1,6 +1,6 @@
 'use server';
 import { Row } from '@libsql/client';
-import client from '../db';
+import client from '../db/db';
 
 export const getAllFriends = async (user: string) => {
   if (!client) {

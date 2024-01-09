@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-
-import { verifyJwtToken } from '@/app/lib/auth';
+import { verifyJwtToken } from './app/lib/auth';
 
 export default async function nextjs_future(request: NextRequest) {
   const PUBLIC_FILE = /\.(.*)$/;
@@ -35,5 +34,5 @@ export default async function nextjs_future(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/dashboard'],
+  matcher: ['/dashboard', '/dashboard/:path*'],
 };

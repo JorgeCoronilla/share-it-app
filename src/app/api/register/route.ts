@@ -1,8 +1,8 @@
-import client from '@/app/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
 
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
+import client from '@/app/lib/db/db';
 
 export async function POST(request: NextRequest) {
   try {

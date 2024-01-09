@@ -1,6 +1,6 @@
 'use server';
 import { getUserId } from '../auth';
-import client from '../db';
+import client from '../db/db';
 
 export const getUser = async (userId?: string) => {
   if (!userId) {

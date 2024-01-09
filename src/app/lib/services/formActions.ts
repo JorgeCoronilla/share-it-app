@@ -2,7 +2,7 @@
 
 import { randomUUID } from 'crypto';
 import { revalidatePath } from 'next/cache';
-import client from '../db';
+import client from '../db/db';
 import { CreateGroupFormSchema } from '../validations';
 
 export async function createGroup(

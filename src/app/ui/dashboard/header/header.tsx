@@ -22,6 +22,7 @@ export default async function Header() {
         >
           Share-it
         </h1>
+
         <div className="user-container">
           <p className="user-name">{user.name}</p>
 
