@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { validateForm } from '../validations';
 import { form_INITIAL_STATE, validation_INITIAL_STATE } from '../constants';
-import { postUser } from '../services/user';
+import { postUser } from '../services/auth';
 
 export const useForm = () => {
   const [login, setLogin] = useState(form_INITIAL_STATE);

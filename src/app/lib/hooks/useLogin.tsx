@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { loginUser } from '../services/user';
+import { loginUser } from '../services/auth';
 
 export const useLogin = () => {
   const [login, setLogin] = useState({ email: '', password: '' });
