@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import SectionTitle from '../../global/sectionTitle';
 
 interface Props {
   title: string;
@@ -23,7 +24,7 @@ export default function FormHeader({ title }: Props) {
         </div>
       </button>
       <div className="spacer"></div>
-      <h1 className="modal-title">{title}</h1>
+      <SectionTitle title={title} />
     </div>
   );
 }

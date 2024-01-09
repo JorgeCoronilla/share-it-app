@@ -1,11 +1,11 @@
 'use client';
 
-import { formFields } from '@/app/ui/forms/registerFields';
+import { formFields } from '@/app/ui/dashboard/forms/registerFields';
 import { useForm } from '@/app/lib/hooks/useForm';
 import React from 'react';
-import FormInput from '../global/formInput';
-import FormWarning from '../global/formWarning';
-import Button from '../global/button';
+import FormInput from '../../global/formInput';
+import FormWarning from '../../global/formWarning';
+import Button from '../../global/button';
 
 export default function RegisterForm() {
   const { getData, submit, showError, onFocus } = useForm();

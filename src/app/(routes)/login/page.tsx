@@ -1,4 +1,4 @@
-import LoginForm from '@/app/ui/forms/loginForm';
+import LoginForm from '@/app/ui/dashboard/forms/loginForm';
 
 export default function Page() {
   return <LoginForm />;

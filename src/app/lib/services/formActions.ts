@@ -1,8 +1,9 @@
 'use server';
-import { CreateGroupSchema, CreateGroupFormSchema } from './validations';
+
 import { randomUUID } from 'crypto';
 import { revalidatePath } from 'next/cache';
-import client from './db';
+import client from '../db';
+import { CreateGroupFormSchema } from '../validations';
 
 export async function createGroup(
   prevState: InitialMessageState,

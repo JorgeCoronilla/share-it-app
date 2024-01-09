@@ -1,5 +1,4 @@
 'use server';
-import { Row } from '@libsql/client';
 import client from '../db';
 
 export const getUser = async (userId: string) => {

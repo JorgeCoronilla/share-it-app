@@ -1,4 +1,4 @@
-import FormInput from '../global/formInput';
+import FormInput from '../../global/formInput';
 
 export default function TextInputsGroups() {
   return (

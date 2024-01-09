@@ -1,11 +1,11 @@
 import { Suspense } from 'react';
-import GroupCard from '../../ui/dashboard/groupCard';
+import GroupsList from '../../ui/dashboard/groups/groupsList';
 
 export default async function Page() {
   return (
     <>
       <Suspense fallback={<p>Loading</p>}>
-        <GroupCard />
+        <GroupsList />
       </Suspense>
       <div className="spacer"></div>
     </>
