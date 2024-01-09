@@ -13,7 +13,7 @@ export async function postUser({ name, email, password }: userRegister) {
 }
 
 export async function loginUser({ email, password }: userLogin) {
-  const result = await fetch('/api/login', {
+  return await fetch('/api/login', {
     method: 'POST',
     body: JSON.stringify({
       email,
@@ -23,8 +23,8 @@ export async function loginUser({ email, password }: userLogin) {
       'Content-Type': 'application/json',
     },
   });
-  const res = await result.json();
-  console.log(result.status);
-  console.log(res);
-  return res;
+  //   const res = await result.json();
+  //   console.log(result.status);
+  //   console.log(res);
+  //   return res;
 }
