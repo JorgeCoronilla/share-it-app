@@ -4,24 +4,25 @@ import FormHeader from './formHeader';
 import FormInput from '../../global/formInput';
 import InputList from '../../global/inputList';
 import Button from '../../global/button';
-import { useAddAction } from '@/app/lib/hooks/useAddAction';
-import { createExpense } from '@/app/lib/services/formActions';
+import FormWarning from '../../global/formWarning';
+import { useAdd } from '@/app/lib/hooks/useAddExpense';
+import { expense_INTIAL_STATE } from '@/app/lib/constants';
 
 interface ExpenseFormProps {
   groups?: GroupData[];
-  userID: string;
 }
 
-export default function ExpenseForm({ groups, userID }: ExpenseFormProps) {
-  const { formAction } = useAddAction({ createFunction: createExpense });
+export default function ExpenseForm({ groups }: ExpenseFormProps) {
+  const { getData, submit, showError, loading } = useAdd(expense_INTIAL_STATE);
 
   return (
     <div className="new-group-modal">
       <FormHeader title="Crear nuevo gasto" />
-      <form action={formAction}>
+      <form onSubmit={submit}>
         <div className="form-container">
           <div className="text-fields-container">
             <FormInput
+              getData={getData}
               label="Grupo"
               type="text"
               name="group"
@@ -31,19 +32,21 @@ export default function ExpenseForm({ groups, userID }: ExpenseFormProps) {
             <InputList list={groups} />
 
             <FormInput
+              getData={getData}
               label="Descripción"
               type="text"
               name="description"
               placeholder="Cena con amigos"
             />
             <FormInput
+              getData={getData}
               label="Cantidad"
               type="text"
               name="quantity"
               placeholder="3.45"
             />
           </div>
-          <IconsSelector />
+          <IconsSelector getData={getData} />
         </div>
         <Button
           type="submit"
@@ -51,6 +54,14 @@ export default function ExpenseForm({ groups, userID }: ExpenseFormProps) {
           text={'Añadir gasto'}
         />
       </form>
+      <FormWarning
+        showError={showError}
+        message="Error con el formato"
+      />
+      <FormWarning
+        showError={loading}
+        message="... Loading"
+      />
     </div>
   );
 }

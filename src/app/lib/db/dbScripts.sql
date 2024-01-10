@@ -39,7 +39,7 @@ CREATE TABLE transactions (
 INSERT INTO users (user_id, username, email, pass, avatar) VALUES ('uuid1', 'Jorge', 'jorge.coronilla.naranjo@gmail.com', 'admin','https://accounts.google.com/SignOutOptions?hl=es&continue=https://www.google.com%3Fhl%3Des&ec=GBRA8wE');
 INSERT INTO users (user_id, username, email, pass, avatar) VALUES ('uuid2', 'Natalia', 'quintomayo@hotmail.com', 'admin','');
 
-INSERT INTO groups (group_id, group_name, group_icon, group_info, group_balance) VALUES ('uuid1G', 'Casa', 'house_icon', 'Gastos de la casa', 153.98);
+INSERT INTO groups (group_id, group_name, group_icon, group_info, group_balance) VALUES ('uuid1G', 'Casa', 'house_icon', 'Gastos de la casa', 153.98.98);
 INSERT INTO groups (group_id, group_name, group_icon, group_info, group_balance) VALUES ('uuid2G', 'Coche', 'car_icon', 'Cositas del coche', 153.98);
 INSERT INTO groups (group_id, group_name, group_icon, group_info, group_balance) VALUES ('uuid3G', 'Compras', 'shopping_icon', 'Super y demás', 0);
 INSERT INTO groups (group_id, group_name, group_icon, group_info, group_balance) VALUES ('uuid4G', 'Vacaciones', 'plane_icon', 'Viajecitos y escapadas' ,0);

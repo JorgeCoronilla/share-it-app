@@ -31,3 +31,16 @@ export const form_INITIAL_STATE = {
   password: '',
   passwordConfirmation: '',
 };
+
+export const expense_INTIAL_STATE = {
+  group: '',
+  description: '',
+  quantity: '',
+  icon: '',
+};
+
+export const group_INTIAL_STATE = {
+  name: '',
+  description: '',
+  icon: '',
+};

@@ -7,7 +7,6 @@ export default async function AddExpenseButton() {
   const userID = await getUserId();
   let userGroups: GroupData[] | undefined = [];
   userGroups = (await getGroups(userID)) || undefined;
-  console.log('Data: ', userID, userGroups);
   if ((userGroups && userGroups.length < 1) || userGroups === undefined) {
     userGroups = [];
   }

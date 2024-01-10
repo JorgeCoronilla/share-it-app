@@ -1,13 +1,10 @@
 import { icons } from '@/app/lib/constants';
 
-export default function IconsSelector() {
-  const handleIconClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const icons =
-      document.querySelectorAll<HTMLInputElement>('input.icon-input');
-    icons.forEach((icon) => {
-      if (icon.id !== e.target.id) icon.checked = false;
-    });
-  };
+interface Props {
+  getData: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export default function IconsSelector({ getData }: Props) {
   return (
     <>
       <div className="icons-container">
@@ -20,7 +17,7 @@ export default function IconsSelector() {
               type="checkbox"
               id={`checkbox${index}`}
               className="icon-input"
-              onChange={handleIconClick}
+              onChange={getData}
               name="icon"
               value={icon}
             />

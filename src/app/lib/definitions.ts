@@ -74,5 +74,19 @@ interface Register {
 interface InitialMessageState {
   message: boolean;
   display: boolean;
-  user: string;
+}
+
+interface NewExpenseData {
+  group: string;
+  description: string;
+  quantity: string;
+  icon: string;
+  groupId?: string;
+}
+
+interface NewGroupData {
+  name: string;
+  description: string;
+  icon: string;
+  groupId?: string;
 }

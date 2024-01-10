@@ -23,8 +23,4 @@ export async function loginUser({ email, password }: userLogin) {
       'Content-Type': 'application/json',
     },
   });
-  //   const res = await result.json();
-  //   console.log(result.status);
-  //   console.log(res);
-  //   return res;
 }

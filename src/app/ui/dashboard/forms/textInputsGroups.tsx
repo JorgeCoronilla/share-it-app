@@ -1,6 +1,10 @@
 import FormInput from '../../global/formInput';
 
-export default function TextInputsGroups() {
+interface Props {
+  getData: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export default function TextInputsGroups({ getData }: Props) {
   return (
     <>
       <div className="text-fields-container">
@@ -10,6 +14,7 @@ export default function TextInputsGroups() {
           name="name"
           autoComplete="name"
           placeholder="Group name"
+          getData={getData}
         />
         <FormInput
           label="Descripción"
@@ -17,6 +22,7 @@ export default function TextInputsGroups() {
           name="description"
           autoComplete="description"
           placeholder="Group description"
+          getData={getData}
         />
       </div>
     </>
