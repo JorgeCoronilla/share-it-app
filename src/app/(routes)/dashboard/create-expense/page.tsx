@@ -12,10 +12,7 @@ export default async function AddExpenseButton() {
   }
   return (
     <>
-      <ExpenseForm
-        groups={userGroups}
-        userID={userID}
-      />
+      <ExpenseForm groups={userGroups} />
     </>
   );
 }

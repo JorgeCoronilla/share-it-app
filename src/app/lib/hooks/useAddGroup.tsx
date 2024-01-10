@@ -26,7 +26,7 @@ export const useAddGroup = (INITIAL_STATE: NewGroupData) => {
     if (itemRegistered.ok) {
       const data = await itemRegistered.json();
       console.log(data);
-      // router.push(`/dashboard`);
+      router.push(`/dashboard`);
     } else {
       console.log('Error', itemRegistered.status);
       setShowError(true);
