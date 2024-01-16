@@ -26,15 +26,15 @@ export default function GroupCard({ id, name, icon, userDebt }: Props) {
           <CardTitle title={name} />
           {userDebt >= 0 ? (
             <CardDescription
-              description="Te deben"
+              description="Debes"
               highlightText={userDebt.toFixed(2)}
-              className="positive"
+              className="negative"
             />
           ) : (
             <CardDescription
-              description="Debes"
+              description="Te deben"
               highlightText={(userDebt * -1).toFixed(2)}
-              className="negative"
+              className="positive"
             />
           )}
         </div>

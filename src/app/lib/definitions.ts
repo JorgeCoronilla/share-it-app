@@ -90,3 +90,35 @@ interface NewGroupData {
   icon: string;
   groupId?: string;
 }
+
+type useAddData =
+  | {
+      name: string;
+      description: string;
+      icon: string;
+      groupId?: string;
+    }
+  | {
+      group: string;
+      description: string;
+      quantity: string;
+      icon: string;
+      groupId?: string;
+    };
+interface CommonData {
+  name: string;
+  description: string;
+  icon: string;
+  groupId?: string;
+  group?: string; // Properties from NewExpenseData
+  quantity?: string; // Properties from NewExpenseData
+}
+
+interface NewFriend {
+  email: string;
+  group: string;
+}
+
+interface getDataObject {
+  [key: string]: string;
+}

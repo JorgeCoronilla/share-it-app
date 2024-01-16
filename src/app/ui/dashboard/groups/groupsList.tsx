@@ -2,10 +2,12 @@ import { getGroups } from '@/app/lib/services/groups';
 import GroupCard from './groupCard';
 import GroupsListHeader from './listHeader';
 import NoData from '../../global/noData';
+import { getUserId } from '@/app/lib/auth';
 
 export default async function GroupsList() {
-  const userData = await getGroups('uuid1');
-  console.log(userData);
+  const userID = await getUserId();
+  const userData = await getGroups(userID);
+  console.log('userData', userData);
   if (!userData || userData.length === 0) {
     return <NoData message="Todavía no perteneces a ningún grupo." />;
   }

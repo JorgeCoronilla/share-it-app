@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
 
     console.log('newExpense', newExpense);
     var newBalance;
-    if (groupId.rows[0].group_balance) {
+    if (groupId.rows[0].group_balance || groupId.rows[0].group_balance === 0) {
       newBalance = parseFloat(
         (
           parseFloat(groupId.rows[0].group_balance.toString()) +
@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
         sql: 'UPDATE groups SET group_balance = ? WHERE group_id = ?',
         args: [newBalance, groupId.rows[0].group_id],
       });
-      console.log('updateGroupBalance: ', updateGroupBalance);
+      console.log('updateGroupBalance: ', updateGroupBalance.rows[0]);
     }
 
     const currentUserBalance = await transaction.execute({
@@ -75,7 +75,10 @@ export async function POST(request: NextRequest) {
     });
 
     var newUserBalance = 0;
-    if (currentUserBalance.rows[0].user_balance) {
+    if (
+      currentUserBalance.rows[0].user_balance ||
+      currentUserBalance.rows[0].user_balance === 0
+    ) {
       newUserBalance =
         parseFloat(currentUserBalance.rows[0].user_balance.toString()) +
         parseFloat(data.quantity);
@@ -86,7 +89,8 @@ export async function POST(request: NextRequest) {
       args: [roundedBalance, userID, groupId.rows[0].group_id],
     });
 
-    console.log('updateBalance: ', updateBalance);
+    console.log('updateBalance: ', updateBalance.rows[0]);
+
     // Commit the transaction if both insertions were successful
     await transaction.commit();
 

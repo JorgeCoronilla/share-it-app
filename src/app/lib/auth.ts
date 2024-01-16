@@ -1,5 +1,6 @@
 import { jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
+import CardAvatar from '../ui/dashboard/card/cardAvatar';
 
 export function getJwtSecretKey() {
   const secret = process.env.JWT_SECRET_KEY;
@@ -36,4 +37,39 @@ export async function getUserId() {
     }
   }
   return userID;
+}
+
+export async function getUser() {
+  let data: User = {
+    id: '',
+    name: '',
+    email: '',
+    avatar: '',
+  };
+  const cookieStore = cookies();
+  const user = cookieStore.get('access-token');
+
+  if (user) {
+    const cookiePairs = user.value.split('; ');
+    const tokenPair = cookiePairs.find((pair) =>
+      pair.startsWith('access-token=')
+    );
+
+    // Gets token from cookie
+
+    if (tokenPair) {
+      const token = tokenPair.split('=')[1];
+      const verified = await verifyJwtToken(token);
+
+      data = {
+        id: verified?.id?.toString() || '',
+        name: verified?.name?.toString() || '',
+        email: verified?.email?.toString() || '',
+        avatar: verified?.avatar?.toString() || '',
+      };
+
+      console.log('user', data);
+    }
+  }
+  return data;
 }
