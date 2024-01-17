@@ -7,7 +7,7 @@ import { useLogin } from '@/app/lib/hooks/useLogin';
 import FormHeader from './formHeader';
 
 export default function LoginForm() {
-  const { getData, submit, showError } = useLogin();
+  const { getData, submit, showError, loading, error, onFocus } = useLogin();
 
   return (
     <div className="new-group-modal">
@@ -24,6 +24,10 @@ export default function LoginForm() {
           autoComplete="email"
           placeholder="email@me.com"
         />
+        <FormWarning
+          showError={showError.email && onFocus.email}
+          message="Email no válido"
+        />
         <FormInput
           getData={getData}
           label="Password"
@@ -33,13 +37,26 @@ export default function LoginForm() {
           placeholder="**********"
         />
         <FormWarning
-          showError={showError}
+          showError={showError.password && onFocus.password}
+          message="Contraseña no válida"
+        />
+        <FormWarning
+          showError={error}
           message="User not found"
+        />
+        <FormWarning
+          showError={loading}
+          message="... loading"
         />
         <Button
           type="submit"
           text="Login"
-          className="submit-button"
+          className={
+            !showError.email && !showError.password
+              ? 'submit-button'
+              : 'submit-button disabled'
+          }
+          disabled={showError.email && showError.password}
         />
       </form>
     </div>

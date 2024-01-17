@@ -1,23 +1,50 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { addFriendToGroup } from '../services/inviteFriend';
+import {
+  addFriend_INITIAL_STATE,
+  addFriend_validation_INITIAL_STATE,
+} from '../constants';
+import { validateNewFriend } from '../validations';
 
-export const useAddFriend = (INITIAL_STATE: NewFriend, user: User) => {
+export const useAddFriend = (user: User) => {
   const router = useRouter();
-  const [newFriend, setNewFriend] = useState(INITIAL_STATE);
-  const [showError, setShowError] = useState(false);
+
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const [newFriend, setNewFriend] = useState(addFriend_INITIAL_STATE);
+  const [showError, setShowError] = useState(
+    addFriend_validation_INITIAL_STATE
+  );
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  const [onFocus, setOnFocus] = useState<Record<string, boolean>>(
+    addFriend_validation_INITIAL_STATE
+  );
+
+  useEffect(() => {
+    setShowError(validateNewFriend(newFriend));
+  }, [newFriend]);
+
   const getData = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     setNewFriend({ ...newFriend, [name]: value });
-    console.log(newFriend);
+    const currentField = {
+      ...addFriend_validation_INITIAL_STATE,
+      [name]: true,
+    };
+    setOnFocus(currentField);
   };
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (newFriend.email === user.email) {
-      setShowError(true);
+      setShowError({ ...showError, email: true });
+      setErrorMessage('No puedes añadirte a ti mismo');
+      setError(true);
+
       return;
     }
     setLoading(true);
@@ -26,13 +53,14 @@ export const useAddFriend = (INITIAL_STATE: NewFriend, user: User) => {
     setLoading(false);
 
     if (itemRegistered.ok) {
-      const data = await itemRegistered.json();
-      console.log(data);
       router.push(`/dashboard`);
     } else {
       console.log('Error', itemRegistered.status);
-      setShowError(true);
+      const res = await itemRegistered.json();
+      console.log('Message:', res.message);
+      setErrorMessage(res.message);
+      setError(true);
     }
   };
-  return { getData, submit, showError, loading };
+  return { getData, submit, showError, loading, error, onFocus, errorMessage };
 };

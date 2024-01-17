@@ -13,7 +13,8 @@ interface ExpenseFormProps {
 }
 
 export default function ExpenseForm({ groups }: ExpenseFormProps) {
-  const { getData, submit, showError, loading } = useAdd(expense_INTIAL_STATE);
+  const { getData, submit, showError, loading, error, onFocus, errorMessage } =
+    useAdd(expense_INTIAL_STATE);
 
   return (
     <div className="new-group-modal">
@@ -50,13 +51,32 @@ export default function ExpenseForm({ groups }: ExpenseFormProps) {
         </div>
         <Button
           type="submit"
-          className="submit-button"
           text={'Añadir gasto'}
+          className={
+            showError.allfields ? 'submit-button' : 'submit-button disabled'
+          }
+          disabled={!showError.allfields}
         />
       </form>
       <FormWarning
-        showError={showError}
-        message="Error con el formato"
+        showError={showError.group && onFocus.group}
+        message="Nombre de grupo no válido"
+      />
+      <FormWarning
+        showError={showError.description && onFocus.description}
+        message="Descripción no válida"
+      />
+      <FormWarning
+        showError={showError.quantity && onFocus.quantity}
+        message="Cantidads no válida"
+      />
+      <FormWarning
+        showError={showError.icon}
+        message="Selecciona un icono"
+      />
+      <FormWarning
+        showError={error}
+        message={errorMessage}
       />
       <FormWarning
         showError={loading}

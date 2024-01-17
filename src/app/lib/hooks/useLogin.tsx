@@ -1,37 +1,55 @@
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { loginUser } from '../services/auth';
+import { validateLogin } from '../validations';
+
+import { useFormUtils } from './useFormUtils';
 
 export const useLogin = () => {
-  const [login, setLogin] = useState({ email: '', password: '' });
-  const [showError, setShowError] = useState(false);
+  const {
+    data,
+    setShowError,
+    setLoading,
+    setError,
+    getData,
+    showError,
+    loading,
+    onFocus,
+    error,
+  } = useFormUtils('login');
 
+  const prevData = useRef({});
   const router = useRouter();
 
-  const getData = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setLogin({ ...login, [name]: value });
-  };
+  useEffect(() => {
+    setShowError(validateLogin(data));
+  }, [data]);
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
+    if (prevData.current === data) {
+      return;
+    } else {
+      prevData.current = data;
+    }
 
-    const userLogged = await loginUser({
-      email: login.email,
-      password: login.password,
-    });
-
+    const userLogged = await loginUser(data);
+    setLoading(false);
     if (userLogged.ok) {
-      const data = await userLogged.json();
       router.push(`/dashboard`);
     } else {
       console.log('Error', userLogged.status);
-      setShowError(true);
+      setError(true);
     }
   };
   return {
+    login: data,
     getData,
     submit,
     showError,
+    loading,
+    onFocus,
+    error,
   };
 };

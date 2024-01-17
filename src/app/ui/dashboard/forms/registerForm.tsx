@@ -2,13 +2,15 @@
 
 import { formFields } from '@/app/ui/dashboard/forms/registerFields';
 import { useForm } from '@/app/lib/hooks/useForm';
-import React from 'react';
+import React, { useEffect } from 'react';
 import FormInput from '../../global/formInput';
 import FormWarning from '../../global/formWarning';
 import Button from '../../global/button';
 
 export default function RegisterForm() {
-  const { getData, submit, showError, onFocus } = useForm();
+  const { getData, submit, showError, onFocus, errorMessage, error, loading } =
+    useForm();
+
   return (
     <div className="loginForm">
       <form
@@ -38,6 +40,18 @@ export default function RegisterForm() {
         <Button
           type="submit"
           text="Registrarse"
+          className={
+            !showError.allfields ? 'submit-button' : 'submit-button disabled'
+          }
+          disabled={showError.allfields}
+        />
+        <FormWarning
+          showError={loading}
+          message="... loading"
+        />
+        <FormWarning
+          showError={error}
+          message={errorMessage}
         />
       </form>
     </div>

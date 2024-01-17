@@ -4,6 +4,7 @@ import * as React from 'react';
 function FriendsIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
+      className="friend-icon"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"

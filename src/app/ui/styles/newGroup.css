@@ -67,6 +67,11 @@
   border: 2px solid var(--positive);
   cursor: pointer;
 }
+
+.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
 .form-container {
   display: flex;
 }

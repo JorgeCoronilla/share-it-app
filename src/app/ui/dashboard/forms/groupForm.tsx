@@ -9,7 +9,7 @@ import FormWarning from '../../global/formWarning';
 import { useAddGroup } from '@/app/lib/hooks/useAddGroup';
 
 export default function GroupForm() {
-  const { getData, submit, showError, loading } =
+  const { getData, submit, error, loading, showError, onFocus, errorMessage } =
     useAddGroup(group_INTIAL_STATE);
 
   return (
@@ -22,17 +22,32 @@ export default function GroupForm() {
 
         <Button
           type="submit"
-          className="submit-button"
           text="Crear grupo"
+          className={
+            showError.allfields ? 'submit-button' : 'submit-button disabled'
+          }
+          disabled={!showError.allfields}
         />
       </form>
       <FormWarning
-        showError={showError}
-        message="Error con el formato"
+        showError={error}
+        message={errorMessage}
       />
       <FormWarning
         showError={loading}
         message="... Loading"
+      />
+      <FormWarning
+        showError={showError.name && onFocus.name}
+        message="Nombre de grupo no válido"
+      />
+      <FormWarning
+        showError={showError.description && onFocus.description}
+        message="Descripción no válida"
+      />
+      <FormWarning
+        showError={showError.icon}
+        message="Selecciona un icono"
       />
     </>
   );

@@ -4,6 +4,7 @@ import FormInput from '@/app/ui/global/formInput';
 import FormWarning from '@/app/ui/global/formWarning';
 import { useAddFriend } from '@/app/lib/hooks/useAddFriend';
 import InputList from '../../global/inputList';
+import { useEffect } from 'react';
 interface InviteFriendFormProps {
   groups?: GroupData[];
   user: User;
@@ -12,14 +13,9 @@ export default function InviteFriendForm({
   groups,
   user,
 }: InviteFriendFormProps) {
-  const { getData, submit, showError, loading } = useAddFriend(
-    {
-      group: '',
-      email: '',
-    },
-    user
-  );
-
+  const { getData, submit, showError, loading, onFocus, error, errorMessage } =
+    useAddFriend(user);
+  useEffect(() => {}, [showError]);
   return (
     <div>
       <form onSubmit={submit}>
@@ -44,18 +40,24 @@ export default function InviteFriendForm({
 
         <Button
           type="submit"
-          className="submit-button"
           text="Añadir amigo"
+          className={
+            !showError.email && !showError.group
+              ? 'submit-button'
+              : 'submit-button disabled'
+          }
+          disabled={showError.email && showError.group}
+        />
+
+        <FormWarning
+          showError={error}
+          message={errorMessage}
+        />
+        <FormWarning
+          showError={loading}
+          message="... Loading"
         />
       </form>
-      <FormWarning
-        showError={showError}
-        message="Escribe un correo válido"
-      />
-      <FormWarning
-        showError={loading}
-        message="... Loading"
-      />
     </div>
   );
 }

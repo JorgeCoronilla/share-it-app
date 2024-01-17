@@ -15,7 +15,8 @@
 }
 
 .pencil-icon,
-.groups-icon {
+.groups-icon,
+.friend-icon {
   margin: 0.2em 0.5em 0 0;
 }
 
@@ -23,5 +24,9 @@
   bottom: 6em;
 }
 .group {
+  bottom: 12em;
+}
+
+.friend {
   bottom: 9em;
 }

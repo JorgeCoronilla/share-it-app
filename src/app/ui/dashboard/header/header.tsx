@@ -1,5 +1,6 @@
 import { getUser } from '@/app/lib/services/user';
 import CardAvatar from '../card/cardAvatar';
+import Logout from './logout';
 
 export default async function Header() {
   let user = await getUser();
@@ -22,11 +23,10 @@ export default async function Header() {
         >
           Share-it
         </h1>
-
+        <Logout />
         <div className="user-container">
           <p className="user-name">{user.name}</p>
-
-          <CardAvatar user={user} />
+          <CardAvatar user={user} />L
         </div>
       </div>
     </>

@@ -1,12 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { registerTransaction } from '../services/registerTransaction';
+import { addExpense_validation_INITIAL_STATE } from '../constants';
+import { validateNewExpense } from '../validations';
 
 export const useAdd = (INITIAL_STATE: NewExpenseData) => {
   const router = useRouter();
   const [expenseInfo, setExpenseInfo] = useState(INITIAL_STATE);
-  const [showError, setShowError] = useState(false);
+  const [showError, setShowError] = useState(
+    addExpense_validation_INITIAL_STATE
+  );
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [onFocus, setOnFocus] = useState<Record<string, boolean>>(
+    addExpense_validation_INITIAL_STATE
+  );
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    setShowError(validateNewExpense(expenseInfo));
+  }, [expenseInfo]);
 
   const getData = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -18,7 +31,13 @@ export const useAdd = (INITIAL_STATE: NewExpenseData) => {
       });
     }
     setExpenseInfo({ ...expenseInfo, [name]: value });
+    const currentField = {
+      ...addExpense_validation_INITIAL_STATE,
+      [name]: true,
+    };
+    setOnFocus(currentField);
   };
+
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -30,9 +49,13 @@ export const useAdd = (INITIAL_STATE: NewExpenseData) => {
       console.log(data);
       router.push(`/dashboard`);
     } else {
+      const res = await itemRegistered.json();
+      console.log('Message:', res.message);
+      setErrorMessage(res.message);
+
       console.log('Error', itemRegistered.status);
-      setShowError(true);
+      setError(true);
     }
   };
-  return { getData, submit, showError, loading };
+  return { getData, submit, error, loading, showError, onFocus, errorMessage };
 };

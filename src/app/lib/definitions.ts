@@ -64,11 +64,18 @@ interface validateRegister {
   all: boolean;
 }
 
+interface validateAddGroup {
+  name: boolean;
+  description: boolean;
+  icon: boolean;
+  all: boolean;
+}
+
 interface Register {
   email: string;
   name: string;
   password: string;
-  passwordConfirmation: string;
+  confirmPassword: string;
 }
 
 interface InitialMessageState {
@@ -82,6 +89,14 @@ interface NewExpenseData {
   quantity: string;
   icon: string;
   groupId?: string;
+}
+
+interface Validate_NewExpenseData {
+  group: boolean;
+  description: boolean;
+  quantity: boolean;
+  icon: boolean;
+  allfields: boolean;
 }
 
 interface NewGroupData {
@@ -119,6 +134,17 @@ interface NewFriend {
   group: string;
 }
 
+interface ValidateNewFriend {
+  email: boolean;
+  group: boolean;
+}
+
 interface getDataObject {
   [key: string]: string;
 }
+
+interface validateLogin {
+  email: boolean;
+  password: boolean;
+}
+type formTypes = 'login' | 'register';
