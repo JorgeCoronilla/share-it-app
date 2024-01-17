@@ -7,7 +7,8 @@ import { useLogin } from '@/app/lib/hooks/useLogin';
 import FormHeader from './formHeader';
 
 export default function LoginForm() {
-  const { getData, submit, showError, loading, error, onFocus } = useLogin();
+  const { getData, submit, showError, loading, error, onFocus, errorMessage } =
+    useLogin();
 
   return (
     <div className="new-group-modal">
@@ -42,7 +43,7 @@ export default function LoginForm() {
         />
         <FormWarning
           showError={error}
-          message="User not found"
+          message={errorMessage}
         />
         <FormWarning
           showError={loading}

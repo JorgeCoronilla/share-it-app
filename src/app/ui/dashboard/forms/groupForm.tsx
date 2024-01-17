@@ -4,13 +4,12 @@ import IconsSelector from './iconsSelector';
 import Button from '../../global/button';
 import TextInputsGroups from './textInputsGroups';
 
-import { group_INTIAL_STATE } from '@/app/lib/constants';
 import FormWarning from '../../global/formWarning';
 import { useAddGroup } from '@/app/lib/hooks/useAddGroup';
 
 export default function GroupForm() {
   const { getData, submit, error, loading, showError, onFocus, errorMessage } =
-    useAddGroup(group_INTIAL_STATE);
+    useAddGroup();
 
   return (
     <>

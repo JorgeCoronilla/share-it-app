@@ -1,46 +1,32 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import { addFriendToGroup } from '../services/inviteFriend';
-import {
-  addFriend_INITIAL_STATE,
-  addFriend_validation_INITIAL_STATE,
-} from '../constants';
 import { validateNewFriend } from '../validations';
+import { useFormStates } from './useFormUtils';
 
 export const useAddFriend = (user: User) => {
-  const router = useRouter();
-
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const [newFriend, setNewFriend] = useState(addFriend_INITIAL_STATE);
-  const [showError, setShowError] = useState(
-    addFriend_validation_INITIAL_STATE
-  );
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-
-  const [onFocus, setOnFocus] = useState<Record<string, boolean>>(
-    addFriend_validation_INITIAL_STATE
-  );
+  const {
+    getData,
+    setShowError,
+    setLoading,
+    setError,
+    setErrorMessage,
+    data,
+    showError,
+    onFocus,
+    loading,
+    error,
+    errorMessage,
+    router,
+  } = useFormStates('friends');
 
   useEffect(() => {
-    setShowError(validateNewFriend(newFriend));
-  }, [newFriend]);
-
-  const getData = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-
-    setNewFriend({ ...newFriend, [name]: value });
-    const currentField = {
-      ...addFriend_validation_INITIAL_STATE,
-      [name]: true,
-    };
-    setOnFocus(currentField);
-  };
+    setShowError(validateNewFriend(data as NewFriend));
+  }, [data]);
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (newFriend.email === user.email) {
+    const checkData = data as NewFriend;
+    if (checkData.email.toString() === user.email) {
       setShowError({ ...showError, email: true });
       setErrorMessage('No puedes añadirte a ti mismo');
       setError(true);
@@ -49,7 +35,7 @@ export const useAddFriend = (user: User) => {
     }
     setLoading(true);
 
-    const itemRegistered = await addFriendToGroup(newFriend);
+    const itemRegistered = await addFriendToGroup(data as NewFriend);
     setLoading(false);
 
     if (itemRegistered.ok) {
@@ -62,5 +48,13 @@ export const useAddFriend = (user: User) => {
       setError(true);
     }
   };
-  return { getData, submit, showError, loading, error, onFocus, errorMessage };
+  return {
+    getData,
+    submit,
+    showError,
+    loading,
+    error,
+    onFocus,
+    errorMessage,
+  };
 };

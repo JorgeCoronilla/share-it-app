@@ -147,4 +147,10 @@ interface validateLogin {
   email: boolean;
   password: boolean;
 }
-type formTypes = 'login' | 'register';
+type formTypes = 'login' | 'register' | 'expenses' | 'groups' | 'friends';
+type FormDataType =
+  | Register
+  | userLogin
+  | NewExpenseData
+  | NewFriend
+  | NewGroupData;

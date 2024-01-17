@@ -1,36 +1,37 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { form_INITIAL_STATE } from '../constants';
+import { useEffect } from 'react';
 import { postUser } from '../services/auth';
-import { useFocusValidation } from './useValidate';
+import { useFormStates } from './useFormUtils';
+import { validateForm } from '../validations';
 
 export const useForm = () => {
-  const [login, setLogin] = useState(form_INITIAL_STATE);
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [loading, setLoading] = useState(false);
-  const { onFocus, updateOnFocus, updateShowError, showError } =
-    useFocusValidation();
-
-  const router = useRouter();
+  const {
+    getData,
+    setShowError,
+    setLoading,
+    setError,
+    setErrorMessage,
+    data,
+    showError,
+    onFocus,
+    loading,
+    error,
+    errorMessage,
+    router,
+  } = useFormStates('register');
 
   useEffect(() => {
-    updateShowError(login);
-  }, [login]);
-
-  const getData = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setLogin({ ...login, [name]: value });
-    updateOnFocus(name);
-  };
+    setShowError(validateForm(data as Register));
+  }, [data]);
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    const checkData = data as Register;
+
     const userLogged = await postUser({
-      name: login.name,
-      email: login.email,
-      password: login.password,
+      name: checkData.name,
+      email: checkData.email,
+      password: checkData.password,
     });
     setLoading(false);
     if (userLogged.ok) {

@@ -1,28 +1,28 @@
-import { useRouter } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { loginUser } from '../services/auth';
 import { validateLogin } from '../validations';
-
-import { useFormUtils } from './useFormUtils';
+import { useFormStates } from './useFormUtils';
 
 export const useLogin = () => {
   const {
-    data,
+    getData,
     setShowError,
     setLoading,
     setError,
-    getData,
+    setErrorMessage,
+    data,
     showError,
-    loading,
     onFocus,
+    loading,
     error,
-  } = useFormUtils('login');
+    errorMessage,
+    router,
+  } = useFormStates('login');
 
   const prevData = useRef({});
-  const router = useRouter();
 
   useEffect(() => {
-    setShowError(validateLogin(data));
+    setShowError(validateLogin(data as userLogin));
   }, [data]);
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -34,12 +34,16 @@ export const useLogin = () => {
       prevData.current = data;
     }
 
-    const userLogged = await loginUser(data);
+    const userLogged = await loginUser(data as userLogin);
     setLoading(false);
     if (userLogged.ok) {
       router.push(`/dashboard`);
     } else {
       console.log('Error', userLogged.status);
+      const res = await userLogged.json();
+      console.log('Message:', res.message);
+      setErrorMessage(res.message);
+
       setError(true);
     }
   };
@@ -51,5 +55,6 @@ export const useLogin = () => {
     loading,
     onFocus,
     error,
+    errorMessage,
   };
 };

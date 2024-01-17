@@ -5,17 +5,42 @@ import {
   form_INITIAL_STATE,
   login_validation_INITIAL_STATE,
   validation_INITIAL_STATE,
+  expense_INTIAL_STATE,
+  addFriend_INITIAL_STATE,
+  group_INTIAL_STATE,
+  addExpense_validation_INITIAL_STATE,
+  addFriend_validation_INITIAL_STATE,
+  addGroup_validation_INITIAL_STATE,
 } from '../constants';
+import { useRouter } from 'next/navigation';
 
-export const useFormUtils = (formType: formTypes) => {
-  const data_INITIAL_STATE =
-    formType === formTypes.login ? login_INITIAL_STATE : form_INITIAL_STATE;
-
+export const useFormStates = (formType: formTypes) => {
   const errors_INITIAL_STATE =
     formType === formTypes.login
       ? login_validation_INITIAL_STATE
+      : formType === formTypes.register
+      ? validation_INITIAL_STATE
+      : formType === formTypes.expenses
+      ? addExpense_validation_INITIAL_STATE
+      : formType === formTypes.friends
+      ? addFriend_validation_INITIAL_STATE
+      : formType === formTypes.groups
+      ? addGroup_validation_INITIAL_STATE
       : validation_INITIAL_STATE;
 
+  const data_INITIAL_STATE =
+    formType === formTypes.login
+      ? login_INITIAL_STATE
+      : formType === formTypes.register
+      ? form_INITIAL_STATE
+      : formType === formTypes.expenses
+      ? expense_INTIAL_STATE
+      : formType === formTypes.friends
+      ? addFriend_INITIAL_STATE
+      : formType === formTypes.groups
+      ? group_INTIAL_STATE
+      : form_INITIAL_STATE;
+  const router = useRouter();
   const [data, setData] = useState(data_INITIAL_STATE);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -27,6 +52,13 @@ export const useFormUtils = (formType: formTypes) => {
 
   const getData = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    if (name === 'icon') {
+      const icons =
+        document.querySelectorAll<HTMLInputElement>('input.icon-input');
+      icons.forEach((icon) => {
+        if (icon.id !== e.target.id) icon.checked = false;
+      });
+    }
     setData({ ...data, [name]: value });
     const currentField = {
       ...errors_INITIAL_STATE,
@@ -36,16 +68,18 @@ export const useFormUtils = (formType: formTypes) => {
   };
 
   return {
-    data,
     setShowError,
     setLoading,
     setError,
+    setErrorMessage,
+    setOnFocus,
     getData,
     showError,
-    loading,
     onFocus,
+    loading,
     error,
     errorMessage,
-    setErrorMessage,
+    data,
+    router,
   };
 };

@@ -5,8 +5,7 @@ import FormInput from '../../global/formInput';
 import InputList from '../../global/inputList';
 import Button from '../../global/button';
 import FormWarning from '../../global/formWarning';
-import { useAdd } from '@/app/lib/hooks/useAddExpense';
-import { expense_INTIAL_STATE } from '@/app/lib/constants';
+import { useAddExpense } from '@/app/lib/hooks/useAddExpense';
 
 interface ExpenseFormProps {
   groups?: GroupData[];
@@ -14,7 +13,7 @@ interface ExpenseFormProps {
 
 export default function ExpenseForm({ groups }: ExpenseFormProps) {
   const { getData, submit, showError, loading, error, onFocus, errorMessage } =
-    useAdd(expense_INTIAL_STATE);
+    useAddExpense();
 
   return (
     <div className="new-group-modal">

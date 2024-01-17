@@ -1,47 +1,32 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import { registerTransaction } from '../services/registerTransaction';
-import { addExpense_validation_INITIAL_STATE } from '../constants';
 import { validateNewExpense } from '../validations';
+import { useFormStates } from './useFormUtils';
 
-export const useAdd = (INITIAL_STATE: NewExpenseData) => {
-  const router = useRouter();
-  const [expenseInfo, setExpenseInfo] = useState(INITIAL_STATE);
-  const [showError, setShowError] = useState(
-    addExpense_validation_INITIAL_STATE
-  );
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [onFocus, setOnFocus] = useState<Record<string, boolean>>(
-    addExpense_validation_INITIAL_STATE
-  );
-  const [error, setError] = useState(false);
+export const useAddExpense = () => {
+  const {
+    getData,
+    setShowError,
+    setLoading,
+    setError,
+    setErrorMessage,
+    data,
+    showError,
+    onFocus,
+    loading,
+    error,
+    errorMessage,
+    router,
+  } = useFormStates('expenses');
 
   useEffect(() => {
-    setShowError(validateNewExpense(expenseInfo));
-  }, [expenseInfo]);
-
-  const getData = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    if (name === 'icon') {
-      const icons =
-        document.querySelectorAll<HTMLInputElement>('input.icon-input');
-      icons.forEach((icon) => {
-        if (icon.id !== e.target.id) icon.checked = false;
-      });
-    }
-    setExpenseInfo({ ...expenseInfo, [name]: value });
-    const currentField = {
-      ...addExpense_validation_INITIAL_STATE,
-      [name]: true,
-    };
-    setOnFocus(currentField);
-  };
+    setShowError(validateNewExpense(data as NewExpenseData));
+  }, [data]);
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    const itemRegistered = await registerTransaction(expenseInfo);
+    const itemRegistered = await registerTransaction(data as NewExpenseData);
     setLoading(false);
 
     if (itemRegistered.ok) {

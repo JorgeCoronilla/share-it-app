@@ -1,5 +1,3 @@
-import { loginUser, postUser } from './services/auth';
-
 export const icons = [
   'bill_icon',
   'car_icon',
@@ -82,20 +80,10 @@ export const addExpense_validation_INITIAL_STATE = {
   allfields: false,
 };
 
-export const formResources = {
-  login: {
-    data_INITIAL_STATE: login_INITIAL_STATE,
-    validation_INITIAL_STATE: login_validation_INITIAL_STATE,
-    action: (data: userLogin) => loginUser(data),
-  },
-  register: {
-    data_INITIAL_STATE: form_INITIAL_STATE,
-    validation_INITIAL_STATE: validation_INITIAL_STATE,
-    action: (data: userRegister) => postUser(data),
-  },
-};
-
 export const formTypes = {
   login: 'login',
   register: 'register',
+  expenses: 'expenses',
+  groups: 'groups',
+  friends: 'friends',
 };
