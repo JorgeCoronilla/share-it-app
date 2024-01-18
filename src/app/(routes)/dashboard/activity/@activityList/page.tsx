@@ -1,3 +1,4 @@
+import { getUserId } from '@/app/lib/auth';
 import { getActivity } from '@/app/lib/services/activity';
 import CardDescription from '@/app/ui/dashboard/card/cardDescription';
 import CardIcon from '@/app/ui/dashboard/card/cardIcon';
@@ -8,7 +9,9 @@ import NoData from '@/app/ui/global/noData';
 import React from 'react';
 
 export default async function ActivitiesList() {
-  const activity = await getActivity('uuid1');
+  const userId = await getUserId();
+
+  const activity = await getActivity(userId);
   if (!activity || activity.length === 0) {
     return <NoData message="Todavía no tienes ninguna actividad." />;
   }

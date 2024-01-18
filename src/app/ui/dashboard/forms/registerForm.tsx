@@ -41,7 +41,9 @@ export default function RegisterForm() {
           type="submit"
           text="Registrarse"
           className={
-            !showError.allfields ? 'submit-button' : 'submit-button disabled'
+            !showError.allfields && !loading
+              ? 'submit-button'
+              : 'submit-button disabled'
           }
           disabled={showError.allfields}
         />

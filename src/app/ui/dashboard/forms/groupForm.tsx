@@ -23,7 +23,9 @@ export default function GroupForm() {
           type="submit"
           text="Crear grupo"
           className={
-            showError.allfields ? 'submit-button' : 'submit-button disabled'
+            showError.allfields && !loading
+              ? 'submit-button'
+              : 'submit-button disabled'
           }
           disabled={!showError.allfields}
         />

@@ -53,7 +53,7 @@ export default function LoginForm() {
           type="submit"
           text="Login"
           className={
-            !showError.email && !showError.password
+            !showError.email && !showError.password && !loading
               ? 'submit-button'
               : 'submit-button disabled'
           }

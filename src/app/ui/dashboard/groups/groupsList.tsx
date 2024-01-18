@@ -7,10 +7,10 @@ import { getUserId } from '@/app/lib/auth';
 export default async function GroupsList() {
   const userID = await getUserId();
   const userData = await getGroups(userID);
-  console.log('userData', userData);
   if (!userData || userData.length === 0) {
     return <NoData message="Todavía no perteneces a ningún grupo." />;
   }
+
   let totalUserBalance = 0;
   userData.forEach(({ userDebt }) => {
     totalUserBalance += userDebt;

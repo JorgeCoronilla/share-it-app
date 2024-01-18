@@ -1,6 +1,5 @@
 import { jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
-import CardAvatar from '../ui/dashboard/card/cardAvatar';
 
 export function getJwtSecretKey() {
   const secret = process.env.JWT_SECRET_KEY;
@@ -68,7 +67,7 @@ export async function getUser() {
         avatar: verified?.avatar?.toString() || '',
       };
 
-      console.log('user', data);
+      // console.log('user', data);
     }
   }
   return data;

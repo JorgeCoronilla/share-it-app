@@ -19,15 +19,22 @@ export default function InviteFriendForm({
   return (
     <div>
       <form onSubmit={submit}>
-        <FormInput
+        <label htmlFor={`id-n-rrrr`}>Nombre del grupo</label>
+        <select
+          onChange={getData}
+          id={`id-n-${name}`}
+          name="group"
+          placeholder="Group name"
+        />
+        {/* <FormInput
           getData={getData}
           label="Grupo"
           type="text"
           name="group"
           placeholder="Group name"
           list="groups"
-        />
-        <InputList list={groups} />
+        /> */}
+        {/* <InputList list={groups} /> */}
 
         <FormInput
           label="Escribe su correo"
@@ -42,7 +49,7 @@ export default function InviteFriendForm({
           type="submit"
           text="Añadir amigo"
           className={
-            !showError.email && !showError.group
+            !showError.email && !showError.group && !loading
               ? 'submit-button'
               : 'submit-button disabled'
           }

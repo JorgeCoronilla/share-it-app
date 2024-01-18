@@ -50,7 +50,9 @@ export const useFormStates = (formType: formTypes) => {
   const [showError, setShowError] =
     useState<Record<string, boolean>>(errors_INITIAL_STATE);
 
-  const getData = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const getData = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     if (name === 'icon') {
       const icons =

@@ -21,6 +21,21 @@ export async function POST(request: NextRequest) {
 
     //Gets user ID and generates new ID's
     const userID = await getUserId();
+
+    // Checks if there is already a group with same name
+    const sameNameGroup = await client.execute({
+      sql: 'SELECT group_id FROM groups WHERE group_name = ?',
+      args: [data.name],
+    });
+    if (sameNameGroup.rows.length > 0) {
+      console.log('Group already exists');
+      return NextResponse.json(
+        { message: 'Group already exists' },
+        { status: 404 }
+      );
+    }
+    console.log(sameNameGroup.rows[0].group_id);
+
     const groupId = uuidv4();
     const groupUserId = uuidv4();
 

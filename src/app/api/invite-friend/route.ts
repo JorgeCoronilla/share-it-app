@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
       console.log('Group not found');
       return NextResponse.json({ message: 'Group not found' }, { status: 404 });
     }
-    console.log('group exists = ', groupId);
+    console.log('group exists = ', groupId.rows[0].group_id);
 
     // Checks if friend exists and gets IDs and name
     const friend = await client.execute({
@@ -33,8 +33,23 @@ export async function POST(request: NextRequest) {
       args: [data.email],
     });
     if (friend.rows.length === 0) {
-      console.log('Group not found');
+      console.log('User not found');
       return NextResponse.json({ message: 'User not found' }, { status: 404 });
+    }
+    console.log(friend.rows[0].user_id);
+
+    // Checks if friend exists and gets IDs and name
+    const alreadyIn = await client.execute({
+      sql: 'SELECT user_group_id FROM user_group WHERE user_id = ? AND group_id = ?',
+      args: [friend.rows[0].user_id, groupId.rows[0].group_id],
+    });
+    console.log('------------', alreadyIn);
+    if (alreadyIn.rows.length > 0) {
+      console.log('Friend Already in that group');
+      return NextResponse.json(
+        { message: 'Friend Already in that group' },
+        { status: 404 }
+      );
     }
     console.log(friend);
 
@@ -55,7 +70,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       {
-        message: 'Expense added',
+        message: 'Friend added to group',
         data,
       },
       { status: 200 }
