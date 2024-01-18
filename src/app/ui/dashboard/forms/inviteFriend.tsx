@@ -16,25 +16,45 @@ export default function InviteFriendForm({
   const { getData, submit, showError, loading, onFocus, error, errorMessage } =
     useAddFriend(user);
   useEffect(() => {}, [showError]);
+  console.log('groups', groups);
   return (
     <div>
       <form onSubmit={submit}>
         <label htmlFor={`id-n-rrrr`}>Nombre del grupo</label>
-        <select
+        {/* <select
           onChange={getData}
-          id={`id-n-${name}`}
+          id={`id-n-}`}
           name="group"
           placeholder="Group name"
-        />
-        {/* <FormInput
+        >
+          {
+            groups &&
+              // <datalist id="groups">
+              groups.map((item, index) => (
+                <option
+                  key={index}
+                  value={item.name}
+                  className="option"
+                >
+                  {item.name}
+                </option>
+              ))
+            // </datalist>
+          } */}
+        {/* <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option> */}
+        {/* </select> */}
+        <FormInput
           getData={getData}
           label="Grupo"
           type="text"
           name="group"
           placeholder="Group name"
           list="groups"
-        /> */}
-        {/* <InputList list={groups} /> */}
+        />
+        <InputList list={groups} />
 
         <FormInput
           label="Escribe su correo"

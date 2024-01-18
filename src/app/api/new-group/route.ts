@@ -34,10 +34,9 @@ export async function POST(request: NextRequest) {
         { status: 404 }
       );
     }
-    console.log(sameNameGroup.rows[0].group_id);
 
-    const groupId = uuidv4();
-    const groupUserId = uuidv4();
+    const groupId = await uuidv4();
+    const groupUserId = await uuidv4();
 
     // Starts transaction
     const transaction = await client.transaction('write');
@@ -54,7 +53,7 @@ export async function POST(request: NextRequest) {
     });
     console.log(userGroup);
 
-    // Commit the transaction if both insertions were successful
+    //Commit the transaction if both insertions were successful
     await transaction.commit();
     revalidatePath('/dashboard');
 

@@ -32,7 +32,8 @@
   font-weight: 600;
 }
 
-.new-group-modal input {
+.new-group-modal input,
+.new-group-modal select {
   margin-bottom: 1.1em;
   font-size: 1.1em;
   padding: 0.5em 0.5em;
@@ -43,7 +44,9 @@
   width: 100%;
   color: var(--text);
 }
-.new-group-modal input:focus {
+
+.new-group-modal input:focus,
+.new-group-modal select:focus {
   outline: none;
   border: 2px solid var(--switcher);
 }
