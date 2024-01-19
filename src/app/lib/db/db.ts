@@ -24,7 +24,9 @@ setInterval(async () => {
     // Cleanup logic
     const cutoffTime = new Date(Date.now() - 60 * 60 * 1000); // 1 hour ago
     const cutoffTimeString = cutoffTime.toISOString();
-
+    if (!client) {
+      throw new Error('DB client not initialized: Wrong credentials');
+    }
     await client.execute({
       sql: 'DELETE FROM your_table_name WHERE datetime(created_at) < datetime(?);',
       args: [cutoffTimeString],
