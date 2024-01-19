@@ -5,7 +5,6 @@ import { validateForm } from '../validations';
 import { sendMail } from '../services/mailService';
 
 export const useForm = () => {
-  const baseUrl = window.location.href.split('register')[0];
   const {
     getData,
     setShowError,
@@ -33,8 +32,7 @@ export const useForm = () => {
       'TEST',
       'jorge.coronilla.naranjo@gmail.com',
       'THI IS A TEST FOR MY MEDIUM USERS',
-      checkData.name,
-      baseUrl
+      checkData.name
     );
     setLoading(false);
     router.push(`/login`);

@@ -19,10 +19,13 @@ export async function sendMail(
   subject: string,
   toEmail: string,
   otpText: string,
-  name: string,
-  baseUrl: string
+  name: string
 ) {
-  const url = await createUrl({ name, email: toEmail, baseUrl });
+  const url = await createUrl({
+    name,
+    email: toEmail,
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+  });
 
   var transporter = nodemailer.createTransport({
     service: 'gmail',
