@@ -1,15 +1,19 @@
 'use client';
 
+import { useRegister } from '@/app/lib/hooks/useRegister';
 import { formFields } from '@/app/ui/dashboard/forms/registerFields';
-import { useForm } from '@/app/lib/hooks/useForm';
+import Button from '@/app/ui/global/button';
+import FormInput from '@/app/ui/global/formInput';
+import FormWarning from '@/app/ui/global/formWarning';
+import { useSearchParams } from 'next/navigation';
 import React from 'react';
-import FormInput from '../../global/formInput';
-import FormWarning from '../../global/formWarning';
-import Button from '../../global/button';
 
-export default function RegisterForm() {
+export default function Page() {
+  const searchParams = useSearchParams();
+
+  const token = searchParams.get('token') || '';
   const { getData, submit, showError, onFocus, errorMessage, error, loading } =
-    useForm();
+    useRegister();
 
   return (
     <div className="loginForm">

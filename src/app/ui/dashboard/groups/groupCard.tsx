@@ -14,7 +14,7 @@ interface Props {
 export default function GroupCard({ id, name, icon, userDebt }: Props) {
   return (
     <Link
-      href={`/dashboard/${id}`}
+      href={`/dashboard/${id}?name=${name}`}
       key={id}
     >
       <div

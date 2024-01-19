@@ -2,10 +2,10 @@
 import IconsSelector from './iconsSelector';
 import FormHeader from './formHeader';
 import FormInput from '../../global/formInput';
-import InputList from '../../global/inputList';
 import Button from '../../global/button';
 import FormWarning from '../../global/formWarning';
 import { useAddExpense } from '@/app/lib/hooks/useAddExpense';
+import Select from '../../global/select';
 
 interface ExpenseFormProps {
   groups?: GroupData[];
@@ -21,15 +21,12 @@ export default function ExpenseForm({ groups }: ExpenseFormProps) {
       <form onSubmit={submit}>
         <div className="form-container">
           <div className="text-fields-container">
-            <FormInput
+            <Select
+              label="Nombre del grupo"
+              groups={groups}
               getData={getData}
-              label="Grupo"
-              type="text"
               name="group"
-              placeholder="Group name"
-              list="groups"
             />
-            <InputList list={groups} />
 
             <FormInput
               getData={getData}

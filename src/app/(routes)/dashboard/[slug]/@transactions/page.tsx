@@ -9,7 +9,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
   if (!transactions || transactions.length === 0) {
     return <p className="mt-4 text-gray-400">No data available.</p>;
   }
-  console.log('Weee', transactions);
 
   return (
     <>

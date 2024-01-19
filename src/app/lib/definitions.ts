@@ -78,6 +78,12 @@ interface Register {
   confirmPassword: string;
 }
 
+interface ConfirmRegister {
+  email: string;
+  name: string;
+  baseUrl: string;
+}
+
 interface InitialMessageState {
   message: boolean;
   display: boolean;

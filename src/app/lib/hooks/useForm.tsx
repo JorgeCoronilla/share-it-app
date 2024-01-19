@@ -2,8 +2,10 @@ import { useEffect } from 'react';
 import { postUser } from '../services/auth';
 import { useFormStates } from './useFormUtils';
 import { validateForm } from '../validations';
+import { sendMail } from '../services/mailService';
 
 export const useForm = () => {
+  const baseUrl = window.location.href.split('register')[0];
   const {
     getData,
     setShowError,
@@ -27,23 +29,34 @@ export const useForm = () => {
     e.preventDefault();
     setLoading(true);
     const checkData = data as Register;
-
-    const userLogged = await postUser({
-      name: checkData.name,
-      email: checkData.email,
-      password: checkData.password,
-    });
+    await sendMail(
+      'TEST',
+      'jorge.coronilla.naranjo@gmail.com',
+      'THI IS A TEST FOR MY MEDIUM USERS',
+      checkData.name,
+      baseUrl
+    );
     setLoading(false);
-    if (userLogged.ok) {
-      router.push(`/login`);
-    } else {
-      console.log('Error:', userLogged.status);
-      const res = await userLogged.json();
-      console.log('Message:', res.message);
-      setErrorMessage(res.message);
+    router.push(`/login`);
+    // setLoading(true);
+    // const checkData = data as Register;
 
-      setError(true);
-    }
+    // const userLogged = await postUser({
+    //   name: checkData.name,
+    //   email: checkData.email,
+    //   password: checkData.password,
+    // });
+    // setLoading(false);
+    // if (userLogged.ok) {
+    //   router.push(`/login`);
+    // } else {
+    //   console.log('Error:', userLogged.status);
+    //   const res = await userLogged.json();
+    //   console.log('Message:', res.message);
+    //   setErrorMessage(res.message);
+
+    //   setError(true);
+    // }
   };
   return { getData, submit, showError, onFocus, error, errorMessage, loading };
 };

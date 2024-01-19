@@ -1,4 +1,4 @@
-import { SignJWT, jwtVerify } from 'jose';
+import { SignJWT } from 'jose';
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { serialize } from 'cookie';

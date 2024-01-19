@@ -6,6 +6,15 @@ CREATE TABLE users (
     avatar TEXT
 );
 
+CREATE TABLE temporal_users (
+    user_id TEXT PRIMARY KEY,
+    username TEXT,
+    email TEXT,
+    pass TEXT,
+    avatar TEXT,
+    created_at TIMESTAMP DEFAULT (strftime('%Y-%m-%d %H:%M:%S', 'now'))
+);
+
 CREATE TABLE groups (
     group_id TEXT PRIMARY KEY,
     group_name TEXT,

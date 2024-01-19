@@ -51,22 +51,31 @@ export const useFormStates = (formType: formTypes) => {
     useState<Record<string, boolean>>(errors_INITIAL_STATE);
 
   const getData = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e:
+      | React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+      | React.MouseEvent<HTMLSelectElement>
   ) => {
-    const { name, value } = e.target;
-    if (name === 'icon') {
-      const icons =
-        document.querySelectorAll<HTMLInputElement>('input.icon-input');
-      icons.forEach((icon) => {
-        if (icon.id !== e.target.id) icon.checked = false;
-      });
+    const target = e.target as HTMLInputElement | HTMLSelectElement;
+
+    if ('name' in target) {
+      const { name, value } = target;
+
+      if (name === 'icon') {
+        const icons =
+          document.querySelectorAll<HTMLInputElement>('input.icon-input');
+        icons.forEach((icon) => {
+          if (icon.id !== target.id) icon.checked = false;
+        });
+      }
+
+      setData({ ...data, [name]: value });
+      const currentField = {
+        ...errors_INITIAL_STATE,
+        [name]: true,
+      };
+
+      setOnFocus(currentField);
     }
-    setData({ ...data, [name]: value });
-    const currentField = {
-      ...errors_INITIAL_STATE,
-      [name]: true,
-    };
-    setOnFocus(currentField);
   };
 
   return {

@@ -26,7 +26,7 @@ export default async function Header() {
         <Logout />
         <div className="user-container">
           <p className="user-name">{user.name}</p>
-          <CardAvatar user={user} />L
+          <CardAvatar user={user} />
         </div>
       </div>
     </>

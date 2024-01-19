@@ -43,7 +43,6 @@ export const useAddFriend = (user: User) => {
     } else {
       console.log('Error', itemRegistered.status);
       const res = await itemRegistered.json();
-      console.log('Message:', res.message);
       setErrorMessage(res.message);
       setError(true);
     }
