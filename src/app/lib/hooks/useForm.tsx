@@ -35,7 +35,7 @@ export const useForm = () => {
     });
     setLoading(false);
     if (userLogged.ok) {
-      router.push(`/login`);
+      router.push(`/register/check-email`);
     } else {
       console.log('Error:', userLogged.status);
       const res = await userLogged.json();

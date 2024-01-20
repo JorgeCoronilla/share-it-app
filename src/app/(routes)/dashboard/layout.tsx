@@ -4,7 +4,6 @@ import AddGroupButton from '../../ui/dashboard/buttons/addGroupButton';
 import Header from '../../ui/dashboard/header/header';
 import Menu from '../../ui/dashboard/menu/menu';
 import ThemeSwitcher from '../../ui/global/themeSwitcher';
-import SectionTitle from '@/app/ui/global/sectionTitle';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -17,7 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <AddExpenseButton />
       <main className="dashboard-container">
         <div className="spacer"></div>
-        <SectionTitle title="Grupos" />
+
         {children}
       </main>
     </>
