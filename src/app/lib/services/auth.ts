@@ -24,3 +24,15 @@ export async function loginUser({ email, password }: userLogin) {
     },
   });
 }
+
+export async function registerUser(token: string) {
+  return await fetch('/api/register/confirmation', {
+    method: 'POST',
+    body: JSON.stringify({
+      token,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+}

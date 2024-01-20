@@ -1,7 +1,7 @@
 CREATE TABLE users (
     user_id TEXT PRIMARY KEY,
     username TEXT,
-    email TEXT,
+    email TEXT UNIQUE,
     pass TEXT,
     avatar TEXT
 );
@@ -9,7 +9,7 @@ CREATE TABLE users (
 CREATE TABLE temporal_users (
     user_id TEXT PRIMARY KEY,
     username TEXT,
-    email TEXT,
+    email TEXT UNIQUE,
     pass TEXT,
     avatar TEXT,
     created_at TIMESTAMP DEFAULT (strftime('%Y-%m-%d %H:%M:%S', 'now'))

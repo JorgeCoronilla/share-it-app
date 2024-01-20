@@ -13,14 +13,9 @@ export async function createUrl(user: ConfirmRegister) {
     .setExpirationTime('1day')
     .sign(getJwtSecretKey());
 
-  return `${user.baseUrl}register/confirm-email?token=${token}`;
+  return `${user.baseUrl}/register/confirm-email?token=${token}`;
 }
-export async function sendMail(
-  subject: string,
-  toEmail: string,
-  otpText: string,
-  name: string
-) {
+export async function sendConfirmationMail(toEmail: string, name: string) {
   const url = await createUrl({
     name,
     email: toEmail,
@@ -38,11 +33,11 @@ export async function sendMail(
   var mailOptions = {
     from: process.env.NODEMAILER_EMAIL,
     to: toEmail,
-    subject: subject,
+    subject: 'Bienvenido a Shaer-it!',
     text: 'Share-it',
     html: `
-    <h1>SHARE ITTT${otpText}</h1>
-    <p>Hi ${name},</p>
+    <h1>Compartir gastos de una forma fácil</h1>
+    <h4>Hi ${name},</h4>
     <p>Thanks for joining Share-it! Please verify your email address by clicking the link below.</p>
     <a href="${url}">Verify your email</a>`,
   };
