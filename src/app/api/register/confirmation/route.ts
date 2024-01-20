@@ -38,36 +38,36 @@ export async function POST(request: NextRequest) {
         { status: 404 }
       );
     }
-    console.log('User found in pre-registration ', preRegisterInfo);
+    console.log('User found in pre-registration ', preRegisterInfo.rows[0]);
 
-    // // Creates new ID
-    // let user_id = await uuidv4();
+    // Creates new ID
+    let user_id = await uuidv4();
 
-    // // Checks if user already exists
-    // var userFound = await client.execute({
-    //   sql: 'SELECT * FROM users WHERE email = ?',
-    //   args: [userData.email],
-    // });
-    // if (userFound.rows[0]) {
-    //   console.log({ message: 'user already exists' });
-    //   return NextResponse.json(
-    //     { message: 'user already exists' },
-    //     { status: 400 }
-    //   );
-    // }
+    // Checks if user already exists
+    var userFound = await client.execute({
+      sql: 'SELECT * FROM users WHERE email = ?',
+      args: [userData.email],
+    });
+    if (userFound.rows[0]) {
+      console.log({ message: 'user already exists' });
+      return NextResponse.json(
+        { message: 'user already exists' },
+        { status: 400 }
+      );
+    }
 
-    // // Inserts new user in users table
-    // const newUser = await client.execute({
-    //   sql: 'INSERT INTO users (user_id, username, email, pass, avatar) VALUES (?, ?, ?, ? ,?)',
-    //   args: [
-    //     user_id,
-    //     preRegisterInfo.rows[0].username,
-    //     preRegisterInfo.rows[0].email,
-    //     preRegisterInfo.rows[0].pass,
-    //     preRegisterInfo.rows[0].avatar,
-    //   ],
-    // });
-    // console.log('User inserted', newUser);
+    // Inserts new user in users table
+    const newUser = await client.execute({
+      sql: 'INSERT INTO users (user_id, username, email, pass, avatar) VALUES (?, ?, ?, ? ,?)',
+      args: [
+        user_id,
+        preRegisterInfo.rows[0].username,
+        preRegisterInfo.rows[0].email,
+        preRegisterInfo.rows[0].pass,
+        preRegisterInfo.rows[0].avatar,
+      ],
+    });
+    console.log('User inserted', newUser);
     return NextResponse.json(
       {
         message: 'User inserted to group',
@@ -75,6 +75,7 @@ export async function POST(request: NextRequest) {
       },
       { status: 200 }
     );
+    // }
   } catch (error) {
     console.log(error);
     return NextResponse.json(
