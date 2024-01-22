@@ -10,7 +10,7 @@ function HomeHeader() {
           <Link href="/login">SignIn</Link>
           <Link href="/register">SignUp</Link>
         </div>
-        <ThemeSwitcher pageClass="home" />
+        {/* <ThemeSwitcher pageClass="home" /> */}
       </header>
     </div>
   );
