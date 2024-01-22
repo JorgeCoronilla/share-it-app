@@ -11,6 +11,7 @@ import {
   addExpense_validation_INITIAL_STATE,
   addFriend_validation_INITIAL_STATE,
   addGroup_validation_INITIAL_STATE,
+  invitation_validation_INITIAL_STATE,
 } from '../constants';
 import { useRouter } from 'next/navigation';
 
@@ -26,6 +27,8 @@ export const useFormStates = (formType: formTypes) => {
       ? addFriend_validation_INITIAL_STATE
       : formType === formTypes.groups
       ? addGroup_validation_INITIAL_STATE
+      : formType === formTypes.invitation
+      ? invitation_validation_INITIAL_STATE
       : validation_INITIAL_STATE;
 
   const data_INITIAL_STATE =
@@ -49,7 +52,6 @@ export const useFormStates = (formType: formTypes) => {
   const [error, setError] = useState(false);
   const [showError, setShowError] =
     useState<Record<string, boolean>>(errors_INITIAL_STATE);
-
   const getData = (
     e:
       | React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -73,7 +75,6 @@ export const useFormStates = (formType: formTypes) => {
         ...errors_INITIAL_STATE,
         [name]: true,
       };
-
       setOnFocus(currentField);
     }
   };

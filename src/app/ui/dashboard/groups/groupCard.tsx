@@ -3,18 +3,26 @@ import React from 'react';
 import CardIcon from '../card/cardIcon';
 import CardTitle from '../card/cardTitle';
 import CardDescription from '../card/cardDescription';
+import CarSubtitle from '../card/cardSubtitle';
 
 interface Props {
   id: string;
   name: string;
   icon: string;
   userDebt: number;
+  groupBalance: number;
 }
 
-export default function GroupCard({ id, name, icon, userDebt }: Props) {
+export default function GroupCard({
+  id,
+  name,
+  icon,
+  userDebt,
+  groupBalance,
+}: Props) {
   return (
     <Link
-      href={`/dashboard/${id}?name=${name}`}
+      href={`/dashboard/${id}?name=${name}&balance=${groupBalance}`}
       key={id}
     >
       <div
@@ -24,6 +32,7 @@ export default function GroupCard({ id, name, icon, userDebt }: Props) {
         <CardIcon icon={icon} />
         <div className="card-text-container">
           <CardTitle title={name} />
+          <CarSubtitle subtitle={`Total del grupo: ${groupBalance}`} />
           {userDebt >= 0 ? (
             <CardDescription
               description="Debes"

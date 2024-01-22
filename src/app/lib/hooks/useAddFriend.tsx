@@ -34,8 +34,13 @@ export const useAddFriend = (user: User) => {
       return;
     }
     setLoading(true);
+    const newFriendPetition = {
+      email: checkData.email,
+      group_name: checkData.group,
+      hostName: user.name,
+    };
 
-    const itemRegistered = await addFriendToGroup(data as NewFriend);
+    const itemRegistered = await addFriendToGroup(newFriendPetition);
     setLoading(false);
 
     if (itemRegistered.ok) {

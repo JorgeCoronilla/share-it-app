@@ -36,3 +36,18 @@ export async function registerUser(token: string) {
     },
   });
 }
+
+export async function registerUserFromInvitation(data: {
+  name: string;
+  email: string;
+  password: string;
+  token: string;
+}) {
+  return await fetch('/api/register/invitation', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+}

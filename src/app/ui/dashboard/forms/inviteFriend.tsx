@@ -16,7 +16,7 @@ export default function InviteFriendForm({
   const { getData, submit, showError, loading, onFocus, error, errorMessage } =
     useAddFriend(user);
   useEffect(() => {}, [showError]);
-  // console.log('groups', groups);
+
   return (
     <div>
       <form onSubmit={submit}>

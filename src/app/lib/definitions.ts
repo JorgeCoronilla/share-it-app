@@ -78,6 +78,18 @@ interface Register {
   confirmPassword: string;
 }
 
+interface InvitationData {
+  name: string;
+  password: string;
+  confirmPassword: string;
+}
+
+interface Invitation {
+  name: boolean;
+  password: boolean;
+  confirmPassword: boolean;
+}
+
 interface ConfirmRegister {
   email: string;
   name: string;
@@ -140,6 +152,12 @@ interface NewFriend {
   group: string;
 }
 
+interface NewFriendPetition {
+  email: string;
+  group_name: string;
+  hostName: string;
+}
+
 interface ValidateNewFriend {
   email: boolean;
   group: boolean;
@@ -153,10 +171,17 @@ interface validateLogin {
   email: boolean;
   password: boolean;
 }
-type formTypes = 'login' | 'register' | 'expenses' | 'groups' | 'friends';
+type formTypes =
+  | 'login'
+  | 'register'
+  | 'expenses'
+  | 'groups'
+  | 'friends'
+  | 'invitation';
 type FormDataType =
   | Register
   | userLogin
   | NewExpenseData
   | NewFriend
-  | NewGroupData;
+  | NewGroupData
+  | Invitation;

@@ -79,11 +79,16 @@ export const addExpense_validation_INITIAL_STATE = {
   icon: true,
   allfields: false,
 };
-
+export const invitation_validation_INITIAL_STATE = {
+  name: false,
+  password: false,
+  confirmPassword: false,
+};
 export const formTypes = {
   login: 'login',
   register: 'register',
   expenses: 'expenses',
   groups: 'groups',
   friends: 'friends',
+  invitation: 'invitation',
 };

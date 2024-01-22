@@ -41,6 +41,20 @@ export function validateForm(values: Register) {
   };
 }
 
+export function validateInvitation(values: Register) {
+  return {
+    name: !regexTwoCharacters.test(values.name),
+    email: !regexEmail.test(values.email),
+    password: !regexPassword.test(values.password),
+    confirmPassword: !(values.password === values.confirmPassword),
+    allfields: !(
+      regexTwoCharacters.test(values.name) &&
+      regexPassword.test(values.password) &&
+      values.password === values.confirmPassword
+    ),
+  };
+}
+
 export function validateLogin(values: userLogin) {
   return {
     email: !regexEmail.test(values.email),

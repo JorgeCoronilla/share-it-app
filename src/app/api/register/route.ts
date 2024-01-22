@@ -49,6 +49,7 @@ export async function POST(request: NextRequest) {
     // Creates a new user
     let user_id = uuidv4();
     const hashedPassword = await bcrypt.hash(data.password, 10);
+
     var newUser = await client.execute({
       sql: 'INSERT INTO temporal_users (user_id, username, email, pass, avatar) VALUES (?, ?, ?, ? ,?)',
       args: [user_id, data.name, data.email, hashedPassword, 'avatar'],

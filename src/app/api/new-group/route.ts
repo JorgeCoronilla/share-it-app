@@ -24,8 +24,8 @@ export async function POST(request: NextRequest) {
 
     // Checks if there is already a group with same name
     const sameNameGroup = await client.execute({
-      sql: 'SELECT group_id FROM groups WHERE group_name = ?',
-      args: [data.name],
+      sql: 'SELECT groups.group_id FROM groups JOIN user_group ON groups.group_id = user_group.group_id WHERE groups.group_name = ? AND user_group.user_id = ?',
+      args: [data.name, userID],
     });
     if (sameNameGroup.rows.length > 0) {
       console.log('Group already exists');

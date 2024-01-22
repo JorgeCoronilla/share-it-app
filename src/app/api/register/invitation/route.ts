@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import client from '@/app/lib/db/db';
 import { v4 as uuidv4 } from 'uuid';
-import { getTokenInfo } from '@/app/lib/auth';
+import { getTokenInfo2 } from '@/app/lib/auth';
+import bcrypt from 'bcrypt';
 
 export async function POST(request: NextRequest) {
   try {
-    const data: { token: string } = await request.json();
-
+    const data = await request.json();
     if (!data) {
       return NextResponse.json(
         { message: 'Please add all required info' },
@@ -16,37 +16,21 @@ export async function POST(request: NextRequest) {
     if (!client) {
       throw new Error('DB client not initialized: Wrong credentials');
     }
-    // Gets user data from token
-    const userData = await getTokenInfo(data.token);
-    console.log('userData', userData);
-    if (!userData) {
+    //Gets user data from token
+    const { groupId, email } = await getTokenInfo2(data.token);
+    console.log('userData', groupId, email);
+    if (!groupId || !email) {
       console.log('Token not found or invalid');
       return NextResponse.json(
         { message: 'Token not found or invalid' },
         { status: 400 }
       );
     }
-    // Checks new user from preregistration table
-    const preRegisterInfo = await client.execute({
-      sql: 'SELECT user_id, username, email, pass, avatar FROM temporal_users WHERE email =  ?',
-      args: [userData.email],
-    });
-    if (preRegisterInfo.rows.length === 0) {
-      console.log('User not found in pre-register list', preRegisterInfo);
-      return NextResponse.json(
-        { message: 'User not found in pre-register list' },
-        { status: 404 }
-      );
-    }
-    console.log('User found in pre-registration ', preRegisterInfo.rows[0]);
-
-    // Creates new ID
-    let user_id = await uuidv4();
 
     // Checks if user already exists
     var userFound = await client.execute({
       sql: 'SELECT * FROM users WHERE email = ?',
-      args: [userData.email],
+      args: [data.email],
     });
     if (userFound.rows[0]) {
       console.log({ message: 'user already exists' });
@@ -55,28 +39,36 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-
+    console.log('good: user not found');
     // Inserts new user in users table
-
-    if (!preRegisterInfo.rows[0].pass) {
-      console.log('Password not found');
-      return NextResponse.json(
-        { message: 'Password not found' },
-        { status: 404 }
-      );
-    }
-
+    // Creates new ID
+    let user_id = await uuidv4();
+    const hashedPassword = await bcrypt.hash(data.password, 10);
     const newUser = await client.execute({
       sql: 'INSERT INTO users (user_id, username, email, pass, avatar) VALUES (?, ?, ?, ? ,?)',
-      args: [
-        user_id,
-        preRegisterInfo.rows[0].username,
-        preRegisterInfo.rows[0].email,
-        preRegisterInfo.rows[0].pass.toString(),
-        preRegisterInfo.rows[0].avatar,
-      ],
+      args: [user_id, data.name, email, hashedPassword, 'avatar'],
     });
     console.log('User inserted', newUser);
+
+    // Checks if group exists and gets IDs and current balance
+    const group = await client.execute({
+      sql: 'SELECT group_id FROM groups WHERE group_id = ?',
+      args: [groupId],
+    });
+    if (group.rows.length === 0) {
+      console.log('Group not found');
+      return NextResponse.json({ message: 'Group not found' }, { status: 404 });
+    }
+    console.log('good: group exists = ', group.rows[0].group_id);
+
+    const user_group_id = uuidv4();
+    // Join friend to group
+    const newMember = await client.execute({
+      sql: 'INSERT INTO user_group (user_group_id, user_id, group_id, user_balance, status) VALUES ( ?, ?, ?, ?, ?)',
+      args: [user_group_id, user_id, groupId, 0, 'invited'],
+    });
+    console.log('newMember: user joined into group', newMember);
+
     return NextResponse.json(
       {
         message: 'User inserted to group',

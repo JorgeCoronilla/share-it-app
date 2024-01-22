@@ -1,4 +1,5 @@
 'use client';
+import { ReadonlyURLSearchParams } from 'next/navigation';
 import React from 'react';
 
 interface Props {
@@ -9,6 +10,8 @@ interface Props {
   autoComplete?: string;
   placeholder: string;
   list?: string;
+  value?: string;
+  readOnly?: boolean;
 }
 export default function FormInput({
   getData,
@@ -18,6 +21,8 @@ export default function FormInput({
   autoComplete,
   placeholder,
   list,
+  value,
+  readOnly,
 }: Props) {
   return (
     <>
@@ -30,6 +35,8 @@ export default function FormInput({
         placeholder={placeholder}
         id={`id-n-${name}`}
         list={list}
+        value={value}
+        readOnly={readOnly}
       />
     </>
   );

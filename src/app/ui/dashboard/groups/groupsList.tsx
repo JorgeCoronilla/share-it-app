@@ -7,6 +7,7 @@ import { getUserId } from '@/app/lib/auth';
 export default async function GroupsList() {
   const userID = await getUserId();
   const userData = await getGroups(userID);
+  console.log(userData);
   if (!userData || userData.length === 0) {
     return <NoData message="Todavía no perteneces a ningún grupo." />;
   }
@@ -37,6 +38,7 @@ export default async function GroupsList() {
                 name={name}
                 icon={icon}
                 userDebt={userDebt}
+                groupBalance={group_balance}
               />
             );
           }

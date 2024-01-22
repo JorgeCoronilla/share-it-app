@@ -9,7 +9,7 @@ import client from '@/app/lib/db/db';
 export async function POST(request: NextRequest) {
   try {
     const data: userLogin = await request.json();
-    console.log(data);
+    console.log(data.password);
 
     if (!data.email || !data.password) {
       return NextResponse.json(
@@ -39,6 +39,7 @@ export async function POST(request: NextRequest) {
         data.password,
         userFound.rows[0].pass.toString()
       );
+      console.log(passwordOk);
       if (!passwordOk) {
         console.log('Invalid email or password');
         return NextResponse.json(

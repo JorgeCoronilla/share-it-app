@@ -83,3 +83,12 @@ export const getTokenInfo = async (token: string) => {
   };
   return userData;
 };
+
+export const getTokenInfo2 = async (token: string) => {
+  const verified = await verifyJwtToken(token);
+
+  return {
+    groupId: verified?.groupId?.toString() || '',
+    email: verified?.email?.toString() || '',
+  };
+};
