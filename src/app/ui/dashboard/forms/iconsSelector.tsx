@@ -2,6 +2,7 @@ import { icons } from '@/app/lib/constants';
 
 interface Props {
   getData: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
 }
 
 export default function IconsSelector({ getData }: Props) {

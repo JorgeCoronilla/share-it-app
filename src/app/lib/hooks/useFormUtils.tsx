@@ -86,6 +86,7 @@ export const useFormStates = (formType: formTypes) => {
     setErrorMessage,
     setOnFocus,
     getData,
+    setData,
     showError,
     onFocus,
     loading,

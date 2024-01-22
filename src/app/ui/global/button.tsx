@@ -6,14 +6,22 @@ interface Props {
   text: string;
   className?: string;
   disabled?: boolean;
+  onClick?: () => void;
 }
 
-export default function Button({ type, text, className, disabled }: Props) {
+export default function Button({
+  type,
+  text,
+  className,
+  disabled,
+  onClick,
+}: Props) {
   return (
     <button
       type={type}
       className={className}
       disabled={disabled}
+      onClick={onClick}
     >
       {text}
     </button>

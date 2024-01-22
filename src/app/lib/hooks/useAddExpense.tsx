@@ -10,6 +10,7 @@ export const useAddExpense = () => {
     setLoading,
     setError,
     setErrorMessage,
+    setData,
     data,
     showError,
     onFocus,
@@ -22,6 +23,7 @@ export const useAddExpense = () => {
   useEffect(() => {
     setShowError(validateNewExpense(data as NewExpenseData));
   }, [data]);
+  console.log(data);
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,8 +32,8 @@ export const useAddExpense = () => {
     setLoading(false);
 
     if (itemRegistered.status === 200) {
-      const data = await itemRegistered.json();
-      console.log(data);
+      const res = await itemRegistered.json();
+      console.log(res);
       router.push(`/dashboard`);
     } else {
       const res = await itemRegistered.json();
@@ -54,5 +56,15 @@ export const useAddExpense = () => {
       }, 2000);
     }
   };
-  return { getData, submit, error, loading, showError, onFocus, errorMessage };
+  return {
+    getData,
+    submit,
+    setData,
+    error,
+    loading,
+    showError,
+    onFocus,
+    errorMessage,
+    data,
+  };
 };

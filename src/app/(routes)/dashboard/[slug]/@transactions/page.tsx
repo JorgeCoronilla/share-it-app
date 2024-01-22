@@ -4,6 +4,7 @@ import CardIcon from '@/app/ui/dashboard/card/cardIcon';
 import CardTextAndDate from '@/app/ui/dashboard/card/cardTextAndDate';
 import CardTitle from '@/app/ui/dashboard/card/cardTitle';
 import CardSubtitle from '@/app/ui/dashboard/card/cardSubtitle';
+import Link from 'next/link';
 
 export default async function Page({
   params,
@@ -26,20 +27,25 @@ export default async function Page({
       {transactions.map(
         ({ id, user_name, date, description, amount, icon }) => {
           return (
-            <div
-              className="card-container"
+            <Link
+              href={`/dashboard/transaction-update?id=${id}&description=${description}&amount=${amount}&icon=${icon}&group=${params.slug}`}
               key={id}
             >
-              <CardIcon icon={icon} />
-              <div className="card-text-container">
-                <CardTitle title={user_name} />
-                <CardDescription description={description} />
-                <CardTextAndDate
-                  amount={amount.toString()}
-                  date={date.split(' ')[0]}
-                />
+              <div
+                className="card-container"
+                key={id}
+              >
+                <CardIcon icon={icon} />
+                <div className="card-text-container">
+                  <CardTitle title={user_name} />
+                  <CardDescription description={description} />
+                  <CardTextAndDate
+                    amount={amount.toString()}
+                    date={date.split(' ')[0]}
+                  />
+                </div>
               </div>
-            </div>
+            </Link>
           );
         }
       )}
