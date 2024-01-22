@@ -54,13 +54,20 @@ export default function Page({
       </div>
       <button
         type="button"
-        // className={
-        //   showError.allfields && !loading
-        //     ? 'submit-button'
-        //     : 'submit-button disabled'
-        // }
-        // disabled={!showError.allfields}
-        className="submit-button"
+        className={
+          !showError.description &&
+          !showError.quantity &&
+          !showError.icon &&
+          !loading
+            ? 'submit-button'
+            : 'submit-button disabled'
+        }
+        disabled={
+          showError.description &&
+          showError.quantity &&
+          showError.icon &&
+          loading
+        }
         onClick={updateTransaction}
       >
         Modificar

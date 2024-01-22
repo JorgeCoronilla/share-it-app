@@ -28,6 +28,7 @@ export const useUpdateExpense = (
 
   useEffect(() => {
     setShowError(validateNewExpense(data as NewExpenseData));
+    console.log(showError);
   }, [data]);
 
   const deleteTransaction = async () => {
