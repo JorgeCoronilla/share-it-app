@@ -27,11 +27,12 @@ export default function Page({
     onFocus,
     errorMessage,
     deleteTransaction,
+    updateTransaction,
   } = useUpdateExpense(group, id, amount);
 
   return (
     <div className="new-group-modal">
-      <FormHeader title="Crear nuevo gasto" />
+      <FormHeader title="Modificar gasto" />
       <div className="form-container">
         <div className="text-fields-container">
           <FormInput
@@ -51,17 +52,19 @@ export default function Page({
         </div>
         <IconsSelector getData={getData} />
       </div>
-      {/* <button
+      <button
         type="button"
-        className={
-          showError.allfields && !loading
-            ? 'submit-button'
-            : 'submit-button disabled'
-        }
-        disabled={!showError.allfields}
+        // className={
+        //   showError.allfields && !loading
+        //     ? 'submit-button'
+        //     : 'submit-button disabled'
+        // }
+        // disabled={!showError.allfields}
+        className="submit-button"
+        onClick={updateTransaction}
       >
         Modificar
-      </button> */}
+      </button>
       <button
         type="button"
         className="submit-button"
