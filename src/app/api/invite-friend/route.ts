@@ -51,14 +51,13 @@ export async function POST(request: NextRequest) {
       }
       return NextResponse.json({ message: 'Email sent' }, { status: 201 });
     }
-    console.log(friend.rows[0].user_id);
+    console.log('Es ususario', friend.rows[0].user_id);
 
     // Checks if friend is member of the group and gets IDs and name
     const alreadyIn = await client.execute({
       sql: 'SELECT user_group_id FROM user_group WHERE user_id = ? AND group_id = ?',
       args: [friend.rows[0].user_id, groupId.rows[0].group_id],
     });
-    console.log('------------', alreadyIn);
     if (alreadyIn.rows.length > 0) {
       console.log('Friend Already in that group');
       return NextResponse.json(
@@ -66,7 +65,7 @@ export async function POST(request: NextRequest) {
         { status: 404 }
       );
     }
-    console.log(friend);
+    console.log('No estaba en el grupo', friend);
 
     const user_group_id = uuidv4();
     // Join friend to group
