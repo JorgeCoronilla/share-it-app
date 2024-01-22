@@ -46,10 +46,10 @@ export async function POST(request: NextRequest) {
       if (sendInvitationEmail.error) {
         return NextResponse.json(
           { message: 'Email not sent' },
-          { status: 404 }
+          { status: 503 }
         );
       }
-      return NextResponse.json({ message: 'Email sent' }, { status: 200 });
+      return NextResponse.json({ message: 'Email sent' }, { status: 201 });
     }
     console.log(friend.rows[0].user_id);
 

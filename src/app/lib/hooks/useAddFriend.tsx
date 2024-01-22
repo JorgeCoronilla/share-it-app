@@ -43,13 +43,38 @@ export const useAddFriend = (user: User) => {
     const itemRegistered = await addFriendToGroup(newFriendPetition);
     setLoading(false);
 
-    if (itemRegistered.ok) {
-      router.push(`/dashboard`);
+    if (itemRegistered.status === 200) {
+      setErrorMessage('Amigo añadido a tu grupo');
+      setTimeout(() => {
+        router.push(`/dashboard`);
+      }, 2000);
+    }
+    if (itemRegistered.status === 201) {
+      setErrorMessage(
+        'Usuario no registrado. Hemos enviado un correo de invitación'
+      );
+      setTimeout(() => {
+        router.push(`/dashboard`);
+      }, 2000);
     } else {
       console.log('Error', itemRegistered.status);
-      const res = await itemRegistered.json();
-      setErrorMessage(res.message);
+      if (itemRegistered.status === 400) {
+        setErrorMessage('Complete todos los campos');
+      }
+      if (itemRegistered.status === 503) {
+        setErrorMessage('El email no se ha podido enviar');
+      }
+      if (itemRegistered.status === 404) {
+        setErrorMessage('El grupo no existe');
+      } else {
+        setErrorMessage(
+          'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
+        );
+      }
       setError(true);
+      setTimeout(() => {
+        router.push(`/dashboard`);
+      }, 2000);
     }
   };
   return {

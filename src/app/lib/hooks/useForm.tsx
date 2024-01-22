@@ -37,12 +37,24 @@ export const useForm = () => {
     if (userLogged.ok) {
       router.push(`/register/check-email`);
     } else {
-      console.log('Error:', userLogged.status);
-      const res = await userLogged.json();
-      console.log('Message:', res.message);
-      setErrorMessage(res.message);
+      if (userLogged.status === 400) {
+        setErrorMessage('Complete todos los campos');
+      }
+
+      if (userLogged.status === 404) {
+        setErrorMessage('Ya existe un usuario con ese email');
+      } else {
+        setErrorMessage(
+          'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
+        );
+      }
+      setTimeout(() => {
+        router.push(`/dashboard`);
+      }, 2000);
+      setError(true);
 
       setError(true);
+      console.log('Error:', userLogged.status);
     }
   };
   return { getData, submit, showError, onFocus, error, errorMessage, loading };

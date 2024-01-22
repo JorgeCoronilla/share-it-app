@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
 
     if (!data.group || !data.description || !data.quantity || !data.icon) {
       return NextResponse.json(
-        { message: 'Please all required info' },
+        { message: 'Please add all required info' },
         { status: 400 }
       );
     }

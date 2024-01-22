@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
       console.log({ message: 'user already exists' });
       return NextResponse.json(
         { message: 'user already exists' },
-        { status: 400 }
+        { status: 404 }
       );
     }
     console.log('good: user not found');
@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
     });
     if (group.rows.length === 0) {
       console.log('Group not found');
-      return NextResponse.json({ message: 'Group not found' }, { status: 404 });
+      return NextResponse.json({ message: 'Group not found' }, { status: 400 });
     }
     console.log('good: group exists = ', group.rows[0].group_id);
 

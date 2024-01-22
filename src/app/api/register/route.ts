@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
       console.log({ message: 'user already exists' });
       return NextResponse.json(
         { message: 'user already exists' },
-        { status: 400 }
+        { status: 401 }
       );
     }
 
@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
       console.log({ message: 'user already exists' });
       return NextResponse.json(
         { message: 'user already exists' },
-        { status: 400 }
+        { status: 401 }
       );
     }
 
@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
     console.log(newUser);
 
     // Set up a cleanup task to run every hour
-    cleanUpTemporalUsers();
+    cleanUpTemporalUsers(data.email);
 
     //Send confirmation email
     const confirmationEmail = await sendConfirmationMail(data.email, data.name);

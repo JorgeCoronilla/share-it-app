@@ -36,14 +36,25 @@ export const useInvitationForm = (token: string) => {
     });
     setLoading(false);
     if (userLogged.ok) {
-      // router.push(`/register/check-email`);
-      console.log('Llega aca');
+      router.push(`/login`);
     } else {
       console.log('Error:', userLogged.status);
-      const res = await userLogged.json();
-      console.log('Message:', res.message);
-      setErrorMessage(res.message);
-
+      if (userLogged.status === 400) {
+        setErrorMessage('Complete todos los campos');
+      }
+      if (userLogged.status === 401) {
+        setErrorMessage('El usuario ya existe');
+      }
+      if (userLogged.status === 404) {
+        setErrorMessage('Este grupo ya no existe');
+      } else {
+        setErrorMessage(
+          'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
+        );
+      }
+      setTimeout(() => {
+        router.push(`/`);
+      }, 2000);
       setError(true);
     }
   };

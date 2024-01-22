@@ -39,11 +39,13 @@ export const useLogin = () => {
     if (userLogged.ok) {
       router.push(`/dashboard`);
     } else {
-      console.log('Error', userLogged.status);
-      const res = await userLogged.json();
-      console.log('Message:', res.message);
-      setErrorMessage(res.message);
-
+      if (userLogged.status === 400 || userLogged.status === 404) {
+        setErrorMessage('Email o contraseña incorrectos');
+      } else {
+        setErrorMessage(
+          'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
+        );
+      }
       setError(true);
     }
   };

@@ -35,9 +35,21 @@ export const useAddGroup = () => {
       console.log(data);
       router.push(`/dashboard`);
     } else {
-      const res = await itemRegistered.json();
-      console.log('Message:', res.message);
-      setErrorMessage(res.message);
+      if (itemRegistered.status === 400) {
+        setErrorMessage('Complete todos los campos');
+      }
+
+      if (itemRegistered.status === 404) {
+        setErrorMessage('Ya existe un grupo con ese nombre');
+      } else {
+        setErrorMessage(
+          'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
+        );
+      }
+      setTimeout(() => {
+        router.push(`/dashboard`);
+      }, 2000);
+      setError(true);
 
       console.log('Error', itemRegistered.status);
       setError(true);

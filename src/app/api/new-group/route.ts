@@ -14,7 +14,6 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-    console.log('API', data);
     if (!client) {
       throw new Error('DB client not initialized: Wrong credentials');
     }

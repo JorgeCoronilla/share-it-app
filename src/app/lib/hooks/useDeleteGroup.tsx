@@ -21,9 +21,17 @@ export const useDeleteGroup = (id: string, name: string) => {
       setLoading(false);
       router.push(`/dashboard`);
     } else {
+      if (deletedGroup.status === 404) {
+        setErrorMessage(
+          'Las deudas de este grupo no están saldadas. No se puede cerrar'
+        );
+      } else {
+        setErrorMessage(
+          'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
+        );
+      }
       console.log('Error', deletedGroup.status);
-      const res = await deletedGroup.json();
-      setErrorMessage(res.message);
+
       setError(true);
       setTimeout(() => {
         router.push(`/dashboard`);

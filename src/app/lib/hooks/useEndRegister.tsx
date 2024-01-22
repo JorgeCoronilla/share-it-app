@@ -14,13 +14,30 @@ export const useEndRegistration = () => {
     const userRegistration = await registerUser(token);
     setLoading(false);
     if (userRegistration.ok) {
-      router.push(`/login`);
+      router.push(`/`);
     } else {
-      const res = await userRegistration.json();
-      setMessage(res.message);
+      if (userRegistration.status === 400) {
+        setMessage('Usuario o grupo no encontrado.');
+        setTimeout(() => {
+          router.push(`/`);
+        }, 2000);
+      }
+
+      if (userRegistration.status === 401) {
+        setMessage('El usuario ya existe');
+      }
+      if (userRegistration.status === 404) {
+        setMessage('El usuario no existe o link expirado');
+      } else {
+        setMessage(
+          'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
+        );
+      }
+
       setError(true);
       setTimeout(() => {
         setError(false);
+        setLoading(true);
         router.push(`/`);
       }, 3000);
     }

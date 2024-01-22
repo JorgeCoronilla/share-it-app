@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
       console.log({ message: 'user already exists' });
       return NextResponse.json(
         { message: 'user already exists' },
-        { status: 400 }
+        { status: 401 }
       );
     }
 
