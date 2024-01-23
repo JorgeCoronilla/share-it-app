@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <Header />
       <Menu />
-      <ThemeSwitcher pageClass="dashboard" />
+      {/* <ThemeSwitcher pageClass="dashboard" /> */}
       <AddGroupButton />
       <AddFriendButton />
       <AddExpenseButton />

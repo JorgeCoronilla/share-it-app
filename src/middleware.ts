@@ -34,5 +34,5 @@ export default async function nextjs_future(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/dashboard', '/dashboard/:path*'],
+  matcher: ['/dashboard', '/dashboard/:path*', '/add/:path*'],
 };

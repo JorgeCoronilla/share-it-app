@@ -7,7 +7,7 @@ export default function AddExpenseButton() {
 
   return (
     <button
-      onClick={() => router.push('/dashboard/create-expense')}
+      onClick={() => router.push('/add/create-expense')}
       className="add-button expense"
     >
       <div>

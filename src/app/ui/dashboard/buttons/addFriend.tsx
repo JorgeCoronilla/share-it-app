@@ -7,7 +7,7 @@ export default function AddFriendButton() {
 
   return (
     <button
-      onClick={() => router.push('/dashboard/invite-user')}
+      onClick={() => router.push('/add/invite-user')}
       className="add-button friend"
     >
       <div>
