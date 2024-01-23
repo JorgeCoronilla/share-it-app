@@ -23,7 +23,7 @@ export default async function Page() {
             className="card-container"
           >
             <div
-              className="friends-card-text-container"
+              className="card-text-container-no-icon"
               key={`c-${friend.id}`}
             >
               <CardTitle

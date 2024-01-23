@@ -8,7 +8,7 @@ import { useEndRegistration } from '@/app/lib/hooks/useEndRegister';
 export default function Page() {
   const { message, loading, error, EndRegistration } = useEndRegistration();
   return (
-    <div className="new-group-modal">
+    <div className="form-body">
       <FormHeader title="Ya casi lo tienes!" />
       <button
         className="submit-button"

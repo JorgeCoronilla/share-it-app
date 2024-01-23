@@ -1,30 +1,29 @@
-.new-group-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
+.form-body {
   width: 100%;
-  height: 100lvh;
-  z-index: 101;
+  height: 100dvh;
   background-color: var(--background-color);
   padding: 1em 2em 2em;
 }
 
-.close-modal {
-  position: absolute;
-  top: 0.5em;
-  right: 0.5em;
+.form-header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-top: 1em;
+}
+.close-form {
   font-size: 1.5em;
   color: var(--switcher);
   cursor: pointer;
 }
 
-.modal-title {
+/* .modal-title {
   color: var(--switcher);
   font-size: 2em;
   margin-bottom: 1em;
-}
+} */
 
-.new-group-modal label {
+.form-body label {
   color: var(--positive);
   display: block;
   font-size: 1.2em;
@@ -32,8 +31,8 @@
   font-weight: 600;
 }
 
-.new-group-modal input,
-.new-group-modal select {
+.form-body input,
+.form-body select {
   margin-bottom: 1.1em;
   font-size: 1.1em;
   padding: 0.5em 0.5em;
@@ -45,13 +44,13 @@
   color: var(--text);
 }
 
-.new-group-modal input:focus,
-.new-group-modal select:focus {
+.form-body input:focus,
+.form-body select:focus {
   outline: none;
   border: 2px solid var(--switcher);
 }
 
-.close-modal {
+.close-form {
   background-color: var(--switcher);
   padding: 0.2em 0.2em;
   border-radius: 0.4em;
@@ -60,7 +59,7 @@
 
 .submit-button {
   background-color: var(--switcher) !important;
-  padding: 0.5em 0.5em;
+  padding: 0.25em 0.5em;
   border-radius: 0.4em;
   width: 100%;
   color: var(--background-color);

@@ -61,6 +61,7 @@ body {
 .home-links {
   padding: 0.5em 1.4em;
   background-color: var(--background-color);
+  transition: background-color 0.4s ease-in-out;
   opacity: 0.5;
 }
 
@@ -71,7 +72,7 @@ body {
   color: var(--text);
 }
 
-.title {
+.hero-container .title {
   margin-top: 2.5em;
   margin-bottom: 0.5em;
 }
@@ -81,4 +82,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0 3em;
+}
+
+.hero p {
+  text-align: center;
 }

@@ -7,11 +7,8 @@
 @import './ui/styles/themeSwitcher.css';
 @import './ui/styles/addButtons.css';
 @import './ui/styles/dashboard.css';
-@import './ui/styles/gruopsCard.css';
-@import './ui/styles/friends.css';
-@import './ui/styles/activity.css';
-@import './ui/styles/newGroup.css';
-@import './ui/styles/login.css';
+@import './ui/styles/cards.css';
+@import './ui/styles/forms.css';
 
 :root {
   --title: var(--light-title);
@@ -30,7 +27,7 @@
   --light-switcher: rgb(211, 53, 158);
 
   --switch-height-home: 3.5em;
-  --switch-height-dashboard: 5em;
+  --switch-height-dashboard: 3.8em;
 
   --dark-text: rgb(209 213 219);
   --light-text: rgb(66, 66, 66);

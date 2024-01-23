@@ -13,7 +13,7 @@ export default async function Page() {
     userGroups = [];
   }
   return (
-    <div className="new-group-modal">
+    <div className="form-body">
       <FormHeader title="Invita a un amig@" />
       <InviteFriendForm
         groups={userGroups}

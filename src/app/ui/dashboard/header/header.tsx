@@ -17,17 +17,20 @@ export default async function Header() {
   return (
     <>
       <div className="header-container">
-        <h1
-          className="text-right text-2xl mt-1
-        title"
-        >
-          Share-it
-        </h1>
-        <Logout />
-        <div className="user-container">
-          <p className="user-name">{user.name}</p>
-          <CardAvatar user={user} />
+        <div className="header-row">
+          <div className="title-container">
+            <h1 className="title">Share-it</h1>
+          </div>
+          <div className="user-container">
+            <div>
+              <p className="user-name">{user.name}</p>
+            </div>
+
+            <CardAvatar user={user} />
+            <Logout />
+          </div>
         </div>
+        <div className="header-row"></div>
       </div>
     </>
   );

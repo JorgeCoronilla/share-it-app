@@ -1,0 +1,86 @@
+.main-text {
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-bottom: 2em;
+  color: var(--text);
+}
+
+.card-container {
+  display: flex;
+  margin-top: 1em;
+  padding: 0.5em 0 0.5em 0;
+  border-radius: 8px;
+  border: var(--card-border);
+}
+
+.card-icon-container {
+  width: 25%;
+  padding: 0.8em;
+  display: flex;
+}
+
+.card-icon {
+  width: 100%;
+  filter: var(--icon-color);
+  display: block;
+}
+
+.card-text-container {
+  width: 75%;
+  padding: 0.5em 0.5em 0 0.2em;
+}
+
+.card-text-container-no-icon {
+  padding: 1em 1.4em;
+  width: 100%;
+}
+
+.card-title {
+  font-size: 1.3em;
+  color: var(--switcher);
+  font-weight: 900;
+  margin-bottom: 0.2em;
+}
+
+.card-subtitle {
+  margin: 0;
+  padding: 0;
+  color: var(--positive);
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.card-description {
+  font-size: 1.2em;
+  color: var(--text);
+}
+.card-description span {
+  font-weight: 900;
+}
+
+.highlight-text {
+  background-color: var(--text);
+  padding: 0 0.2em;
+  border-radius: 0.3em;
+  color: var(--background-color);
+}
+.card-amount-date {
+  display: flex;
+  margin-top: 0.4em;
+  margin-right: 0.5em;
+  justify-content: space-between;
+}
+
+.card-list {
+  list-style-type: square;
+  margin-left: 1em;
+}
+
+.card-avatar-container {
+  width: 15%;
+  padding: 0.3em 0.7em 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: fit-content;
+}

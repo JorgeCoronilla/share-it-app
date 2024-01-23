@@ -17,7 +17,8 @@ export default function Menu() {
           pathName === `/dashboard` ? 'menu-button-active' : 'menu-button'
         } }`}
       >
-        <IconUsers /> Grupos
+        <IconUsers />
+        <p className="menu-text">Grupos</p>
       </Link>
       <Link
         key="friends"
@@ -28,7 +29,8 @@ export default function Menu() {
             : 'menu-button'
         } }`}
       >
-        <IconUser /> Amigos
+        <IconUser />
+        <p className="menu-text">Amigos</p>
       </Link>
       <Link
         key="activity"
@@ -40,7 +42,7 @@ export default function Menu() {
         } }`}
       >
         <IconActivityLog />
-        Actividad
+        <p className="menu-text">Actividad</p>
       </Link>
       <Link
         key="account"
@@ -52,7 +54,7 @@ export default function Menu() {
         } }`}
       >
         <IconAccountBoxOutline />
-        Cuenta
+        <p className="menu-text">Cuenta</p>
       </Link>
     </div>
   );

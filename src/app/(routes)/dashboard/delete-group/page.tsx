@@ -14,7 +14,7 @@ export default function AddGroupButton() {
   }
 
   return (
-    <div className="new-group-modal">
+    <div className="form-body">
       <FormHeader title="Eliminar grupo 2" />
       <div className="spacer"></div>
       <DeleteGroup

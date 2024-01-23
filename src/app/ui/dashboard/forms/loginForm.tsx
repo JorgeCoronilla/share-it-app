@@ -11,10 +11,10 @@ export default function LoginForm() {
     useLogin();
 
   return (
-    <div className="new-group-modal">
+    <div className="form-body">
       <FormHeader title="Login" />
       <form
-        className="login-form"
+        className="form-main"
         onSubmit={submit}
       >
         <FormInput

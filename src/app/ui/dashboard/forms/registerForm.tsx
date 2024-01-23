@@ -6,18 +6,19 @@ import React from 'react';
 import FormInput from '../../global/formInput';
 import FormWarning from '../../global/formWarning';
 import Button from '../../global/button';
+import FormHeader from './formHeader';
 
 export default function RegisterForm() {
   const { getData, submit, showError, onFocus, errorMessage, error, loading } =
     useForm();
 
   return (
-    <div className="loginForm">
+    <div className="form-body">
+      <FormHeader title="Nuevo usuario" />
       <form
-        className="login-form"
+        className="form-main"
         onSubmit={submit}
       >
-        <h1>Nuevo usuario</h1>
         {formFields.map((field) => (
           <div key={`container-${field.name}`}>
             <FormInput

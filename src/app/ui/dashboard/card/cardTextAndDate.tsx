@@ -5,7 +5,7 @@ interface Props {
 }
 export default function CardTextAndDate({ amount, date }: Props) {
   return (
-    <div className="activity-card-amount highlight">
+    <div className="card-amount-date highlight-text">
       <p>{amount} €</p>
       <p>{date}</p>
     </div>

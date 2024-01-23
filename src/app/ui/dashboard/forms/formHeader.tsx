@@ -11,19 +11,20 @@ export default function FormHeader({ title }: Props) {
   const router = useRouter();
   return (
     <div>
-      {' '}
-      <button
-        onClick={() => router.push('/dashboard')}
-        className="close-modal"
-      >
-        <div className="close-container">
-          <img
-            src="/icons/close-icon.svg"
-            alt="Avatar"
-          />
-        </div>
-      </button>
-      <div className="spacer"></div>
+      <div className="form-header-container">
+        <button
+          onClick={() => router.push('/dashboard')}
+          className="close-form"
+        >
+          <div className="close-container">
+            <img
+              src="/icons/close-icon.svg"
+              alt="Avatar"
+            />
+          </div>
+        </button>
+      </div>
+
       <SectionTitle title={title} />
     </div>
   );

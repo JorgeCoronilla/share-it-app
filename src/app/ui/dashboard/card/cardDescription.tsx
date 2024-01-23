@@ -11,7 +11,7 @@ export default function CardDescription({
   highlightText,
 }: Props) {
   return (
-    <p className="card-debt">
+    <p className="card-description">
       {description} <span className={className}>{highlightText}</span>
     </p>
   );

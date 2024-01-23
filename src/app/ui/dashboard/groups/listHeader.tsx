@@ -8,10 +8,10 @@ export default function GroupsListHeader({ totalUserBalance }: Props) {
   return (
     <>
       {totalUserBalance >= 0 ? (
-        <p className="card-debt">
+        <h4 className="main-text">
           En total debes{' '}
           <span className="negative">{totalUserBalance.toFixed(2)}</span> €
-        </p>
+        </h4>
       ) : (
         <h4 className="main-text">
           En total te deben{' '}

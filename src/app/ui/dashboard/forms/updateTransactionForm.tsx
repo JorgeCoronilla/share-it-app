@@ -31,7 +31,7 @@ export default function UpdateTransactionForm({
     updateTransaction,
   } = useUpdateExpense(group, id, amount);
   return (
-    <div className="new-group-modal">
+    <div className="form-body">
       <FormHeader title="Modificar gasto" />
       <div className="form-container">
         <div className="text-fields-container">

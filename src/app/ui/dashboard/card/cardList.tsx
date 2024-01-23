@@ -12,7 +12,7 @@ export default function CardList({ friend }: Props) {
         return (
           <li
             key={group}
-            className="groups-list normal-text"
+            className="card-list normal-text"
           >
             {friend.groups_names[index]}
           </li>

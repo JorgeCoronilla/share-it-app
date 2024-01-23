@@ -17,7 +17,7 @@ export default function Page({
   return (
     <div className="loginForm">
       <form
-        className="login-form"
+        className="form-main"
         onSubmit={submit}
       >
         <h1>Nuevo usuario</h1>

@@ -16,7 +16,7 @@ export default function ExpenseForm({ groups }: ExpenseFormProps) {
     useAddExpense();
 
   return (
-    <div className="new-group-modal">
+    <div className="form-body">
       <FormHeader title="Crear nuevo gasto" />
       <form onSubmit={submit}>
         <div className="form-container">

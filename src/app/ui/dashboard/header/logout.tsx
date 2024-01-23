@@ -2,15 +2,16 @@
 
 import { useLogout } from '@/app/lib/hooks/useLogout';
 import React from 'react';
+import { IconLogout } from '../iconsComponents/logaoutIcon';
 
 export default function Logout() {
   const { logout } = useLogout();
   return (
-    <button
+    <div
       className="normal-text logout-button"
       onClick={logout}
     >
-      logout
-    </button>
+      <IconLogout />
+    </div>
   );
 }
