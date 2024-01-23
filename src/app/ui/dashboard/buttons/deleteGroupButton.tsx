@@ -13,7 +13,7 @@ export default function DeleteGroupButton() {
       <button
         className="add-button delete-group"
         onClick={() =>
-          router.push(`/dashboard/delete-group?group=${group}&name=${name}`)
+          router.push(`/add/delete-group?group=${group}&name=${name}`)
         }
       >
         <div>

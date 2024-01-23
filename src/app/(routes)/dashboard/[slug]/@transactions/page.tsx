@@ -30,7 +30,7 @@ export default async function Page({
       {transactions.map(({ id, user_name, date, description, amount, icon }) =>
         user_name === userInfo.name ? (
           <Link
-            href={`/dashboard/transaction-update?id=${id}&description=${description}&amount=${amount}&icon=${icon}&group=${params.slug}`}
+            href={`/add/transaction-update?id=${id}&description=${description}&amount=${amount}&icon=${icon}&group=${params.slug}`}
             key={id}
           >
             <div
