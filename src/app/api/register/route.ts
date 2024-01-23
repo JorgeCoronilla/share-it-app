@@ -23,8 +23,9 @@ export async function POST(request: NextRequest) {
     // Checks if user already exists
     var userFound = await client.execute({
       sql: 'SELECT * FROM users WHERE email = ?',
-      args: [data.email],
+      args: [data.email.toLowerCase()],
     });
+
     if (userFound.rows[0]) {
       console.log({ message: 'user already exists' });
       return NextResponse.json(
@@ -36,13 +37,13 @@ export async function POST(request: NextRequest) {
     // Checks if user already exists in pre-registered users
     var userFound = await client.execute({
       sql: 'SELECT * FROM temporal_users WHERE email = ?',
-      args: [data.email],
+      args: [data.email.toLowerCase()],
     });
     if (userFound.rows[0]) {
       console.log({ message: 'user already exists' });
       return NextResponse.json(
         { message: 'user already exists' },
-        { status: 401 }
+        { status: 404 }
       );
     }
 
@@ -52,7 +53,13 @@ export async function POST(request: NextRequest) {
 
     var newUser = await client.execute({
       sql: 'INSERT INTO temporal_users (user_id, username, email, pass, avatar) VALUES (?, ?, ?, ? ,?)',
-      args: [user_id, data.name, data.email, hashedPassword, 'avatar'],
+      args: [
+        user_id,
+        data.name,
+        data.email.toLowerCase(),
+        hashedPassword,
+        'avatar',
+      ],
     });
     console.log(newUser);
 

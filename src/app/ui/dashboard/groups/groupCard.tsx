@@ -11,6 +11,7 @@ interface Props {
   icon: string;
   userDebt: number;
   groupBalance: number;
+  userID: string;
 }
 
 export default function GroupCard({
@@ -19,10 +20,11 @@ export default function GroupCard({
   icon,
   userDebt,
   groupBalance,
+  userID,
 }: Props) {
   return (
     <Link
-      href={`/dashboard/${id}?name=${name}&balance=${groupBalance}`}
+      href={`/dashboard/${id}?name=${name}&balance=${groupBalance}&userid=${userID}`}
       key={id}
     >
       <div

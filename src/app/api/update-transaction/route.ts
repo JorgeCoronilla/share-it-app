@@ -31,6 +31,8 @@ export async function PUT(request: NextRequest) {
     }
     var oldAmount = parseFloat(oldQuantity);
     var newAmount = parseFloat(newQuantity);
+    console.log('oldAmount', oldAmount);
+    console.log('newAmount', newAmount);
 
     if (!client) {
       throw new Error('DB client not initialized: Wrong credentials');
@@ -44,7 +46,6 @@ export async function PUT(request: NextRequest) {
       console.log('Group not found');
       return NextResponse.json({ message: 'Group not found' }, { status: 404 });
     }
-
     if (!currentGroup.rows[0].group_balance) {
       return NextResponse.json(
         { message: 'Group balance not found' },
@@ -62,8 +63,8 @@ export async function PUT(request: NextRequest) {
       args: [userID, groupId],
     });
     console.log('currentUserBalance', currentUserBalance.rows[0].user_balance);
-    const userBalance = currentUserBalance.rows[0].user_balance?.toString();
-
+    const userBalance = currentUserBalance.rows[0].user_balance;
+    console.log('userBalance', userBalance);
     if (!userBalance) {
       return NextResponse.json(
         { message: 'User balance not found' },
@@ -71,9 +72,9 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    console.log('oldAmountGroup', groupBalance);
-    console.log('coldUserBalance', parseFloat(userBalance));
-    const newUserBalance = parseFloat(userBalance) - oldAmount + newAmount;
+    const newUserBalance =
+      parseFloat(userBalance.toString()) - oldAmount + newAmount;
+
     const newGroupBalance = groupBalance - oldAmount + newAmount;
 
     console.log('newGroupBalance', newGroupBalance);
@@ -85,13 +86,13 @@ export async function PUT(request: NextRequest) {
       sql: 'UPDATE groups SET group_balance = ? WHERE group_id = ?',
       args: [newGroupBalance, groupId],
     });
-
+    console.log('updateGroupBalance', updateGroupBalance);
     //Update group balance in user_group table
     const updateUserBalance = await transaction.execute({
       sql: 'UPDATE user_group SET user_balance = ? WHERE group_id = ? AND user_id = ?',
       args: [newUserBalance, groupId, userID],
     });
-
+    console.log(updateUserBalance);
     // Update transaction from transactions table
     const updateTransactions = await transaction.execute({
       sql: 'UPDATE transactions SET  amount = ?, description = ?, transaction_icon = ? WHERE transaction_id = ?',

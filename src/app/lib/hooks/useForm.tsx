@@ -43,7 +43,15 @@ export const useForm = () => {
 
       if (userLogged.status === 404) {
         setErrorMessage('Ya existe un usuario con ese email');
-      } else {
+      }
+
+      if (userLogged.status === 404) {
+        setErrorMessage(
+          'Ya existe un usuario con ese email. Confirma tu correo'
+        );
+      }
+
+      if (userLogged.status === 500) {
         setErrorMessage(
           'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
         );

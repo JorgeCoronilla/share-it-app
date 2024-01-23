@@ -3,7 +3,7 @@ import { validateNewExpense } from '../validations';
 import { useFormStates } from './useFormUtils';
 import { deleteTransactionService } from '../services/deleteTransaction';
 import { updateTransactionService } from '../services/updateTransaction';
-import { icons } from '../constants';
+import { checkTransaction } from '../services/checkTransaction';
 
 export const useUpdateExpense = (
   groupId: string,
@@ -27,9 +27,23 @@ export const useUpdateExpense = (
   } = useFormStates('expenses');
 
   useEffect(() => {
+    check();
+  }, []);
+  useEffect(() => {
     setShowError(validateNewExpense(data as NewExpenseData));
   }, [data]);
 
+  const check = async () => {
+    const res = await checkTransaction(transactionId);
+    if (res.status !== 200) {
+      setError(true);
+      setErrorMessage('No puedes modificar una transación que no es tuya');
+      setTimeout(() => {
+        router.push(`/dashboard/${groupId}`);
+      }, 3000);
+    }
+    return res;
+  };
   const deleteTransaction = async () => {
     setLoading(true);
     const deleteTransaction = await deleteTransactionService(

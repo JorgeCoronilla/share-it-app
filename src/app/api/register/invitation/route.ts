@@ -26,17 +26,18 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-
+    console.log(email);
     // Checks if user already exists
     var userFound = await client.execute({
       sql: 'SELECT * FROM users WHERE email = ?',
-      args: [data.email],
+      args: [email.toLowerCase()],
     });
-    if (userFound.rows[0]) {
+
+    if (userFound.rows.length > 0) {
       console.log({ message: 'user already exists' });
       return NextResponse.json(
         { message: 'user already exists' },
-        { status: 404 }
+        { status: 401 }
       );
     }
     console.log('good: user not found');
@@ -46,7 +47,7 @@ export async function POST(request: NextRequest) {
     const hashedPassword = await bcrypt.hash(data.password, 10);
     const newUser = await client.execute({
       sql: 'INSERT INTO users (user_id, username, email, pass, avatar) VALUES (?, ?, ?, ? ,?)',
-      args: [user_id, data.name, email, hashedPassword, 'avatar'],
+      args: [user_id, data.name, email.toLowerCase(), hashedPassword, 'avatar'],
     });
     console.log('User inserted', newUser);
 
@@ -57,7 +58,7 @@ export async function POST(request: NextRequest) {
     });
     if (group.rows.length === 0) {
       console.log('Group not found');
-      return NextResponse.json({ message: 'Group not found' }, { status: 400 });
+      return NextResponse.json({ message: 'Group not found' }, { status: 404 });
     }
     console.log('good: group exists = ', group.rows[0].group_id);
 

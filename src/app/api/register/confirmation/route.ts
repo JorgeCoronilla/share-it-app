@@ -18,7 +18,6 @@ export async function POST(request: NextRequest) {
     }
     // Gets user data from token
     const userData = await getTokenInfo(data.token);
-    console.log('userData', userData);
     if (!userData) {
       console.log('Token not found or invalid');
       return NextResponse.json(
@@ -31,6 +30,7 @@ export async function POST(request: NextRequest) {
       sql: 'SELECT user_id, username, email, pass, avatar FROM temporal_users WHERE email =  ?',
       args: [userData.email],
     });
+    console.log('preRegisterInfo', preRegisterInfo);
     if (preRegisterInfo.rows.length === 0) {
       console.log('User not found in pre-register list', preRegisterInfo);
       return NextResponse.json(
@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
     // Checks if user already exists
     var userFound = await client.execute({
       sql: 'SELECT * FROM users WHERE email = ?',
-      args: [userData.email],
+      args: [userData.email.toLowerCase()],
     });
     if (userFound.rows[0]) {
       console.log({ message: 'user already exists' });
@@ -66,12 +66,17 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!preRegisterInfo.rows[0].email) {
+      console.log('Password not found');
+      return NextResponse.json({ message: 'Email not found' }, { status: 404 });
+    }
+
     const newUser = await client.execute({
       sql: 'INSERT INTO users (user_id, username, email, pass, avatar) VALUES (?, ?, ?, ? ,?)',
       args: [
         user_id,
         preRegisterInfo.rows[0].username,
-        preRegisterInfo.rows[0].email,
+        preRegisterInfo.rows[0].email.toString().toLowerCase(),
         preRegisterInfo.rows[0].pass.toString(),
         preRegisterInfo.rows[0].avatar,
       ],

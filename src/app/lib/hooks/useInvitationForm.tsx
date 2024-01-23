@@ -37,26 +37,23 @@ export const useInvitationForm = (token: string) => {
     setLoading(false);
     if (userLogged.ok) {
       router.push(`/login`);
-    } else {
-      console.log('Error:', userLogged.status);
-      if (userLogged.status === 400) {
-        setErrorMessage('Complete todos los campos');
-      }
-      if (userLogged.status === 401) {
-        setErrorMessage('El usuario ya existe');
-      }
-      if (userLogged.status === 404) {
-        setErrorMessage('Este grupo ya no existe');
-      } else {
-        setErrorMessage(
-          'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
-        );
-      }
-      setTimeout(() => {
-        router.push(`/`);
-      }, 2000);
-      setError(true);
     }
+    if (userLogged.status === 400) {
+      setErrorMessage('Complete todos los campos');
+    }
+    if (userLogged.status === 401) {
+      setErrorMessage('El usuario ya existe');
+    }
+    if (userLogged.status === 404) {
+      setErrorMessage('Este grupo ya no existe');
+    }
+    if (userLogged.status === 500) {
+      setErrorMessage(
+        'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
+      );
+    }
+
+    setError(true);
   };
   return { getData, submit, showError, onFocus, error, errorMessage, loading };
 };

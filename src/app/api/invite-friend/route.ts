@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       throw new Error('DB client not initialized: Wrong credentials');
     }
 
-    // Checks if group exists and gets IDs and current balance
+    // Checks if group exists and gets ID balance
     const groupId = await client.execute({
       sql: 'SELECT group_id FROM groups WHERE group_name = ?',
       args: [data.group_name],

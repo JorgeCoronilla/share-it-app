@@ -3,7 +3,6 @@ export async function deleteTransactionService(
   transactionId: string,
   transactionQuantity: string
 ) {
-  console.log('transactionQuantity', transactionQuantity);
   return await fetch(
     `/api/delete-transaction?group=${groupId}&transaction=${transactionId}&quantity=${transactionQuantity}  `,
     {

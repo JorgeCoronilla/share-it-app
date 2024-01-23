@@ -8,7 +8,6 @@ export async function DELETE(request: NextRequest) {
     const transactionId = request.nextUrl.searchParams.get('transaction');
     const groupId = request.nextUrl.searchParams.get('group');
     var transactionQuantity = request.nextUrl.searchParams.get('quantity');
-    console.log('transactionQuantity', transactionQuantity);
     if (!transactionQuantity || !groupId || !transactionId) {
       return NextResponse.json(
         {
@@ -17,8 +16,7 @@ export async function DELETE(request: NextRequest) {
         { status: 400 }
       );
     }
-    var transactionOldQuantity = parseFloat(transactionQuantity);
-    console.log('tra', groupId, transactionId);
+    var currentTransactionAmount = parseFloat(transactionQuantity);
 
     if (!client) {
       throw new Error('DB client not initialized: Wrong credentials');
@@ -42,28 +40,33 @@ export async function DELETE(request: NextRequest) {
     const groupBalance = parseFloat(
       currentGroup.rows[0].group_balance.toString()
     );
-    console.log('groupBalance', groupBalance);
+    // console.log('groupBalance', groupBalance);
     const userID = await getUserId();
     // Gets user balance in the group
     const currentUserBalance = await client.execute({
       sql: 'SELECT user_balance FROM user_group WHERE user_id = ? AND group_id = ?',
       args: [userID, groupId],
     });
-    console.log('currentUserBalance', currentUserBalance.rows[0].user_balance);
 
-    const userBalance = currentUserBalance.rows[0].user_balance?.toString();
-    if (!userBalance) {
+    if (!currentUserBalance.rows[0].user_balance) {
       return NextResponse.json(
         { message: 'User balance not found' },
         { status: 404 }
       );
     }
-    const newUserBalance = parseFloat(userBalance) - transactionOldQuantity;
-    const newGroupBalance = groupBalance - transactionOldQuantity;
 
-    console.log('newGroupBalance', newGroupBalance);
+    const userBalance = parseFloat(
+      currentUserBalance.rows[0].user_balance.toString()
+    );
+    // console.log(userBalance);
+    // console.log('transactionQuantity', transactionQuantity);
 
-    console.log('newUSerBalance', newUserBalance);
+    const newUserBalance = userBalance - currentTransactionAmount;
+    const newGroupBalance = groupBalance - currentTransactionAmount;
+
+    // console.log('newGroupBalance', newGroupBalance);
+
+    // console.log('newUSerBalance', newUserBalance);
     const transaction = await client.transaction('write');
 
     //Update group balance in user_group table
@@ -71,12 +74,13 @@ export async function DELETE(request: NextRequest) {
       sql: 'UPDATE groups SET group_balance = ? WHERE group_id = ?',
       args: [newGroupBalance, groupId],
     });
-
-    //Update group balance in user_group table
+    console.log(updateGroupBalance);
+    //Update user balance in user_group table
     const updateUserBalance = await transaction.execute({
       sql: 'UPDATE user_group SET user_balance = ? WHERE group_id = ? AND user_id = ?',
       args: [newUserBalance, groupId, userID],
     });
+    console.log(updateUserBalance);
 
     // Delete trabnsaction from transactions table
     const deleteTransactions = await transaction.execute({
