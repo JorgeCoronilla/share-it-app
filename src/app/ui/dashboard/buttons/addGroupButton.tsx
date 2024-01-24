@@ -13,7 +13,7 @@ export default function AddGroupButton() {
         onClick={() => router.push('/add/create-group')}
       >
         <div>
-          <IconUsers />+
+          <IconUsers />
         </div>
       </button>
     </>

@@ -17,7 +17,7 @@ export default function DeleteGroupButton() {
         }
       >
         <div>
-          <IconDeleteBin />+
+          <IconDeleteBin />
         </div>
       </button>
     </>

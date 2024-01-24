@@ -11,7 +11,7 @@ export default function AddFriendButton() {
       className="add-button friend"
     >
       <div>
-        <FriendsIcon />+
+        <FriendsIcon />
       </div>
     </button>
   );

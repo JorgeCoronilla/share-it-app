@@ -38,12 +38,6 @@ export default async function Page() {
                 friend={friend}
               />
             </div>
-            <div className="card-outer-avatar-container">
-              <CardAvatar
-                key={`a-${friend.id}`}
-                user={friend}
-              />
-            </div>
           </div>
         );
       })}

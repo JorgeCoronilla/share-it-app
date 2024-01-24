@@ -137,3 +137,32 @@
 .negative {
   color: var(--negative);
 }
+
+* {
+  position: relative;
+  min-width: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+main {
+  flex: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+  word-break: break-word;
+}
+
+p {
+  text-wrap: pretty;
+  word-break: break-word;
+}

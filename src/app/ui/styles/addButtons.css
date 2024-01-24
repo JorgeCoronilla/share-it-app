@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 5;
   right: 1em;
-  padding: 0.3em 0.5em 0.2em;
+  padding: 0.6em 0.6em 0.5em;
   border-radius: 2em;
   background-color: var(--switcher);
   color: var(--background-color);
@@ -17,20 +17,20 @@
 .pencil-icon,
 .groups-icon,
 .friend-icon {
-  margin: 0.2em 0.5em 0 0;
+  margin: 0 0 0 0;
 }
 
 .expense {
-  bottom: 6em;
+  bottom: 4em;
 }
 .group {
-  bottom: 12em;
+  bottom: 10em;
 }
 
 .friend {
-  bottom: 9em;
+  bottom: 7em;
 }
 
 .delete-group {
-  top: 8.8em;
+  bottom: 13em;
 }

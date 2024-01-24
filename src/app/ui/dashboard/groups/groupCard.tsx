@@ -33,7 +33,7 @@ export default function GroupCard({
       >
         <div className="card-text-container">
           <CardTitle title={name} />
-          <CarSubtitle subtitle={`Total del grupo: ${groupBalance}`} />
+          <CarSubtitle subtitle={`Total: ${groupBalance}`} />
           {userDebt >= 0 ? (
             <CardDescription
               description="Debes"

@@ -11,7 +11,7 @@ export default function AddExpenseButton() {
       className="add-button expense"
     >
       <div>
-        <IconPencilFill />+
+        <IconPencilFill />
       </div>
     </button>
   );

@@ -37,7 +37,7 @@
 }
 
 .card-title {
-  font-size: 1.3em;
+  font-size: 1.2em;
   color: var(--switcher);
   font-weight: 900;
   margin-bottom: 0.2em;
@@ -79,7 +79,7 @@
 }
 
 .card-avatar-container {
-  width: 15%;
+  width: 17%;
   padding: 0.3em 0.7em 0 0;
   display: flex;
   justify-content: center;
