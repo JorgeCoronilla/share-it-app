@@ -64,9 +64,9 @@ export default function UpdateTransactionForm({
       <button
         type="button"
         className={
-          !showError.description &&
-          !showError.quantity &&
-          !showError.icon &&
+          showError.description &&
+          showError.quantity &&
+          showError.icon &&
           !loading
             ? 'submit-button'
             : 'submit-button disabled'
@@ -89,19 +89,19 @@ export default function UpdateTransactionForm({
         Eliminar
       </button>
       <FormWarning
-        showError={showError.group && onFocus.group}
+        showError={!showError.group && onFocus.group}
         message="Nombre de grupo no válido"
       />
       <FormWarning
-        showError={showError.description && onFocus.description}
+        showError={!showError.description && onFocus.description}
         message="Descripción no válida"
       />
       <FormWarning
-        showError={showError.quantity && onFocus.quantity}
+        showError={!showError.quantity && onFocus.quantity}
         message="Cantidads no válida"
       />
       <FormWarning
-        showError={showError.icon}
+        showError={!showError.icon}
         message="Selecciona un icono"
       />
       <FormWarning
