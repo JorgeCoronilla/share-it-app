@@ -5,7 +5,9 @@ export default function Page() {
   return (
     <>
       {/* <Suspense fallback={<p>Loading</p>}> */}
+      <div className="section-spacer"></div>
       <SectionTitle title="Grupos" />
+
       <GroupsList />
       {/* </Suspense> */}
 

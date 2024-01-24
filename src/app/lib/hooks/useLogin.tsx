@@ -37,6 +37,7 @@ export const useLogin = () => {
     const userLogged = await loginUser(data as userLogin);
     setLoading(false);
     if (userLogged.ok) {
+      console.log('ok');
       router.push(`/dashboard`);
     } else {
       if (userLogged.status === 400 || userLogged.status === 404) {

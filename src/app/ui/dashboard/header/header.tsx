@@ -13,7 +13,6 @@ export default async function Header() {
       avatar: '',
     };
   }
-  console.log(user);
   return (
     <>
       <div className="header-container">

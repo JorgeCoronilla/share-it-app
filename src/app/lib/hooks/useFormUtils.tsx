@@ -46,12 +46,24 @@ export const useFormStates = (formType: formTypes) => {
   const router = useRouter();
   const [data, setData] = useState(data_INITIAL_STATE);
   const [loading, setLoading] = useState(false);
+  const [focusContainer, setFocusContainer] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [onFocus, setOnFocus] =
     useState<Record<string, boolean>>(errors_INITIAL_STATE);
   const [error, setError] = useState(false);
   const [showError, setShowError] =
     useState<Record<string, boolean>>(errors_INITIAL_STATE);
+
+  const handleClick = (e: React.MouseEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement;
+
+    if (target.name && target.name === 'icon') {
+      setFocusContainer(true);
+    } else {
+      setFocusContainer(false);
+    }
+  };
+
   const getData = (
     e:
       | React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -87,12 +99,14 @@ export const useFormStates = (formType: formTypes) => {
     setOnFocus,
     getData,
     setData,
+    handleClick,
     showError,
     onFocus,
     loading,
     error,
     errorMessage,
     data,
+    focusContainer,
     router,
   };
 };

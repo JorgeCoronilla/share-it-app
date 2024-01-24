@@ -31,7 +31,6 @@ export default function GroupCard({
         className="card-container"
         key={id}
       >
-        <CardIcon icon={icon} />
         <div className="card-text-container">
           <CardTitle title={name} />
           <CarSubtitle subtitle={`Total del grupo: ${groupBalance}`} />
@@ -49,6 +48,7 @@ export default function GroupCard({
             />
           )}
         </div>
+        <CardIcon icon={icon} />
       </div>
     </Link>
   );

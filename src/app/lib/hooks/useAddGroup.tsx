@@ -11,12 +11,14 @@ export const useAddGroup = () => {
     setLoading,
     setError,
     setErrorMessage,
+    handleClick,
     data,
     showError,
     onFocus,
     loading,
     error,
     errorMessage,
+    focusContainer,
     router,
   } = useFormStates('groups');
   useEffect(() => {
@@ -55,5 +57,15 @@ export const useAddGroup = () => {
       setError(true);
     }
   };
-  return { getData, submit, error, loading, showError, onFocus, errorMessage };
+  return {
+    getData,
+    submit,
+    handleClick,
+    error,
+    loading,
+    showError,
+    onFocus,
+    focusContainer,
+    errorMessage,
+  };
 };

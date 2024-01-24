@@ -11,6 +11,7 @@ export default function UserInfolayout({
 }) {
   return (
     <>
+      <div className="section-spacer"></div>
       {children}
       {userCard}
       <div className="spacer"></div>

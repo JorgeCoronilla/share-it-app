@@ -19,6 +19,7 @@ export default async function ActivitiesList() {
 
   return (
     <>
+      <div className="section-spacer"></div>
       {activity.map(
         ({ id, user_name, group_name, date, description, amount, icon }) => {
           return (
@@ -26,19 +27,21 @@ export default async function ActivitiesList() {
               className="card-container"
               key={id}
             >
-              <CardIcon
-                icon={icon}
-                key={`i-${id}`}
-              />
               <div className="card-text-container">
+                <CardDescription description="Grupo:" />
+
                 <CardTitle title={group_name} />
-                <CarSubtitle subtitle={user_name} />
-                <CardDescription description={description} />
+                <CarSubtitle subtitle={description} />
+                <CardDescription description={user_name} />
                 <CardTextAndDate
                   amount={amount.toString()}
                   date={date.split(' ')[0]}
                 />
               </div>
+              <CardIcon
+                icon={icon}
+                key={`i-${id}`}
+              />
             </div>
           );
         }

@@ -1,9 +1,10 @@
 'use client';
-import { ReadonlyURLSearchParams } from 'next/navigation';
+
 import React from 'react';
 
 interface Props {
   getData?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   label: string;
   type: string;
   name: string;
@@ -15,6 +16,7 @@ interface Props {
 }
 export default function FormInput({
   getData,
+  onClick,
   label,
   type,
   name,
@@ -37,6 +39,7 @@ export default function FormInput({
         list={list}
         value={value}
         readOnly={readOnly}
+        onClick={onClick}
       />
     </>
   );

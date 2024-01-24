@@ -1,8 +1,8 @@
 .add-button {
   position: fixed;
-
+  z-index: 5;
   right: 1em;
-  padding: 0.5em 0.7em 0.3em;
+  padding: 0.3em 0.5em 0.2em;
   border-radius: 2em;
   background-color: var(--switcher);
   color: var(--background-color);
@@ -32,5 +32,5 @@
 }
 
 .delete-group {
-  top: 7.2em;
+  top: 8.8em;
 }

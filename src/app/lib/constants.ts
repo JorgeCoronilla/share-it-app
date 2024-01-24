@@ -68,7 +68,7 @@ export const login_validation_INITIAL_STATE = {
 export const addGroup_validation_INITIAL_STATE = {
   name: false,
   description: false,
-  icon: true,
+  icon: false,
   allfields: false,
 };
 

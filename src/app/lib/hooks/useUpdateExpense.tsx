@@ -17,6 +17,7 @@ export const useUpdateExpense = (
     setError,
     setErrorMessage,
     setData,
+    handleClick,
     data,
     showError,
     onFocus,
@@ -24,6 +25,7 @@ export const useUpdateExpense = (
     error,
     errorMessage,
     router,
+    focusContainer,
   } = useFormStates('expenses');
 
   useEffect(() => {
@@ -96,12 +98,14 @@ export const useUpdateExpense = (
     getData,
     deleteTransaction,
     setData,
+    handleClick,
     error,
     loading,
     showError,
     onFocus,
     errorMessage,
     data,
+    focusContainer,
     updateTransaction,
   };
 };

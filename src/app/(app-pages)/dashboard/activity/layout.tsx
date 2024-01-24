@@ -11,6 +11,7 @@ export default function FriendsListlayout({
 }) {
   return (
     <>
+      <div className="section-spacer"></div>
       {children}
       {activityList}
       <div className="spacer"></div>

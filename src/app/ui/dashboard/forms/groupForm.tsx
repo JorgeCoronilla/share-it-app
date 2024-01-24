@@ -8,16 +8,30 @@ import FormWarning from '../../global/formWarning';
 import { useAddGroup } from '@/app/lib/hooks/useAddGroup';
 
 export default function GroupForm() {
-  const { getData, submit, error, loading, showError, onFocus, errorMessage } =
-    useAddGroup();
+  const {
+    getData,
+    submit,
+    handleClick,
+    error,
+    loading,
+    showError,
+    onFocus,
+    errorMessage,
+    focusContainer,
+  } = useAddGroup();
 
   return (
     <>
       <form onSubmit={submit}>
-        <div className="form-container">
-          <TextInputsGroups getData={getData} />
-          <IconsSelector getData={getData} />
-        </div>
+        <TextInputsGroups
+          getData={getData}
+          onClick={handleClick}
+        />
+        <IconsSelector
+          getData={getData}
+          onClick={handleClick}
+          focusContainer={focusContainer}
+        />
 
         <Button
           type="submit"

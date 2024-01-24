@@ -12,6 +12,7 @@ export default function Transactionlayout({
 }) {
   return (
     <>
+      <div className="section-spacer"></div>
       {children}
       {transactions}
       <DeleteGroupButton />

@@ -14,11 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <AddGroupButton />
       <AddFriendButton />
       <AddExpenseButton />
-      <main className="dashboard-container">
-        <div className="spacer"></div>
-
-        {children}
-      </main>
+      <main className="dashboard-container">{children}</main>
     </>
   );
 }

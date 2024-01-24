@@ -22,7 +22,7 @@ export default function Select({ getData, groups, name, label }: Props) {
           groups.map((item, index) => (
             <option
               key={index}
-              value={item.name}
+              value={item.id}
             >
               {item.name}
             </option>

@@ -12,39 +12,51 @@ interface ExpenseFormProps {
 }
 
 export default function ExpenseForm({ groups }: ExpenseFormProps) {
-  const { getData, submit, showError, loading, error, onFocus, errorMessage } =
-    useAddExpense();
+  const {
+    getData,
+    submit,
+    handleClick,
+    showError,
+    loading,
+    error,
+    onFocus,
+    focusContainer,
+    errorMessage,
+  } = useAddExpense();
 
   return (
     <div className="form-body">
       <FormHeader title="Crear nuevo gasto" />
       <form onSubmit={submit}>
-        <div className="form-container">
-          <div className="text-fields-container">
-            <Select
-              label="Nombre del grupo"
-              groups={groups}
-              getData={getData}
-              name="group"
-            />
+        <div>
+          <Select
+            label="Nombre del grupo"
+            groups={groups}
+            getData={getData}
+            name="group"
+          />
 
-            <FormInput
-              getData={getData}
-              label="Descripción"
-              type="text"
-              name="description"
-              placeholder="Cena con amigos"
-            />
-            <FormInput
-              getData={getData}
-              label="Cantidad"
-              type="text"
-              name="quantity"
-              placeholder="3.45"
-            />
-          </div>
-          <IconsSelector getData={getData} />
+          <FormInput
+            getData={getData}
+            label="Descripción"
+            type="text"
+            name="description"
+            placeholder="Cena con amigos"
+          />
+          <FormInput
+            getData={getData}
+            label="Cantidad"
+            type="text"
+            name="quantity"
+            placeholder="3.45"
+          />
         </div>
+        <IconsSelector
+          getData={getData}
+          onClick={handleClick}
+          focusContainer={focusContainer}
+        />
+
         <Button
           type="submit"
           text={'Añadir gasto'}

@@ -1,6 +1,6 @@
-import ThemeSwitcher from './ui/global/themeSwitcher';
-import Hero from './ui/home/hero';
-import HomeHeader from './ui/home/homeHeader';
+import ThemeSwitcher from '../ui/global/themeSwitcher';
+import Hero from '../ui/home/hero';
+import HomeHeader from '../ui/home/homeHeader';
 export default function Home() {
   return (
     <div className="home-body">

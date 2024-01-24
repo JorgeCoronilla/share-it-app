@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding-top: 1em;
+  padding-top: 0;
 }
 .close-form {
   font-size: 1.5em;
@@ -17,37 +17,42 @@
   cursor: pointer;
 }
 
-/* .modal-title {
-  color: var(--switcher);
-  font-size: 2em;
-  margin-bottom: 1em;
-} */
-
-.form-body label {
+.form-body label,
+label.icon-label {
+  position: relative;
+  top: 0.3em;
+  left: 0.7em;
+  background-color: var(--background-color);
   color: var(--positive);
-  display: block;
+  display: inline;
+  padding: 0.3em 0.5em;
   font-size: 1.2em;
   margin-bottom: 0.2em;
   font-weight: 600;
+  z-index: 2;
+  margin-top: 0;
 }
 
 .form-body input,
 .form-body select {
-  margin-bottom: 1.1em;
   font-size: 1.1em;
   padding: 0.5em 0.5em;
-
-  border: 2px solid var(--switcher);
+  border: 3px solid var(--switcher);
   background-color: var(--background-color);
   border-radius: 0.4em;
   width: 100%;
   color: var(--text);
+  height: 3.5em;
+  padding: 0.7em 1.2em 0;
+  opacity: 0.5;
+  margin-top: -0.6em;
 }
 
 .form-body input:focus,
 .form-body select:focus {
   outline: none;
   border: 2px solid var(--switcher);
+  opacity: 1;
 }
 
 .close-form {
@@ -77,17 +82,6 @@
 .form-container {
   display: flex;
 }
-.icons-container {
-  width: 6em;
-  height: 9.5em;
-  overflow-y: auto;
-  background-color: rgb(27, 27, 27);
-  padding: 0.2em;
-  margin: 2em 0 1em 2em;
-  border: 2px solid var(--switcher);
-  background-color: var(--background-color);
-  border-radius: 0.4em;
-}
 
 input[type='checkbox'] {
   display: none;
@@ -109,10 +103,45 @@ label.icon:before {
   height: 20px;
 }
 .icon-container {
-  display: block;
   width: 4em;
   height: 4em;
-  margin: 0.3em auto 1em;
+  margin: 0;
+  position: relative;
+  right: 0.6em;
+}
+
+.icons-container {
+  width: 100%;
+  height: 10em;
+
+  background-color: rgb(27, 27, 27);
+
+  margin: 0;
+  border: 3px solid var(--switcher);
+  background-color: var(--background-color);
+  border-radius: 0.4em;
+
+  overflow-y: auto;
+  margin-top: -0.7em;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  padding-top: 1.2em;
+}
+
+.icons-inner-container {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.container-focus {
+  opacity: 1;
+}
+.container-unfocus {
+  opacity: 0.5;
 }
 
 :checked + label.icon {

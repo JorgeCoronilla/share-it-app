@@ -13,7 +13,6 @@ export default async function Page() {
   if (!friends) {
     return <NoData message="Todavía no tienes ningún amigo." />;
   }
-
   return (
     <>
       {friends.map((friend) => {
@@ -39,10 +38,12 @@ export default async function Page() {
                 friend={friend}
               />
             </div>
-            <CardAvatar
-              key={`a-${friend.id}`}
-              user={friend}
-            />
+            <div className="card-outer-avatar-container">
+              <CardAvatar
+                key={`a-${friend.id}`}
+                user={friend}
+              />
+            </div>
           </div>
         );
       })}

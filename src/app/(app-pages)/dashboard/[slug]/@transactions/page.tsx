@@ -25,6 +25,7 @@ export default async function Page({
 
   return (
     <>
+      <div className="section-spacer"></div>
       <CardTitle title={name} />
       <CardSubtitle subtitle={`Total del grupo: ${balance}`} />
       {transactions.map(({ id, user_name, date, description, amount, icon }) =>
@@ -37,15 +38,15 @@ export default async function Page({
               className="card-container"
               key={id}
             >
-              <CardIcon icon={icon} />
               <div className="card-text-container">
-                <CardTitle title={user_name} />
-                <CardDescription description={description} />
+                <CardSubtitle subtitle={description} />
+                <CardDescription description={user_name} />
                 <CardTextAndDate
                   amount={amount.toString()}
                   date={date.split(' ')[0]}
                 />
               </div>
+              <CardIcon icon={icon} />
             </div>
           </Link>
         ) : (

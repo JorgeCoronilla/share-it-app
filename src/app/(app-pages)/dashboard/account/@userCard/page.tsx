@@ -14,6 +14,7 @@ export default async function Page() {
   console.log(user);
   return (
     <>
+      <div className="section-spacer"></div>
       <div className="group-card-container">
         <CardAvatar user={user} />
 

@@ -22,10 +22,13 @@ export default function UpdateTransactionForm({
 
   const {
     getData,
+    handleClick,
+
     showError,
     loading,
     error,
     onFocus,
+    focusContainer,
     errorMessage,
     deleteTransaction,
     updateTransaction,
@@ -33,25 +36,31 @@ export default function UpdateTransactionForm({
   return (
     <div className="form-body">
       <FormHeader title="Modificar gasto" />
-      <div className="form-container">
-        <div className="text-fields-container">
-          <FormInput
-            getData={getData}
-            label={description}
-            type="text"
-            name="description"
-            placeholder="Nueva descripción"
-          />
-          <FormInput
-            getData={getData}
-            label={amount}
-            type="text"
-            name="quantity"
-            placeholder="Nueva cantidad"
-          />
-        </div>
-        <IconsSelector getData={getData} />
+
+      <div className="text-fields-container">
+        <FormInput
+          getData={getData}
+          label={`Descripción: ${description}`}
+          type="text"
+          name="description"
+          placeholder="Nueva descripción"
+          onClick={handleClick}
+        />
+        <FormInput
+          getData={getData}
+          label={`Cantidad: ${amount}`}
+          type="text"
+          name="quantity"
+          placeholder="Nueva cantidad"
+          onClick={handleClick}
+        />
       </div>
+      <IconsSelector
+        getData={getData}
+        onClick={handleClick}
+        focusContainer={focusContainer}
+      />
+
       <button
         type="button"
         className={
