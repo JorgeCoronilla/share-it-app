@@ -61,9 +61,7 @@ export default function ExpenseForm({ groups }: ExpenseFormProps) {
           type="submit"
           text={'Añadir gasto'}
           className={
-            showError.allfields && !loading
-              ? 'submit-button'
-              : 'submit-button disabled'
+            showError.allfields ? 'submit-button' : 'submit-button disabled'
           }
           disabled={!showError.allfields}
         />

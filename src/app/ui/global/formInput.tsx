@@ -40,7 +40,7 @@ export default function FormInput({
         value={value}
         readOnly={readOnly}
         onClick={onClick}
-        maxLength={15}
+        maxLength={50}
       />
     </>
   );

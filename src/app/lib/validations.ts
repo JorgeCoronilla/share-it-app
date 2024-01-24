@@ -79,22 +79,21 @@ export function validateAddGroup(values: NewGroupData) {
 
 export function validateNewFriend(values: NewFriend) {
   return {
-    group: !regexTwoCharacters.test(values.group),
+    group: values.group === '',
     email: !regexEmail.test(values.email),
 
-    allfields:
-      regexTwoCharacters.test(values.group) && regexEmail.test(values.email),
+    allfields: values.group === '' && regexEmail.test(values.email),
   };
 }
 
 export function validateNewExpense(values: NewExpenseData) {
   return {
-    group: !regexTwoCharacters.test(values.group),
-    description: !regexTwoCharacters.test(values.description),
-    quantity: !regexDecimalNumber.test(values.quantity),
-    icon: !(values.icon !== ''),
+    group: values.group !== '',
+    description: regexTwoCharacters.test(values.description),
+    quantity: regexDecimalNumber.test(values.quantity),
+    icon: values.icon !== '',
     allfields:
-      regexTwoCharacters.test(values.group) &&
+      values.group !== '' &&
       regexTwoCharacters.test(values.description) &&
       regexDecimalNumber.test(values.quantity) &&
       values.icon !== '',

@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
 
     // Checks if group exists and gets IDs and current balance
     const groupId = await client.execute({
-      sql: 'SELECT group_id, group_balance FROM groups WHERE group_name = ?',
+      sql: 'SELECT group_id, group_balance FROM groups WHERE group_id = ?',
       args: [data.group],
     });
     if (groupId.rows.length === 0) {

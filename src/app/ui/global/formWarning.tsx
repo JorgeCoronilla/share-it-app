@@ -6,5 +6,9 @@ interface Props {
 }
 
 export default function FormWarning({ showError, message }: Props) {
-  return showError ? <p style={{ color: 'red' }}>{message}</p> : null;
+  return showError ? (
+    <div className="form-Warning">
+      <p>{message}</p>
+    </div>
+  ) : null;
 }

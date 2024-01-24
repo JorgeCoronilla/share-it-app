@@ -9,6 +9,7 @@
 @import './ui/styles/dashboard.css';
 @import './ui/styles/cards.css';
 @import './ui/styles/forms.css';
+@import './ui/styles/warnings.css';
 
 :root {
   --title: var(--light-title);
