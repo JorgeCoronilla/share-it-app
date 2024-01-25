@@ -1,7 +1,7 @@
 'use client';
 import FormHeader from '@/app/ui/dashboard/forms/formHeader';
 import Button from '@/app/ui/global/button';
-import FormWarning from '@/app/ui/global/formWarning';
+import FormWarning from '@/app/ui/dashboard/warnings/formWarning';
 import React from 'react';
 import { useEndRegistration } from '@/app/lib/hooks/useEndRegister';
 

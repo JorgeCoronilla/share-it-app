@@ -1,7 +1,7 @@
 import React from 'react';
 import CardTitle from '../card/cardTitle';
 import { useDeleteGroup } from '@/app/lib/hooks/useDeleteGroup';
-import FormWarning from '../../global/formWarning';
+import FormWarning from './formWarning';
 interface DeleteGroupProps {
   id: string;
   name: string;

@@ -3,9 +3,11 @@ import IconsSelector from './iconsSelector';
 import FormHeader from './formHeader';
 import FormInput from '../../global/formInput';
 import Button from '../../global/button';
-import FormWarning from '../../global/formWarning';
+import FormWarning from '../warnings/formWarning';
 import { useAddExpense } from '@/app/lib/hooks/useAddExpense';
 import Select from '../../global/select';
+import FormError from '../warnings/formError';
+import Loading from '../../global/loading';
 
 interface ExpenseFormProps {
   groups?: GroupData[];
@@ -25,71 +27,74 @@ export default function ExpenseForm({ groups }: ExpenseFormProps) {
   } = useAddExpense();
 
   return (
-    <div className="form-body">
-      <FormHeader title="Crear nuevo gasto" />
-      <form onSubmit={submit}>
-        <div>
-          <Select
-            label="Nombre del grupo"
-            groups={groups}
+    <>
+      <div className="form-body">
+        <FormHeader title="Crear nuevo gasto" />
+        <form onSubmit={submit}>
+          <div>
+            <Select
+              label="Nombre del grupo"
+              groups={groups}
+              getData={getData}
+              name="group"
+            />
+            <FormWarning
+              showError={showError.group && onFocus.group}
+              message="Nombre de grupo no válido"
+            />
+
+            <FormInput
+              getData={getData}
+              label="Descripción"
+              type="text"
+              name="description"
+              placeholder="Cena con amigos"
+            />
+            <FormWarning
+              showError={showError.description && onFocus.description}
+              message="Descripción no válida"
+            />
+            <FormInput
+              getData={getData}
+              label="Cantidad"
+              type="text"
+              name="quantity"
+              placeholder="3.45"
+            />
+            <FormWarning
+              showError={showError.quantity && onFocus.quantity}
+              message="Cantidad no válida"
+            />
+          </div>
+          <IconsSelector
             getData={getData}
-            name="group"
+            onClick={handleClick}
+            focusContainer={focusContainer}
+          />
+          <FormWarning
+            showError={showError.icon}
+            message="Selecciona un icono"
+            icon={true}
           />
 
-          <FormInput
-            getData={getData}
-            label="Descripción"
-            type="text"
-            name="description"
-            placeholder="Cena con amigos"
+          <Button
+            type="submit"
+            text={'Añadir gasto'}
+            className={
+              showError.allfields ? 'submit-button' : 'submit-button disabled'
+            }
+            disabled={!showError.allfields}
           />
-          <FormInput
-            getData={getData}
-            label="Cantidad"
-            type="text"
-            name="quantity"
-            placeholder="3.45"
-          />
-        </div>
-        <IconsSelector
-          getData={getData}
-          onClick={handleClick}
-          focusContainer={focusContainer}
-        />
-
-        <Button
-          type="submit"
-          text={'Añadir gasto'}
-          className={
-            showError.allfields ? 'submit-button' : 'submit-button disabled'
-          }
-          disabled={!showError.allfields}
-        />
-      </form>
-      <FormWarning
-        showError={showError.group && onFocus.group}
-        message="Nombre de grupo no válido"
-      />
-      <FormWarning
-        showError={showError.description && onFocus.description}
-        message="Descripción no válida"
-      />
-      <FormWarning
-        showError={showError.quantity && onFocus.quantity}
-        message="Cantidads no válida"
-      />
-      <FormWarning
-        showError={showError.icon}
-        message="Selecciona un icono"
-      />
-      <FormWarning
+        </form>
+      </div>
+      <FormError
         showError={error}
         message={errorMessage}
       />
-      <FormWarning
+      <Loading
         showError={loading}
         message="... Loading"
       />
-    </div>
+    </>
   );
 }

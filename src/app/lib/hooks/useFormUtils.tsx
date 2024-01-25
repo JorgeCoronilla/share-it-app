@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import {
   formTypes,
   login_INITIAL_STATE,
@@ -63,7 +63,7 @@ export const useFormStates = (formType: formTypes) => {
       setFocusContainer(false);
     }
   };
-
+  const previousIcon = useRef<string>('');
   const getData = (
     e:
       | React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -72,14 +72,18 @@ export const useFormStates = (formType: formTypes) => {
     const target = e.target as HTMLInputElement | HTMLSelectElement;
 
     if ('name' in target) {
-      const { name, value } = target;
+      const { name, value, id } = target;
 
       if (name === 'icon') {
-        const icons =
-          document.querySelectorAll<HTMLInputElement>('input.icon-input');
-        icons.forEach((icon) => {
-          if (icon.id !== target.id) icon.checked = false;
-        });
+        console.log(previousIcon.current, id);
+        if (previousIcon.current !== id) {
+          const icons =
+            document.querySelectorAll<HTMLInputElement>('input.icon-input');
+          icons.forEach((icon) => {
+            if (icon.id !== target.id) icon.checked = false;
+          });
+        }
+        previousIcon.current = id;
       }
 
       setData({ ...data, [name]: value });

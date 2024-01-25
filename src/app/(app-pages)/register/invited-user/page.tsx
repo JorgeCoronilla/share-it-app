@@ -3,7 +3,7 @@ import { useInvitationForm } from '@/app/lib/hooks/useInvitationForm';
 import { invitationFormFields } from '@/app/ui/dashboard/forms/registerFields';
 import Button from '@/app/ui/global/button';
 import FormInput from '@/app/ui/global/formInput';
-import FormWarning from '@/app/ui/global/formWarning';
+import FormWarning from '@/app/ui/dashboard/warnings/formWarning';
 
 export default function Page({
   searchParams,

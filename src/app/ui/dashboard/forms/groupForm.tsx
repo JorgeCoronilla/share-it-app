@@ -4,8 +4,10 @@ import IconsSelector from './iconsSelector';
 import Button from '../../global/button';
 import TextInputsGroups from './textInputsGroups';
 
-import FormWarning from '../../global/formWarning';
+import FormWarning from '../warnings/formWarning';
 import { useAddGroup } from '@/app/lib/hooks/useAddGroup';
+import Loading from '../../global/loading';
+import FormError from '../warnings/formError';
 
 export default function GroupForm() {
   const {
@@ -26,13 +28,19 @@ export default function GroupForm() {
         <TextInputsGroups
           getData={getData}
           onClick={handleClick}
+          showError={showError}
+          onFocus={onFocus}
         />
         <IconsSelector
           getData={getData}
           onClick={handleClick}
           focusContainer={focusContainer}
         />
-
+        <FormWarning
+          showError={showError.icon}
+          message="Selecciona un icono"
+          icon={true}
+        />
         <Button
           type="submit"
           text="Crear grupo"
@@ -44,25 +52,13 @@ export default function GroupForm() {
           disabled={!showError.allfields}
         />
       </form>
-      <FormWarning
+      <FormError
         showError={error}
         message={errorMessage}
       />
-      <FormWarning
+      <Loading
         showError={loading}
         message="... Loading"
-      />
-      <FormWarning
-        showError={showError.name && onFocus.name}
-        message="Nombre de grupo no válido"
-      />
-      <FormWarning
-        showError={showError.description && onFocus.description}
-        message="Descripción no válida"
-      />
-      <FormWarning
-        showError={showError.icon}
-        message="Selecciona un icono"
       />
     </>
   );

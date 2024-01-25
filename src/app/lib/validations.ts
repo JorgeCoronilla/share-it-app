@@ -21,7 +21,8 @@ export const CreateGroupFormSchema = CreateGroupSchema.omit({
 
 // Regular expressions
 const regexTwoCharacters = /^(?![\s]{2,})[a-zA-ZÀ-ÖØ-öø-ÿ\s]{2,50}$/;
-const regexDecimalNumber = /^\d+(\.\d+)?$/;
+const regexDecimalNumber = /^\d+([.,]\d+)?$/;
+
 const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const regexPassword =
   /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -88,10 +89,10 @@ export function validateNewFriend(values: NewFriend) {
 
 export function validateNewExpense(values: NewExpenseData) {
   return {
-    group: values.group !== '',
-    description: regexTwoCharacters.test(values.description),
-    quantity: regexDecimalNumber.test(values.quantity),
-    icon: values.icon !== '',
+    group: values.group === '',
+    description: !regexTwoCharacters.test(values.description),
+    quantity: !regexDecimalNumber.test(values.quantity),
+    icon: values.icon === '',
     allfields:
       values.group !== '' &&
       regexTwoCharacters.test(values.description) &&

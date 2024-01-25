@@ -6,7 +6,6 @@ export async function updateTransactionService(
   icon: string,
   newQuantity: string
 ) {
-  console.log('Llega=??????', description);
   return await fetch(`/api/update-transaction`, {
     method: 'PUT',
     body: JSON.stringify({

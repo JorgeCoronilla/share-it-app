@@ -1,10 +1,12 @@
 'use client';
 import React from 'react';
 import FormInput from '../../global/formInput';
-import FormWarning from '../../global/formWarning';
+import FormWarning from '../warnings/formWarning';
 import Button from '../../global/button';
 import { useLogin } from '@/app/lib/hooks/useLogin';
 import FormHeader from './formHeader';
+import FormError from '../warnings/formError';
+import Loading from '../../global/loading';
 
 export default function LoginForm() {
   const { getData, submit, showError, loading, error, onFocus, errorMessage } =
@@ -37,29 +39,26 @@ export default function LoginForm() {
           autoComplete="current-password"
           placeholder="**********"
         />
-        <FormWarning
-          showError={showError.password && onFocus.password}
-          message="Contraseña no válida"
-        />
-        <FormWarning
-          showError={error}
-          message={errorMessage}
-        />
-        <FormWarning
-          showError={loading}
-          message="... loading"
-        />
+
         <Button
           type="submit"
           text="Login"
           className={
-            !showError.email && !showError.password && !loading
+            !showError.email && !loading
               ? 'submit-button'
               : 'submit-button disabled'
           }
-          disabled={showError.email && showError.password}
+          disabled={showError.email}
         />
       </form>
+      <FormError
+        showError={error}
+        message={errorMessage}
+      />
+      <Loading
+        showError={loading}
+        message="... loading"
+      />
     </div>
   );
 }

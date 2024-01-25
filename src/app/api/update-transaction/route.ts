@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function PUT(request: NextRequest) {
+  console.log('Entra');
   try {
     const {
       icon,
@@ -22,6 +23,14 @@ export async function PUT(request: NextRequest) {
       !oldQuantity ||
       !newQuantity
     ) {
+      console.log(
+        description,
+        icon,
+        groupId,
+        transactionId,
+        oldQuantity,
+        newQuantity
+      );
       return NextResponse.json(
         {
           message: 'Missing data',

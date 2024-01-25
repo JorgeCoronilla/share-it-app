@@ -11,6 +11,7 @@ export default function IconsSelector({
   getData,
   onClick,
   focusContainer,
+  value,
 }: Props) {
   return (
     <>
@@ -21,33 +22,37 @@ export default function IconsSelector({
         }`}
       >
         <div className="icons-inner-container">
-          {icons.map((icon, index) => (
-            <div
-              key={icon}
-              className="icon-container"
-            >
-              <input
-                type="checkbox"
-                id={`checkbox${index}`}
-                className="icon-input"
-                onChange={getData}
-                name="icon"
-                value={icon}
-                onClick={onClick}
-              />
-              <label
-                className="icon"
-                htmlFor={`checkbox${index}`}
+          {icons.map((icon, index) => {
+            if (icon === value) {
+            }
+            return (
+              <div
+                key={icon}
+                className="icon-container"
               >
-                <img
-                  key={index}
-                  src={`/icons/${icon}.svg`}
-                  alt={icon}
-                  className="card-icon"
+                <input
+                  type="checkbox"
+                  id={`checkbox${index}`}
+                  className="icon-input"
+                  onChange={getData}
+                  name="icon"
+                  value={icon}
+                  onClick={onClick}
                 />
-              </label>
-            </div>
-          ))}
+                <label
+                  className="icon"
+                  htmlFor={`checkbox${index}`}
+                >
+                  <img
+                    key={index}
+                    src={`/icons/${icon}.svg`}
+                    alt={icon}
+                    className="card-icon"
+                  />
+                </label>
+              </div>
+            );
+          })}
         </div>
       </div>
     </>

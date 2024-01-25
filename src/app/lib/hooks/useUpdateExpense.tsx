@@ -8,7 +8,9 @@ import { checkTransaction } from '../services/checkTransaction';
 export const useUpdateExpense = (
   groupId: string,
   transactionId: string,
-  amount: string
+  amount: string,
+  description: string,
+  icon: string
 ) => {
   const {
     getData,
@@ -70,28 +72,52 @@ export const useUpdateExpense = (
   };
 
   const updateTransaction = async () => {
-    setLoading(true);
-    const update = await updateTransactionService(
-      groupId,
-      transactionId,
-      amount,
-      (data as NewExpenseData).description,
-      (data as NewExpenseData).icon,
-      (data as NewExpenseData).quantity
-    );
-    setLoading(false);
-
-    if (update.status === 200) {
-      router.push(`/dashboard/${groupId}`);
-    } else {
-      setErrorMessage(
-        'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
-      );
-
+    console.log(icon, description, amount);
+    if (
+      (data as NewExpenseData).icon === '' &&
+      (data as NewExpenseData).description === '' &&
+      (data as NewExpenseData).quantity === ''
+    ) {
+      setErrorMessage('No has cambiado ningún dato');
       setError(true);
-      setTimeout(() => {
+    } else {
+      setLoading(true);
+      const newIcon =
+        (data as NewExpenseData).icon === ''
+          ? icon
+          : (data as NewExpenseData).icon;
+      const newDescription =
+        (data as NewExpenseData).description === ''
+          ? description
+          : (data as NewExpenseData).description;
+      const newQuantity =
+        (data as NewExpenseData).quantity === ''
+          ? amount
+          : (data as NewExpenseData).quantity;
+
+      const update = await updateTransactionService(
+        groupId,
+        transactionId,
+        amount,
+        newDescription,
+        newIcon,
+        newQuantity
+      );
+      setLoading(false);
+
+      if (update.status === 200) {
         router.push(`/dashboard/${groupId}`);
-      }, 2000);
+      } else {
+        console.log(update);
+        setErrorMessage(
+          'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
+        );
+
+        setError(true);
+        // setTimeout(() => {
+        //   router.push(`/dashboard/${groupId}`);
+        // }, 2000);
+      }
     }
   };
   return {
