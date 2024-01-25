@@ -6,8 +6,8 @@ import { sendInvitaionMail } from '@/app/lib/services/mailService';
 export async function POST(request: NextRequest) {
   try {
     const data: NewFriendPetition = await request.json();
-
-    if (!data.group_name || !data.email || !data.hostName) {
+    console.log(data);
+    if (!data.group_name || !data.email || !data.hostName || !data.group_id) {
       return NextResponse.json(
         { message: 'Please add all required info' },
         { status: 400 }
@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
     // Checks if group exists and gets ID balance
     const groupId = await client.execute({
       sql: 'SELECT group_id FROM groups WHERE group_id = ?',
-      args: [data.group_name],
+      args: [data.group_id],
     });
     if (groupId.rows.length === 0) {
       console.log('Group not found');

@@ -16,7 +16,7 @@ export default function InviteFriendForm({
   user,
 }: InviteFriendFormProps) {
   const { getData, submit, showError, loading, onFocus, error, errorMessage } =
-    useAddFriend(user);
+    useAddFriend(user, groups || []);
   useEffect(() => {}, [showError]);
 
   return (

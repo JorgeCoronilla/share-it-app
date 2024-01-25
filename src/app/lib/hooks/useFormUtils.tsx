@@ -73,9 +73,8 @@ export const useFormStates = (formType: formTypes) => {
 
     if ('name' in target) {
       const { name, value, id } = target;
-
+      console.log(name, value, id);
       if (name === 'icon') {
-        console.log(previousIcon.current, id);
         if (previousIcon.current !== id) {
           const icons =
             document.querySelectorAll<HTMLInputElement>('input.icon-input');

@@ -59,7 +59,9 @@ export const useUpdateExpense = (
 
     if (deleteTransaction.status === 200) {
       router.push(`/dashboard/${groupId}`);
-    } else {
+    }
+
+    if (deleteTransaction.status === 500 || deleteTransaction.status === 404) {
       setErrorMessage(
         'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
       );

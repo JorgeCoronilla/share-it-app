@@ -3,7 +3,7 @@ import { addFriendToGroup } from '../services/inviteFriend';
 import { validateNewFriend } from '../validations';
 import { useFormStates } from './useFormUtils';
 
-export const useAddFriend = (user: User) => {
+export const useAddFriend = (user: User, groups: GroupData[]) => {
   const {
     getData,
     setShowError,
@@ -24,7 +24,13 @@ export const useAddFriend = (user: User) => {
   }, [data]);
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
+    var groupName: string = '';
     e.preventDefault();
+    groups.forEach((item) => {
+      if (item.id === (data as NewFriend).group) {
+        groupName = item.name;
+      }
+    });
     const checkData = data as NewFriend;
     if (checkData.email.toString() === user.email) {
       setShowError({ ...showError, email: true });
@@ -36,10 +42,11 @@ export const useAddFriend = (user: User) => {
     setLoading(true);
     const newFriendPetition = {
       email: checkData.email,
-      group_name: checkData.group,
+      group_id: checkData.group,
+      group_name: groupName,
       hostName: user.name,
     };
-
+    console.log(newFriendPetition);
     const itemRegistered = await addFriendToGroup(newFriendPetition);
     setLoading(false);
 

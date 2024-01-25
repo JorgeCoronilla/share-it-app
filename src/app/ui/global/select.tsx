@@ -21,7 +21,7 @@ export default function Select({ getData, groups, name, label }: Props) {
         {groups &&
           groups.map((item, index) => (
             <option
-              key={index}
+              key={item.name}
               value={item.id}
             >
               {item.name}

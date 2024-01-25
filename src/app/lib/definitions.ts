@@ -155,6 +155,7 @@ interface NewFriend {
 interface NewFriendPetition {
   email: string;
   group_name: string;
+  group_id: string;
   hostName: string;
 }
 
