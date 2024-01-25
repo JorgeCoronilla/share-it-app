@@ -38,6 +38,11 @@ export default function Home() {
             </div>
           </div>
         </main>
+        <footer className="footer">
+          <p>
+            Hecho con<span>❤</span> por <span>Jorge Coronilla Naranjo</span>
+          </p>
+        </footer>
       </section>
     </>
   );
