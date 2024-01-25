@@ -1,7 +1,8 @@
 import React from 'react';
-import CardTitle from '../card/cardTitle';
 import { useDeleteGroup } from '@/app/lib/hooks/useDeleteGroup';
-import FormWarning from './formWarning';
+import CardSubtitle from '@/app/ui/dashboard/card/cardSubtitle';
+import FormError from './formError';
+import Loading from '../../global/loading';
 interface DeleteGroupProps {
   id: string;
   name: string;
@@ -14,11 +15,11 @@ export default function DeleteGroup({ id, name }: DeleteGroupProps) {
 
   return (
     <>
-      <label className="form-label">
-        ¿Estás seguro de que quieres eliminar este grupo?
-      </label>
+      <CardSubtitle
+        subtitle={'¿Estás seguro de que quieres eliminar este grupo?'}
+      />
+
       <br />
-      <CardTitle title={name} />
 
       <button
         onClick={deleteGroup}
@@ -28,11 +29,11 @@ export default function DeleteGroup({ id, name }: DeleteGroupProps) {
         Eliminar
       </button>
 
-      <FormWarning
+      <FormError
         showError={error}
         message={errorMessage}
       />
-      <FormWarning
+      <Loading
         showError={loading}
         message="... Loading"
       />

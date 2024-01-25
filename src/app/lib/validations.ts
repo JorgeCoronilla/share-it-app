@@ -20,7 +20,9 @@ export const CreateGroupFormSchema = CreateGroupSchema.omit({
 });
 
 // Regular expressions
-const regexTwoCharacters = /^(?![\s]{2,})[a-zA-ZÀ-ÖØ-öø-ÿ\s]{2,50}$/;
+const regexTwoCharacters =
+  /^(?! )[\wáéíóúüñÁÉÍÓÚÜÑ.,?!¡¿\s-][\w\dáéíóúüñÁÉÍÓÚÜÑ.,?!¡¿\s-]{0,48}[\wáéíóúüñÁÉÍÓÚÜÑ.,?!¡¿\s-](?! )$/;
+
 const regexDecimalNumber = /^\d+([.,]\d+)?$/;
 
 const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

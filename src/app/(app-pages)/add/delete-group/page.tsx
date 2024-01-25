@@ -15,7 +15,7 @@ export default function AddGroupButton() {
 
   return (
     <div className="form-body">
-      <FormHeader title="Eliminar grupo 2" />
+      <FormHeader title={`Eliminar ${name}`} />
       <div className="spacer"></div>
       <DeleteGroup
         id={group}

@@ -24,8 +24,6 @@ export const useAddExpense = () => {
 
   useEffect(() => {
     setShowError(validateNewExpense(data as NewExpenseData));
-    console.log(showError);
-    console.log(data);
   }, [data]);
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {

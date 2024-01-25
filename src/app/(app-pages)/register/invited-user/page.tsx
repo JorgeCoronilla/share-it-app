@@ -4,6 +4,9 @@ import { invitationFormFields } from '@/app/ui/dashboard/forms/registerFields';
 import Button from '@/app/ui/global/button';
 import FormInput from '@/app/ui/global/formInput';
 import FormWarning from '@/app/ui/dashboard/warnings/formWarning';
+import FormHeader from '@/app/ui/dashboard/forms/formHeader';
+import Loading from '@/app/ui/global/loading';
+import FormError from '@/app/ui/dashboard/warnings/formError';
 
 export default function Page({
   searchParams,
@@ -15,7 +18,8 @@ export default function Page({
     useInvitationForm(token);
 
   return (
-    <div className="loginForm">
+    <div className="form-body">
+      <FormHeader title="Nuevo usuario" />
       <form
         className="form-main"
         onSubmit={submit}
@@ -52,15 +56,15 @@ export default function Page({
           }
           disabled={showError.allfields}
         />
-        <FormWarning
+        <Loading
           showError={loading}
           message="... loading"
         />
-        <FormWarning
-          showError={error}
-          message={errorMessage}
-        />
       </form>
+      <FormError
+        showError={error}
+        message={errorMessage}
+      />
     </div>
   );
 }

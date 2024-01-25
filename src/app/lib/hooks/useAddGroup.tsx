@@ -34,7 +34,6 @@ export const useAddGroup = () => {
 
     if (itemRegistered.ok) {
       const data = await itemRegistered.json();
-      console.log(data);
       router.push(`/dashboard`);
     } else {
       if (itemRegistered.status === 400) {
