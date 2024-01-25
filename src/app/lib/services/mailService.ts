@@ -45,23 +45,16 @@ export async function sendConfirmationMail(toEmail: string, name: string) {
     <div
       style="display: flex; flex-direction: row; justify-content: space-between"
     >
-      <div style="width: 75%">
+      <div style="width: 100%">
         <img
           src="https://i.ibb.co/YNymX3C/Captura-desde-2024-01-25-11-22-52.png"
           alt="Share-it"
           style="width: 100%"
         />
       </div>
-  
-      <div style="width: 23.78%">
-        <img
-          src="https://i.ibb.co/ZGjDFVX/Captura-desde-2024-01-25-12-28-17.png"
-          style="display: blocks; width: 100%"
-        />
-      </div>
     </div>
   
-    <main style="padding: 0 15%">
+    <main style="padding: 0 10%">
       <div style="width: fit-content; margin: 0 auto">
         <br />
         <h1
@@ -73,6 +66,7 @@ export async function sendConfirmationMail(toEmail: string, name: string) {
             font-size: clamp(1.5rem, -16.5rem + 40vw, 6.5rem);
             font-family: Inter, sans-serif;
             text-align: center;
+            color: white;
           "
         >
           !Bienvenid@!
@@ -128,7 +122,8 @@ export async function sendConfirmationMail(toEmail: string, name: string) {
           padding: 1em 2em;
           margin: 2em auto;
           display: block;
-          width: fit-content;
+          width: 10em;
+          text-align: center;
           text-decoration: none;
           font-weight: 600;
           font-size: 0.8em;
@@ -197,6 +192,7 @@ export async function sendConfirmationMail(toEmail: string, name: string) {
       </p>
     </footer>
   </body>
+  
   `,
   };
 
@@ -241,7 +237,6 @@ export async function sendInvitaionMail({
     subject: `Bienvenido a Share-it! - ${hostName} te ha invitado`,
     text: 'Share-it',
     html: `
-
     <head>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -251,18 +246,11 @@ export async function sendInvitaionMail({
     <div
       style="display: flex; flex-direction: row; justify-content: space-between"
     >
-      <div style="width: 75%">
+      <div style="width: 100%">
         <img
           src="https://i.ibb.co/YNymX3C/Captura-desde-2024-01-25-11-22-52.png"
           alt="Share-it"
           style="width: 100%"
-        />
-      </div>
-  
-      <div style="width: 23.78%">
-        <img
-          src="https://i.ibb.co/ZGjDFVX/Captura-desde-2024-01-25-12-28-17.png"
-          style="display: blocks; width: 100%"
         />
       </div>
     </div>
@@ -279,11 +267,38 @@ export async function sendInvitaionMail({
             font-size: clamp(1.5rem, -16.5rem + 40vw, 6.5rem);
             font-family: Inter, sans-serif;
             text-align: center;
+            color: white;
           "
         >
           !Bienvenid@!
         </h1>
       </div>
+      <h6
+        style="
+          font-size: 1.2em;
+          font-family: Inter, sans-serif;
+          color: rgb(66, 66, 66);
+        "
+      >
+        <span
+          style="
+            font-size: 1.6em;
+            font-family: Inter, sans-serif;
+            font-weight: 900s;
+            color: rgb(121, 52, 212);
+          "
+          >H</span
+        >ola<span
+          style="
+            font-size: 1.6em;
+            font-family: Inter, sans-serif;
+            font-weight: 900s;
+            color: rgb(121, 52, 212);
+          "
+          >!</span
+        >
+      </h6>
+  
       <h3
         style="
           font-size: 1.2em;
@@ -323,7 +338,8 @@ export async function sendInvitaionMail({
           padding: 1em 2em;
           margin: 2em auto;
           display: block;
-          width: fit-content;
+          width: 10em;
+          text-align: center;
           text-decoration: none;
           font-weight: 600;
           font-size: 0.8em;
@@ -374,7 +390,7 @@ export async function sendInvitaionMail({
         <a href="mailto:shareit.rizedev@gmail.com">shareit.rizedev@gmail.com</a>.
       </p>
     </main>
-  <br>s
+    <br />
     <footer
       style="height: 4em; background-color: black; color: rgb(226, 226, 226) s"
     >
@@ -392,6 +408,7 @@ export async function sendInvitaionMail({
       </p>
     </footer>
   </body>
+  
   
   `,
   };

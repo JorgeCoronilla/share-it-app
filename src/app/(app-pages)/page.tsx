@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ThemeSwitcher from '../ui/global/themeSwitcher';
 import Hero from '../ui/home/hero';
 import HomeHeader from '../ui/home/homeHeader';
@@ -12,33 +13,32 @@ export default function Home() {
         <main>
           <div className="hero-container">
             <h1 className="title">Share-it</h1>
-            <p className="normal-text">
-              Do not forget what you paid, not forget to pay.
+            <p className="banner">
+              Las cuentas compartidas de manera <span>simple.</span>
             </p>
+            <Link
+              href="/register"
+              className="join-button"
+            >
+              Regístrate gratis
+            </Link>
+          </div>
+          <div className="steps-container">
+            <div>
+              <p>1</p>
+              <h5>Crea un grupo</h5>
+            </div>
+            <div>
+              <p>2</p>
+              <h5>Invita a los participantes</h5>
+            </div>
+            <div>
+              <p>3</p>
+              <h5>Añadid los gastos</h5>
+            </div>
           </div>
         </main>
       </section>
-      {/* <section className="features">
-        <h2>Crea grupos</h2>
-        <img
-          src={`/icons/actividad.webp`}
-          className="home-img"
-        />
-      </section>
-      <section className="features">
-        <h2>Crea grupos</h2>
-        <img
-          src={`/icons/amigos.webp`}
-          className="home-img"
-        />
-      </section>
-      <section className="features">
-        <h2>Crea grupos</h2>
-        <img
-          src={`/icons/nuevo-gasto.webp`}
-          className="home-img"
-        />
-      </section> */}
     </>
   );
 }

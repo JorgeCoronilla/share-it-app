@@ -61,8 +61,10 @@ export async function DELETE(request: NextRequest) {
     // console.log(userBalance);
     // console.log('transactionQuantity', transactionQuantity);
 
-    const newUserBalance = userBalance - currentTransactionAmount;
-    const newGroupBalance = groupBalance - currentTransactionAmount;
+    const newUserBalance =
+      Math.round((userBalance - currentTransactionAmount) * 100) / 100;
+    const newGroupBalance =
+      Math.round((groupBalance - currentTransactionAmount) * 100) / 100;
 
     // console.log('newGroupBalance', newGroupBalance);
 

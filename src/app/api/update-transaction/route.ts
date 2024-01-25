@@ -4,7 +4,6 @@ import { revalidatePath } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function PUT(request: NextRequest) {
-  console.log('Entra');
   try {
     const {
       icon,
@@ -82,8 +81,9 @@ export async function PUT(request: NextRequest) {
     }
 
     const newUserBalance =
-      parseFloat(userBalance.toString()) - oldAmount + newAmount;
-
+      Math.round(
+        (parseFloat(userBalance.toString()) - oldAmount + newAmount) * 100
+      ) / 100;
     const newGroupBalance = groupBalance - oldAmount + newAmount;
 
     console.log('newGroupBalance', newGroupBalance);
