@@ -37,12 +37,12 @@ export default function Home() {
               <h5>Añade los gastos</h5>
             </div>
           </div>
+          <footer className="footer">
+            <p>
+              Hecho con<span>❤</span> por <span>Jorge Coronilla Naranjo</span>
+            </p>
+          </footer>
         </main>
-        <footer className="footer">
-          <p>
-            Hecho con<span>❤</span> por <span>Jorge Coronilla Naranjo</span>
-          </p>
-        </footer>
       </section>
     </>
   );

@@ -254,7 +254,7 @@ footer {
     z-index: -10;
     width: 38em;
     top: 23em;
-    filter: blur(10em);
+    /* filter: blur(10em); */
   }
 
   .blur-stain-2 {
@@ -268,6 +268,6 @@ footer {
     left: 5em;
     width: 30em;
     top: 1em;
-    filter: blur(10em);
+    /* filter: blur(10em); */
   }
 }
