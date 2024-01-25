@@ -49,9 +49,9 @@ body {
 }
 .banner {
   color: var(--text);
-  font-size: 2.2em;
+  font-size: 2em;
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: -2px;
 }
@@ -121,7 +121,7 @@ section h2 {
   border-radius: 0.4em;
   width: fit-content;
   color: var(--background-color);
-  margin: 1em auto;
+  margin: 0.8em auto;
   font-size: 1.2em;
   font-weight: 400;
   cursor: pointer;
@@ -131,7 +131,7 @@ section h2 {
 .steps-container {
   display: flex;
   flex-direction: column;
-  padding: 2em 0 0;
+  padding: 1.6em 0 0;
   width: 18em;
   gap: 1.2em;
   margin: 0 auto;
