@@ -34,7 +34,7 @@ export default function Home() {
             </div>
             <div>
               <p>3</p>
-              <h5>Añadid los gastos</h5>
+              <h5>Añade los gastos</h5>
             </div>
           </div>
         </main>

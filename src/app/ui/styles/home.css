@@ -52,6 +52,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 900;
+  letter-spacing: -0.04em;
 }
 
 .normal-text {
@@ -59,7 +60,7 @@ body {
 }
 .banner {
   color: var(--text);
-  font-size: 2.7em;
+  font-size: 2.2em;
   text-align: center;
   font-weight: 600;
   line-height: 1.1;
@@ -86,8 +87,8 @@ body {
 }
 
 .hero-container .title {
-  margin-top: 2em;
-  margin-bottom: 0.5em;
+  margin-top: 1.5em;
+  margin-bottom: 0.2em;
 }
 
 .hero-container {
@@ -96,7 +97,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0;
-  width: 18em;
+  width: 14em;
   margin: 0 auto;
 }
 
@@ -132,7 +133,7 @@ section h2 {
   width: fit-content;
   color: var(--background-color);
   margin: 1em auto;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: 400;
   cursor: pointer;
   box-shadow: var(--shadows);
@@ -154,7 +155,7 @@ section h2 {
 }
 
 .steps-container h5 {
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: 600;
   margin: 0;
   padding: 0.5em 1em;
