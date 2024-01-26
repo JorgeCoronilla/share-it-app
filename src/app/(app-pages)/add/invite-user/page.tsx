@@ -13,12 +13,14 @@ export default async function Page() {
     userGroups = [];
   }
   return (
-    <div className="form-body">
-      <FormHeader title="Invita a un amig@" />
-      <InviteFriendForm
-        groups={userGroups}
-        user={user}
-      />
+    <div className="form-container">
+      <div className="form-body">
+        <FormHeader title="Invita a un amig@" />
+        <InviteFriendForm
+          groups={userGroups}
+          user={user}
+        />
+      </div>
     </div>
   );
 }

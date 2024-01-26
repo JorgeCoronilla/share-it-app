@@ -12,7 +12,9 @@ export default async function AddExpenseButton() {
   }
   return (
     <>
-      <ExpenseForm groups={userGroups} />
+      <div className="form-container">
+        <ExpenseForm groups={userGroups} />
+      </div>
     </>
   );
 }

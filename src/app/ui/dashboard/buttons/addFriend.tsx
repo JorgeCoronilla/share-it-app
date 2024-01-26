@@ -6,13 +6,15 @@ export default function AddFriendButton() {
   const router = useRouter();
 
   return (
-    <button
-      onClick={() => router.push('/add/invite-user')}
-      className="add-button friend"
-    >
-      <div>
-        <FriendsIcon />
-      </div>
-    </button>
+    <div className="add-button-container friend">
+      <button
+        onClick={() => router.push('/add/invite-user')}
+        className="add-button "
+      >
+        <div>
+          <FriendsIcon />
+        </div>
+      </button>
+    </div>
   );
 }

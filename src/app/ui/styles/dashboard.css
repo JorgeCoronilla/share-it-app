@@ -1,5 +1,7 @@
 .dashboard-container {
   padding: 1em 4.65em 2em 2em;
+  max-width: 35em;
+  margin: 0 auto;
 }
 
 .section-title {
@@ -12,4 +14,37 @@
 .section-spacer {
   width: 100%;
   height: 2.5em;
+}
+@media screen and (min-width: 768px) {
+  .dashboard-container {
+    width: 35em;
+    margin: 4em auto 3em;
+    background-color: rgba(73, 48, 78, 0.247);
+    background-color: var(--background-color-transparent);
+    padding: 1em 3.5em 2em;
+    height: 85vh;
+    overflow-y: scroll;
+  }
+
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--positive) var(--background-color-transparent);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--background-color-transparent);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--positive);
+    border-radius: 10px;
+    border: none;
+  }
 }

@@ -33,7 +33,9 @@ export default function GroupCard({
       >
         <div className="card-text-container">
           <CardTitle title={name} />
-          <CarSubtitle subtitle={`Total: ${groupBalance}`} />
+          <CarSubtitle
+            subtitle={`Total: ${Math.round(groupBalance * 100) / 100}`}
+          />
           {userDebt >= 0 ? (
             <CardDescription
               description="Debes"

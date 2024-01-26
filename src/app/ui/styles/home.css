@@ -229,9 +229,9 @@ footer {
   }
 
   footer {
-    display: block;
+    display: none;
     position: absolute;
-    bottom: 0;
+    top: 100;
     background-color: #818df821;
     width: 100%;
     padding: 1.5em 0 1em;

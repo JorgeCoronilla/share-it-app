@@ -6,13 +6,15 @@ export default function AddExpenseButton() {
   const router = useRouter();
 
   return (
-    <button
-      onClick={() => router.push('/add/create-expense')}
-      className="add-button expense"
-    >
-      <div>
-        <IconPencilFill />
-      </div>
-    </button>
+    <div className="add-button-container expense">
+      <button
+        onClick={() => router.push('/add/create-expense')}
+        className="add-button "
+      >
+        <div>
+          <IconPencilFill />
+        </div>
+      </button>
+    </div>
   );
 }

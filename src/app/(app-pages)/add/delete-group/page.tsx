@@ -14,13 +14,15 @@ export default function AddGroupButton() {
   }
 
   return (
-    <div className="form-body">
-      <FormHeader title={`Eliminar ${name}`} />
-      <div className="spacer"></div>
-      <DeleteGroup
-        id={group}
-        name={name}
-      />
+    <div className="form-container">
+      <div className="form-body">
+        <FormHeader title={`Eliminar ${name}`} />
+        <div className="spacer"></div>
+        <DeleteGroup
+          id={group}
+          name={name}
+        />
+      </div>
     </div>
   );
 }

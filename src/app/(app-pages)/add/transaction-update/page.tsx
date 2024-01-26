@@ -16,5 +16,9 @@ export default function Page({
     userid: string;
   };
 }) {
-  return <UpdateTransactionForm searchParams={searchParams} />;
+  return (
+    <div className="form-container">
+      <UpdateTransactionForm searchParams={searchParams} />
+    </div>
+  );
 }

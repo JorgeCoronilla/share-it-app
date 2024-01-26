@@ -10,16 +10,18 @@ export default function DeleteGroupButton() {
   const name = useSearchParams().get('name');
   return (
     <>
-      <button
-        className="add-button delete-group"
-        onClick={() =>
-          router.push(`/add/delete-group?group=${group}&name=${name}`)
-        }
-      >
-        <div>
-          <IconDeleteBin />
-        </div>
-      </button>
+      <div className="add-button-container delete-group">
+        <button
+          className="add-button "
+          onClick={() =>
+            router.push(`/add/delete-group?group=${group}&name=${name}`)
+          }
+        >
+          <div>
+            <IconDeleteBin />
+          </div>
+        </button>
+      </div>
     </>
   );
 }

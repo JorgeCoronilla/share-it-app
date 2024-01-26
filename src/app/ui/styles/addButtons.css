@@ -1,7 +1,11 @@
-.add-button {
+.add-button-container {
   position: fixed;
   z-index: 5;
   right: 1em;
+  bottom: z;
+}
+
+.add-button {
   padding: 0.6em 0.6em 0.5em;
   border-radius: 2em;
   background-color: var(--switcher);

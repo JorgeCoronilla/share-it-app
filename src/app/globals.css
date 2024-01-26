@@ -21,6 +21,9 @@
   --dark-backgorund-color: black;
   --light-backgorund-color: white;
 
+  --dark-b: rgba(73, 48, 78, 0.247);
+  --light-b: rgba(201, 107, 255, 0.048);
+
   --dark-title: linear-gradient(45deg, #cffafe, #818cf8, #f472b6);
   --light-title: linear-gradient(45deg, #6191c9, #3f51ee, #ff1b91);
 
@@ -60,6 +63,9 @@
   --highlight-bg-dark: rgba(255, 255, 255, 0.205);
   --highlight-bg-light: rgba(0, 0, 0, 0.205);
   --background-color: var(--light-backgorund-color);
+
+  --background-color-transparent: var(--light-b);
+
   --title: var(--light-title);
   --switcher: var(--light-switcher);
   --text: var(--light-text);
@@ -77,6 +83,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: var(--dark-backgorund-color);
+
+    --background-color-transparent: var(--dark-b);
     --title: var(--dark-title);
     --switcher: var(--dark-switcher);
     --text: var(--dark-text);
@@ -95,6 +103,8 @@
 
 .dark {
   --background-color: var(--dark-backgorund-color);
+
+  --background-color-transparent: var(--dark-b);
   --title: var(--dark-title);
   --switcher: var(--dark-switcher);
   --text: var(--dark-text);
@@ -112,6 +122,8 @@
 
 .light {
   --background-color: var(--light-backgorund-color);
+
+  --background-color-transparent: var(--light-b);
   --title: var(--light-title);
   --switcher: var(--light-switcher);
   --text: var(--light-text);
