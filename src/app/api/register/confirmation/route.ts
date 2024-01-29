@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
     const serialiazed = serialize('access-token', token, {
       httpOnly: true,
       path: '/',
-      maxAge: 30 * 60 * 60 * 24,
+      maxAge: 30 * 60 * 60 * 24 * 30,
       sameSite: 'strict',
       secure: process.env.NODE_ENV === 'production',
     });

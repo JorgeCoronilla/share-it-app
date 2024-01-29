@@ -110,49 +110,6 @@
   border: 1px solid var(--background-color-transparent);
 }
 
-#react {
-  background-color: #149eca;
-  color: white;
-}
-
-#next {
-  background-color: #000000;
-  color: white;
-}
-
-#node {
-  background-color: #68a063;
-  color: white;
-}
-
-#typescript {
-  background-color: #007acc;
-  color: white;
-}
-
-#javascript {
-  background-color: #f0db4f;
-  color: black;
-}
-#express {
-  background-color: #000000;
-  color: white;
-}
-
-#mongodb {
-  background-color: #4db33d;
-  color: white;
-}
-#sql {
-  background-color: #f29111;
-  color: white;
-}
-
-#webpack {
-  background-color: #1c78c0;
-  color: white;
-}
-
 @media screen and (min-width: 768px) {
   .about-subtitle {
     font-size: 3.5rem;
