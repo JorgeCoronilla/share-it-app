@@ -14,6 +14,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <AddGroupButton />
       <AddFriendButton />
       <AddExpenseButton />
+      <div className="blur-stain-1"></div>
+      <div className="blur-stain-2"></div>
       <main className="dashboard-container">{children}</main>
     </>
   );

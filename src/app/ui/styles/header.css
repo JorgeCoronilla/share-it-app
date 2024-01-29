@@ -9,6 +9,22 @@
   z-index: 100;
 }
 
+.home-header {
+  background-color: var(--menu-background);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.about-header {
+  background-color: var(--menu-background);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .header-row {
   width: 100%;
 
@@ -60,6 +76,13 @@
     padding: 0.7em 1.2em 0 0;
   }
   .header-container {
+    position: absolute;
+    top: -4em;
+    left: 0;
+  }
+
+  .about-header {
+    width: 100%;
     position: absolute;
     top: -4em;
     left: 0;

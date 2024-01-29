@@ -1,0 +1,151 @@
+.about-main {
+  padding: 1em 2em 2em;
+  max-width: 35em;
+  margin: 0 auto;
+  height: fit-content;
+}
+
+.about-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 0 0;
+
+  padding: 1em;
+  margin-top: -2.2em;
+}
+
+.about-text-container {
+  border: 2px solid var(--stain-1-light);
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  margin: 0 0;
+  width: 100%;
+  height: fit-content;
+  border-radius: 5px;
+  /* background-color: var(--background-color-transparent);
+  box-shadow: var(--shadows); */
+}
+
+.about-text {
+  color: var(--text);
+  font-size: 1.3em;
+}
+
+.about-subtitle {
+  color: var(--positive);
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 0.7em 0 1em;
+  text-align: center;
+}
+
+.about-paragraph {
+  color: var(--text);
+  text-align: center;
+  margin: 1em 0 0.5em;
+}
+.about-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1em;
+  margin: 0 auto;
+}
+
+.about-text-container ul {
+  margin-top: 0.8em;
+}
+.about-text-container ul li {
+  color: var(--text);
+  list-style-type: circle;
+  margin-left: 1em;
+}
+.about-icons div {
+  width: 2em;
+  height: 2.2em;
+  color: var(--background-color);
+  margin: 0;
+  width: 5em;
+  border-radius: 5px;
+  padding: 0.2em 0.2em;
+  background-color: var(--switcher);
+  box-shadow: var(--shadows);
+}
+
+.about-icons div svg {
+  width: 100%;
+  height: 100%;
+}
+.about-pic {
+  width: 15em;
+}
+
+.about-spacer {
+  width: 100%;
+  height: 2em;
+}
+
+.tags-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-top: 1em;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
+.tags-container > div > p {
+  background-color: var(--switcher);
+  color: black;
+  padding: 0.05em 0.5em;
+  display: block;
+  border-radius: 5px;
+  box-shadow: var(--shadows);
+  border: 1px solid var(--background-color-transparent);
+}
+
+#react {
+  background-color: #149eca;
+  color: white;
+}
+
+#next {
+  background-color: #000000;
+  color: white;
+}
+
+#node {
+  background-color: #68a063;
+  color: white;
+}
+
+#typescript {
+  background-color: #007acc;
+  color: white;
+}
+
+#javascript {
+  background-color: #f0db4f;
+  color: black;
+}
+#express {
+  background-color: #000000;
+  color: white;
+}
+
+#mongodb {
+  background-color: #4db33d;
+  color: white;
+}
+#sql {
+  background-color: #f29111;
+  color: white;
+}
+
+#webpack {
+  background-color: #1c78c0;
+  color: white;
+}

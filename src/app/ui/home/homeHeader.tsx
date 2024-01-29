@@ -5,12 +5,14 @@ import ThemeSwitcher from '../global/themeSwitcher';
 function HomeHeader() {
   return (
     <div>
-      <header>
+      <header className="home-header">
         <div className="home-links">
           <Link href="/login">SignIn</Link>
           <Link href="/register">SignUp</Link>
         </div>
-        {/* <ThemeSwitcher pageClass="home" /> */}
+        <div className="home-links">
+          <Link href="/about">About</Link>
+        </div>
       </header>
     </div>
   );

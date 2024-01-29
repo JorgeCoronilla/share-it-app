@@ -1,4 +1,4 @@
-export const icons = [
+export const icons2 = [
   'bill_icon',
   'car_icon',
   'garage_icon',
@@ -9,6 +9,41 @@ export const icons = [
   'shopping_icon',
   'tax_icon',
   'plane_icon',
+];
+
+export const icons = [
+  // 'icon_basket',
+  'icon_flower',
+  'icon_rocking_hand',
+  'icon_beer',
+  // 'icon_fruits',
+  // 'icon_running_shoes',
+  'icon_bill',
+  'icon_fuel',
+  'icon_sea',
+  'icon_books',
+  'icon_furniture',
+  'icon_shoes',
+  'icon_bulb',
+  'icon_game',
+  'icon_sports',
+  'icon_car',
+  'icon_hotel',
+  'icon_supermarket',
+  'icon_cleaning',
+  'icon_house',
+  'icon_ticket',
+  'icon_cocktail',
+  'icon_lighting',
+  'icon_tools',
+  'icon_coffee',
+  'icon_note',
+  'icon_tv',
+  'icon_education',
+  'icon_plane',
+  'icon_vegetables',
+  'icon_fashion',
+  'icon_restaurant',
 ];
 
 export const addMessageInitialState = {
