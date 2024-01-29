@@ -16,7 +16,6 @@
 }
 
 .about-text-container {
-  border: 2px solid var(--stain-1-light);
   display: flex;
   flex-direction: column;
   padding: 1em;
@@ -24,8 +23,6 @@
   width: 100%;
   height: fit-content;
   border-radius: 5px;
-  /* background-color: var(--background-color-transparent);
-  box-shadow: var(--shadows); */
 }
 
 .about-text {
@@ -39,6 +36,12 @@
   font-weight: bold;
   margin: 0.7em 0 1em;
   text-align: center;
+
+  background: var(--title);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  letter-spacing: -0.04em;
 }
 
 .about-paragraph {
@@ -148,4 +151,24 @@
 #webpack {
   background-color: #1c78c0;
   color: white;
+}
+
+@media screen and (min-width: 768px) {
+  .about-subtitle {
+    font-size: 3.5rem;
+
+    background: var(--title);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+  }
+
+  .tags-container > div > p {
+    padding: 0.3em 1em;
+  }
+
+  .about-icons div {
+    height: 4.2em;
+  }
 }

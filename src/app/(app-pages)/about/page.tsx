@@ -1,3 +1,4 @@
+import AboutHeader from '@/app/ui/about/aboutHeader';
 import IconGithubLogo from '@/app/ui/dashboard/iconsComponents/githubIcon';
 import { IconGmail } from '@/app/ui/dashboard/iconsComponents/gmailIcon';
 import { IconLinkedinCircled } from '@/app/ui/dashboard/iconsComponents/linkedinIcon';
@@ -11,23 +12,15 @@ export default function Page() {
     <>
       <div className="blur-stain-1"></div>
       <div className="blur-stain-2"></div>
-      <div>
-        <header className="about-header">
-          <div className="home-links">
-            <Link href="/login">SignIn</Link>
-            <Link href="/register">SignUp</Link>
-          </div>
-          <div className="home-links">
-            <Link href="/">Home</Link>
-          </div>
-        </header>
-      </div>
+      <AboutHeader />
       <main className="about-main">
         <div className="section-spacer"></div>
         <SectionTitle title="About" />
 
         <div className="section-spacer"></div>
-        <p className="about-subtitle">Jorge Coronilla Naranjo </p>
+        <div>
+          <p className="about-subtitle">Jorge Coronilla Naranjo </p>
+        </div>
 
         <div className="about-text-container">
           <p className="about-paragraph">Desarrollador front-end:</p>
