@@ -15,7 +15,7 @@ export const useEndRegistration = () => {
     setLoading(false);
 
     if (userRegistration.ok) {
-      router.push(`/`);
+      router.push(`/dashboard`);
       console.log('ok');
     } else {
       if (userRegistration.status === 400) {

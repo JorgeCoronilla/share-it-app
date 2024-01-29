@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import client from '@/app/lib/db/db';
 import { v4 as uuidv4 } from 'uuid';
-import { getTokenInfo } from '@/app/lib/auth';
+import { getJwtSecretKey, getTokenInfo } from '@/app/lib/auth';
+import { SignJWT } from 'jose';
+import { serialize } from 'cookie';
+import { cookies } from 'next/headers';
 
 export async function POST(request: NextRequest) {
   try {
@@ -82,6 +85,28 @@ export async function POST(request: NextRequest) {
       ],
     });
     console.log('User inserted', newUser);
+
+    const token = await new SignJWT({
+      id: user_id,
+      email: preRegisterInfo.rows[0].email.toString().toLowerCase(),
+      name: preRegisterInfo.rows[0].username,
+      avatar: preRegisterInfo.rows[0].avatar,
+    })
+      .setProtectedHeader({ alg: 'HS256' })
+      .setIssuedAt()
+      .setExpirationTime('1day')
+      .sign(getJwtSecretKey());
+    console.log(token);
+    const serialiazed = serialize('access-token', token, {
+      httpOnly: true,
+      path: '/',
+      maxAge: 30 * 60 * 60 * 24,
+      sameSite: 'strict',
+      secure: process.env.NODE_ENV === 'production',
+    });
+    cookies().set('access-token', serialiazed);
+    console.log('Logged successfully');
+
     return NextResponse.json(
       {
         message: 'User inserted to group',
