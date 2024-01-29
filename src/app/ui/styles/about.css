@@ -34,7 +34,7 @@
   color: var(--positive);
   font-size: 1.4em;
   font-weight: bold;
-  margin: 0.7em 0 1em;
+  margin: 2.7em 0 1em;
   text-align: center;
 
   background: var(--title);
@@ -45,9 +45,11 @@
 }
 
 .about-paragraph {
-  color: var(--text);
+  color: var(--positive);
   text-align: center;
-  margin: 1em 0 0.5em;
+  margin: 1em 0 2.5em;
+  font-size: 1.2em;
+  font-weight: 800;
 }
 .about-icons {
   display: flex;
@@ -111,6 +113,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .about-main {
+    max-width: 45em;
+  }
+
   .about-subtitle {
     font-size: 3.5rem;
 
@@ -119,6 +125,7 @@
     -webkit-text-fill-color: transparent;
     font-weight: 900;
     letter-spacing: -0.04em;
+    margin-top: 2em;
   }
 
   .tags-container > div > p {
@@ -127,5 +134,10 @@
 
   .about-icons div {
     height: 4.2em;
+  }
+
+  .about-paragraph {
+    font-size: 2.8em;
+    margin: -1em auto 2em;
   }
 }

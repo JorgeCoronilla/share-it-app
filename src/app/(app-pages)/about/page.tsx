@@ -19,15 +19,14 @@ export default function Page() {
         <div className="section-spacer"></div>
         <SectionTitle title="About" />
 
-        <div className="section-spacer"></div>
         <div>
           <p className="about-subtitle">Jorge Coronilla Naranjo </p>
         </div>
-        <div className="about-text-container">
-          <p className="about-paragraph">Desarrollador front-end:</p>
-          <Tags />
-          <div className="about-spacer">T</div>
-        </div>
+        <p className="about-paragraph">Desarrollador front-end</p>
+
+        <Tags />
+        <div className="about-spacer"></div>
+
         <div className="about-container">
           <SocialMediaBtn />
         </div>
