@@ -1,12 +1,12 @@
 'use client';
 import { useInvitationForm } from '@/app/lib/hooks/useInvitationForm';
-import { invitationFormFields } from '@/app/ui/dashboard/forms/registerFields';
-import Button from '@/app/ui/global/button';
-import FormInput from '@/app/ui/global/formInput';
-import FormWarning from '@/app/ui/dashboard/warnings/formWarning';
-import FormHeader from '@/app/ui/dashboard/forms/formHeader';
-import Loading from '@/app/ui/global/loading';
-import FormError from '@/app/ui/dashboard/warnings/formError';
+import FormHeader from '@/app/ui/components/dashboard/forms/formHeader';
+import { invitationFormFields } from '@/app/ui/components/dashboard/forms/registerFields';
+import FormError from '@/app/ui/components/dashboard/warnings/formError';
+import FormWarning from '@/app/ui/components/dashboard/warnings/formWarning';
+import Button from '@/app/ui/components/global/button';
+import FormInput from '@/app/ui/components/global/formInput';
+import Loading from '@/app/ui/components/global/loading';
 
 export default function Page({
   searchParams,

@@ -1,7 +1,7 @@
 import React from 'react';
-import IconGithubLogo from '../dashboard/iconsComponents/githubIcon';
-import { IconLinkedinCircled } from '../dashboard/iconsComponents/linkedinIcon';
-import { IconGmail } from '../dashboard/iconsComponents/gmailIcon';
+import IconGithubLogo from '../global/iconsComponents/githubIcon';
+import { IconLinkedinCircled } from '../global/iconsComponents/linkedinIcon';
+import { IconGmail } from '../global/iconsComponents/gmailIcon';
 
 export default function SocialMediaBtn() {
   return (

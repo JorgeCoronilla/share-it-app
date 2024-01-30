@@ -1,4 +1,4 @@
-import DeleteGroupButton from '@/app/ui/dashboard/buttons/deleteGroupButton';
+import DeleteGroupButton from '@/app/ui/components/dashboard/buttons/deleteGroupButton';
 import { ReactNode } from 'react';
 
 import React from 'react';

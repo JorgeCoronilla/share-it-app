@@ -1,7 +1,6 @@
 import { getUserId } from '@/app/lib/auth';
 import { getGroups } from '@/app/lib/services/groups';
-
-import ExpenseForm from '@/app/ui/dashboard/forms/expenseForm';
+import ExpenseForm from '@/app/ui/components/dashboard/forms/expenseForm';
 
 export default async function AddExpenseButton() {
   const userID = await getUserId();

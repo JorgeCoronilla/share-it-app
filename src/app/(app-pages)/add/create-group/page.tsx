@@ -1,5 +1,5 @@
-import FormHeader from '@/app/ui/dashboard/forms/formHeader';
-import GroupForm from '@/app/ui/dashboard/forms/groupForm';
+import FormHeader from '@/app/ui/components/dashboard/forms/formHeader';
+import GroupForm from '@/app/ui/components/dashboard/forms/groupForm';
 
 export default function AddGroupButton() {
   return (

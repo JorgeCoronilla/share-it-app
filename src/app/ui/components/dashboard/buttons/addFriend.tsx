@@ -1,5 +1,5 @@
 'use client';
-import FriendsIcon from '../iconsComponents/friendsIcon';
+import FriendsIcon from '../../global/iconsComponents/friendsIcon';
 import { useRouter } from 'next/navigation';
 
 export default function AddFriendButton() {

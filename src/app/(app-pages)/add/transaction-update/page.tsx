@@ -1,7 +1,6 @@
 'use client';
 
-import UpdateTransactionForm from '@/app/ui/dashboard/forms/updateTransactionForm';
-
+import UpdateTransactionForm from '@/app/ui/components/dashboard/forms/updateTransactionForm';
 import React from 'react';
 
 export default function Page({

@@ -1,13 +1,8 @@
-import AboutHeader from '@/app/ui/about/aboutHeader';
-import SocialMediaBtn from '@/app/ui/about/socialMediaBtn';
-import Tags from '@/app/ui/about/tags';
-import IconGithubLogo from '@/app/ui/dashboard/iconsComponents/githubIcon';
-import { IconGmail } from '@/app/ui/dashboard/iconsComponents/gmailIcon';
-import { IconLinkedinCircled } from '@/app/ui/dashboard/iconsComponents/linkedinIcon';
-import BgStains from '@/app/ui/global/bgStains';
-import SectionTitle from '@/app/ui/global/sectionTitle';
-
-import Link from 'next/link';
+import AboutHeader from '@/app/ui/components/about/aboutHeader';
+import SocialMediaBtn from '@/app/ui/components/about/socialMediaBtn';
+import Tags from '@/app/ui/components/about/tags';
+import BgStains from '@/app/ui/components/global/bgStains';
+import SectionTitle from '@/app/ui/components/global/sectionTitle';
 import React from 'react';
 
 export default function Page() {

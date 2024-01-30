@@ -1,11 +1,11 @@
-import { getTransactions } from '@/app/lib/services/transactions';
-import CardDescription from '@/app/ui/dashboard/card/cardDescription';
-import CardIcon from '@/app/ui/dashboard/card/cardIcon';
-import CardTextAndDate from '@/app/ui/dashboard/card/cardTextAndDate';
-import CardTitle from '@/app/ui/dashboard/card/cardTitle';
-import CardSubtitle from '@/app/ui/dashboard/card/cardSubtitle';
 import Link from 'next/link';
 import { getUser } from '@/app/lib/auth';
+import { getTransactions } from '@/app/lib/services/transactions';
+import CardTitle from '@/app/ui/components/dashboard/card/cardTitle';
+import CardDescription from '@/app/ui/components/dashboard/card/cardDescription';
+import CardIcon from '@/app/ui/components/dashboard/card/cardIcon';
+import CardSubtitle from '@/app/ui/components/dashboard/card/cardSubtitle';
+import CardTextAndDate from '@/app/ui/components/dashboard/card/cardTextAndDate';
 
 export default async function Page({
   params,

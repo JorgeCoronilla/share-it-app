@@ -1,6 +1,6 @@
 'use client';
-import Button from '@/app/ui/global/button';
-import FormInput from '@/app/ui/global/formInput';
+import Button from '@/app/ui/components/global/button';
+import FormInput from '@/app/ui/components/global/formInput';
 import FormWarning from '@/app/ui/dashboard/warnings/formWarning';
 import { useAddFriend } from '@/app/lib/hooks/useAddFriend';
 import { useEffect } from 'react';

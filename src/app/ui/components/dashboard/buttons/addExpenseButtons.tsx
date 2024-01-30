@@ -1,5 +1,5 @@
 'use client';
-import IconPencilFill from '../iconsComponents/pencilIcon';
+import IconPencilFill from '../../global/iconsComponents/pencilIcon';
 import { useRouter } from 'next/navigation';
 
 export default function AddExpenseButton() {

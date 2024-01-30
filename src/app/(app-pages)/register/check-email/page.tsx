@@ -1,4 +1,4 @@
-import FormHeader from '@/app/ui/dashboard/forms/formHeader';
+import FormHeader from '@/app/ui/components/dashboard/forms/formHeader';
 
 export default function Page() {
   return (

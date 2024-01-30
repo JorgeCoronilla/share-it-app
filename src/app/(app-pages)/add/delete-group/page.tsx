@@ -1,6 +1,7 @@
 'use client';
-import FormHeader from '@/app/ui/dashboard/forms/formHeader';
-import DeleteGroup from '@/app/ui/dashboard/warnings/deleteGroup';
+
+import FormHeader from '@/app/ui/components/dashboard/forms/formHeader';
+import DeleteGroup from '@/app/ui/components/dashboard/warnings/deleteGroup';
 import { useSearchParams } from 'next/navigation';
 
 export default function AddGroupButton() {

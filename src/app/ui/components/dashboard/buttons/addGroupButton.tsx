@@ -1,6 +1,6 @@
 'use client';
 
-import IconUsers from '../iconsComponents/groupsIcon';
+import IconUsers from '../../global/iconsComponents/groupsIcon';
 import { useRouter } from 'next/navigation';
 
 export default function AddGroupButton() {

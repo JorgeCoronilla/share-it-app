@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import ThemeSwitcher from '../ui/global/themeSwitcher';
-import Hero from '../ui/home/hero';
-import HomeHeader from '../ui/home/homeHeader';
+import ThemeSwitcher from '../ui/components/global/themeSwitcher';
+import HomeHeader from '../ui/components/home/homeHeader';
 export default function Home() {
   return (
     <>

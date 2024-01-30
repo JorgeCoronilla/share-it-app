@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import React from 'react';
-import ThemeSwitcher from '../global/themeSwitcher';
+import ThemeSwitcher from '../components/global/themeSwitcher';
 function HomeHeader() {
   return (
     <div>

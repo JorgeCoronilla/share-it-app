@@ -1,4 +1,5 @@
-import RegisterForm from '@/app/ui/dashboard/forms/registerForm';
+import RegisterForm from '@/app/ui/components/dashboard/forms/registerForm';
+
 export default function Page() {
   return (
     <div className="form-container">

@@ -1,5 +1,5 @@
-import GroupsList from '../../ui/dashboard/groups/groupsList';
-import SectionTitle from '@/app/ui/global/sectionTitle';
+import GroupsList from '@/app/ui/components/dashboard/groups/groupsList';
+import SectionTitle from '@/app/ui/components/global/sectionTitle';
 
 export default function Page() {
   return (

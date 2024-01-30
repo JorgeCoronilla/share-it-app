@@ -1,4 +1,4 @@
-import SectionTitle from '@/app/ui/global/sectionTitle';
+import SectionTitle from '@/app/ui/components/global/sectionTitle';
 
 export default function Page() {
   return (

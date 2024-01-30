@@ -1,10 +1,9 @@
 import { getUserId } from '@/app/lib/auth';
 import { getAllFriends } from '@/app/lib/services/friends';
-import CardAvatar from '@/app/ui/dashboard/card/cardAvatar';
-import CardList from '@/app/ui/dashboard/card/cardList';
-import CardSubtitle from '@/app/ui/dashboard/card/cardSubtitle';
-import CardTitle from '@/app/ui/dashboard/card/cardTitle';
-import NoData from '@/app/ui/global/noData';
+import CardList from '@/app/ui/components/dashboard/card/cardList';
+import CardSubtitle from '@/app/ui/components/dashboard/card/cardSubtitle';
+import CardTitle from '@/app/ui/components/dashboard/card/cardTitle';
+import NoData from '@/app/ui/components/global/noData';
 
 export default async function Page() {
   const userId = await getUserId();

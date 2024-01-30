@@ -1,7 +1,7 @@
 import { getUser, getUserId } from '@/app/lib/auth';
 import { getGroups } from '@/app/lib/services/groups';
-import FormHeader from '@/app/ui/dashboard/forms/formHeader';
-import InviteFriendForm from '@/app/ui/dashboard/forms/inviteFriend';
+import FormHeader from '@/app/ui/components/dashboard/forms/formHeader';
+import InviteFriendForm from '@/app/ui/components/dashboard/forms/inviteFriend';
 
 import React from 'react';
 

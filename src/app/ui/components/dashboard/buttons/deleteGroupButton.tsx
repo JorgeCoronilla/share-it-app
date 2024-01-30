@@ -1,6 +1,6 @@
 'use client';
 
-import { IconDeleteBin } from '../iconsComponents/deleteBin';
+import { IconDeleteBin } from '../../global/iconsComponents/deleteBin';
 import { useRouter } from 'next/navigation';
 import { useParams, useSearchParams } from 'next/navigation';
 

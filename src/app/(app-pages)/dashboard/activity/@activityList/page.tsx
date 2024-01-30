@@ -1,11 +1,12 @@
 import { getUserId } from '@/app/lib/auth';
 import { getActivity } from '@/app/lib/services/activity';
-import CardDescription from '@/app/ui/dashboard/card/cardDescription';
-import CardIcon from '@/app/ui/dashboard/card/cardIcon';
-import CarSubtitle from '@/app/ui/dashboard/card/cardSubtitle';
-import CardTextAndDate from '@/app/ui/dashboard/card/cardTextAndDate';
-import CardTitle from '@/app/ui/dashboard/card/cardTitle';
-import NoData from '@/app/ui/global/noData';
+import CardDescription from '@/app/ui/components/dashboard/card/cardDescription';
+import CardIcon from '@/app/ui/components/dashboard/card/cardIcon';
+import CarSubtitle from '@/app/ui/components/dashboard/card/cardSubtitle';
+import CardTextAndDate from '@/app/ui/components/dashboard/card/cardTextAndDate';
+import CardTitle from '@/app/ui/components/dashboard/card/cardTitle';
+
+import NoData from '@/app/ui/components/global/noData';
 import React from 'react';
 
 export default async function ActivitiesList() {
