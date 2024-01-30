@@ -1,9 +1,9 @@
 import Header from '@/app/ui/components/dashboard/header/header';
 import ThemeSwitcher from '../../ui/components/global/themeSwitcher';
-import AddFriendButton from '@/app/ui/components/dashboard/buttons/addFriend';
 import Menu from '@/app/ui/components/dashboard/menu/menu';
-import AddExpenseButton from '../add/create-expense/page';
-import AddGroupButton from '../add/create-group/page';
+import AddFriendButton from '@/app/ui/components/dashboard/buttons/addFriend';
+import AddExpenseButton from '@/app/ui/components/dashboard/buttons/addExpenseButtons';
+import AddGroupButton from '@/app/ui/components/dashboard/buttons/addGroupButton';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

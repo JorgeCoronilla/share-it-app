@@ -2,7 +2,7 @@ import { getUserId } from '@/app/lib/auth';
 import { getGroups } from '@/app/lib/services/groups';
 import ExpenseForm from '@/app/ui/components/dashboard/forms/expenseForm';
 
-export default async function AddExpenseButton() {
+export default async function Page() {
   const userID = await getUserId();
   let userGroups: GroupData[] | undefined = [];
   userGroups = (await getGroups(userID)) || undefined;

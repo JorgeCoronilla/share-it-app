@@ -5,8 +5,8 @@ import CardIcon from '@/app/ui/components/dashboard/card/cardIcon';
 import CarSubtitle from '@/app/ui/components/dashboard/card/cardSubtitle';
 import CardTextAndDate from '@/app/ui/components/dashboard/card/cardTextAndDate';
 import CardTitle from '@/app/ui/components/dashboard/card/cardTitle';
+import EmptyDash from '@/app/ui/components/global/emptyDash';
 
-import NoData from '@/app/ui/components/global/noData';
 import React from 'react';
 
 export default async function ActivitiesList() {
@@ -14,7 +14,7 @@ export default async function ActivitiesList() {
 
   const activity = await getActivity(userId);
   if (!activity || activity.length === 0) {
-    return <NoData message="Todavía no tienes ninguna actividad." />;
+    return <EmptyDash text="Todavía no tienes ninguna actividad." />;
   }
   console.log(activity);
 

@@ -4,7 +4,7 @@ import FormHeader from '@/app/ui/components/dashboard/forms/formHeader';
 import DeleteGroup from '@/app/ui/components/dashboard/warnings/deleteGroup';
 import { useSearchParams } from 'next/navigation';
 
-export default function AddGroupButton() {
+export default function Page() {
   const searchParams = useSearchParams();
 
   const group = searchParams.get('group');
