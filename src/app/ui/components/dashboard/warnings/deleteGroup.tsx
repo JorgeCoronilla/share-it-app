@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDeleteGroup } from '@/app/lib/hooks/useDeleteGroup';
-import CardSubtitle from '@/app/ui/dashboard/card/cardSubtitle';
 import FormError from './formError';
 import Loading from '../../global/loading';
+import CardSubtitle from '../card/cardSubtitle';
 interface DeleteGroupProps {
   id: string;
   name: string;

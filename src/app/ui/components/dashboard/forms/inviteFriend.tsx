@@ -1,12 +1,12 @@
 'use client';
 import Button from '@/app/ui/components/global/button';
 import FormInput from '@/app/ui/components/global/formInput';
-import FormWarning from '@/app/ui/dashboard/warnings/formWarning';
 import { useAddFriend } from '@/app/lib/hooks/useAddFriend';
 import { useEffect } from 'react';
 import Select from '../../global/select';
 import Loading from '../../global/loading';
 import FormError from '../warnings/formError';
+import FormWarning from '../warnings/formWarning';
 interface InviteFriendFormProps {
   groups?: GroupData[];
   user: User;
