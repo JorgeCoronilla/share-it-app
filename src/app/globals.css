@@ -23,7 +23,7 @@
   --light-backgorund-color: white;
 
   --dark-b: rgba(73, 48, 78, 0.247);
-  --light-b: rgba(201, 107, 255, 0.048);
+  --light-b: #c96bff0c;
 
   --dark-title: linear-gradient(45deg, #cffafe, #818cf8, #f472b6);
   --light-title: linear-gradient(45deg, #6191c9, #3f51ee, #ff1b91);
