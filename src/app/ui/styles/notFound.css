@@ -1,0 +1,18 @@
+.not-found {
+  padding: 4em 2em;
+}
+.not-found p {
+  font-size: 2.5em;
+  color: var(--text);
+  text-align: center;
+  margin: 3em 0 1em;
+  line-height: 1.3em;
+  font-weight: 800;
+}
+.not-found a {
+  margin: 0 auto;
+  width: fit-content;
+  display: block;
+  border: none;
+  padding: 0.4em 2em;
+}
