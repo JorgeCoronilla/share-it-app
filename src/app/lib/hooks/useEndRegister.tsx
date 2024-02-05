@@ -1,6 +1,6 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
-import { registerUser } from '../services/auth';
+import { registerUser } from '../services/registerUser';
 
 export const useEndRegistration = () => {
   const [message, setMessage] = useState('');

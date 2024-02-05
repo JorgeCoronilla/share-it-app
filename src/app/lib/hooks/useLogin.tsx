@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { loginUser } from '../services/auth';
+import { loginUser } from '../services/login';
 import { validateLogin } from '../validations';
 import { useFormStates } from './useFormUtils';
 

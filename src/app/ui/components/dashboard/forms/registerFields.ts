@@ -21,7 +21,8 @@ export const formFields = [
     type: 'password',
     placeholder: '********',
     autoComplete: 'new-password',
-    message: 'Password must be at least 8 characters',
+    message:
+      'Password must be at least 8 characters, contain at least one uppercase letter, one lowercase letter, one number and one special character',
   },
   {
     label: 'Confirm Password',
@@ -59,7 +60,8 @@ export const invitationFormFields = (value: string) => {
       type: 'password',
       placeholder: '********',
       autoComplete: 'new-password',
-      message: 'Password must be at least 8 characters',
+      message:
+        'Password must be at least 8 characters, contain at least one uppercase letter, one lowercase letter, one number and one special character',
     },
     {
       label: 'Confirm Password',

@@ -4,6 +4,7 @@
   background-color: var(--background-color);
   padding: 1em 0 2em;
   margin: 0 auto;
+  letter-spacing: -0.09em;
 }
 
 .form-header-container {

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { postUser } from '../services/auth';
+import { postUser } from '../services/registerUser';
 import { useFormStates } from './useFormUtils';
 import { validateForm } from '../validations';
 

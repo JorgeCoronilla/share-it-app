@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useFormStates } from './useFormUtils';
 import { validateForm, validateInvitation } from '../validations';
-import { registerUserFromInvitation } from '../services/auth';
+import { registerUserFromInvitation } from '../services/registerUser';
 
 export const useInvitationForm = (token: string) => {
   const {

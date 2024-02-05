@@ -43,8 +43,8 @@
   --stain-2-dark: #f881ca44;
   --stain-2-light: #79a2c9;
 
-  --menu-background-dark: rgb(0, 0, 0, 0.9);
-  --menu-background-light: rgb(255, 255, 255, 0.9);
+  --menu-background-dark: rgb(0, 0, 0, 0.6);
+  --menu-background-light: rgba(255, 255, 255, 0.6);
 
   --shadows-dark: rgba(248, 248, 248, 0.288) 0px 2px 8px 0px;
   --shadows-light: rgba(0, 0, 0, 0.288) 0px 2px 8px 0px;
