@@ -80,8 +80,8 @@
 @media screen and (min-width: 768px) {
   .account-container .card-avatar-container {
     position: absolute;
-    right: 1em;
-    margin-top: -8.5em;
+    left: -0.5em;
+    margin-top: -3.5em;
   }
 
   .account-container {
