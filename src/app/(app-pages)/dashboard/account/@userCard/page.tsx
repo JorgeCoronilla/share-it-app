@@ -8,16 +8,17 @@ export default async function Page() {
   if (!user) {
     return <p className="mt-4 text-gray-400">No data available.</p>;
   }
-  console.log(user);
   return (
     <>
-      <div className="section-spacer"></div>
-      <div className="group-card-container">
-        <CardAvatar user={user} />
+      <div className="account-container">
+        <div className="section-spacer"></div>
+        <div className="group-card-container">
+          <CardAvatar user={user} />
 
-        <div className="card-text-container">
+          {/* <div className="card-text-container"> */}
           <CardTitle title={user.name} />
           <CardDescription description={user.email} />
+          {/* </div> */}
         </div>
       </div>
     </>

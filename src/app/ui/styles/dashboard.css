@@ -61,3 +61,31 @@
     border: none;
   }
 }
+
+.account-container {
+  width: calc(100% + 2.65em);
+  margin-top: 2em;
+}
+
+.account-container h2 {
+  margin: 0.8em 0 0.4em;
+}
+
+.account-container .card-avatar-container {
+  position: absolute;
+  right: -1em;
+  margin-top: -3em;
+}
+
+@media screen and (min-width: 768px) {
+  .account-container .card-avatar-container {
+    position: absolute;
+    right: 1em;
+    margin-top: -8.5em;
+  }
+
+  .account-container {
+    width: 100%;
+    margin-top: 2em;
+  }
+}
