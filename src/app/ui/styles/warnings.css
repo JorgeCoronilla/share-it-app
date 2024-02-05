@@ -26,7 +26,7 @@
   top: 1.1em;
   z-index: 3;
   width: calc(75% - 4em);
-  height: 3.35em;
+  height: fit-content;
   padding: 0.2em 1em;
   background-color: var(--positive);
   color: var(--background-color);

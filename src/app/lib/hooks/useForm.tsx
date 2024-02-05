@@ -41,13 +41,13 @@ export const useForm = () => {
         setErrorMessage('Complete todos los campos');
       }
 
-      if (userLogged.status === 404) {
+      if (userLogged.status === 401) {
         setErrorMessage('Ya existe un usuario con ese email');
       }
 
       if (userLogged.status === 404) {
         setErrorMessage(
-          'Ya existe un usuario con ese email. Confirma tu correo'
+          'Ya existe un usuario con ese email. Solo necesitas confirmar tu correo'
         );
       }
 
@@ -58,7 +58,7 @@ export const useForm = () => {
       }
       setTimeout(() => {
         router.push(`/dashboard`);
-      }, 2000);
+      }, 4000);
       setError(true);
 
       console.log('Error:', userLogged.status);
