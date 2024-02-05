@@ -34,9 +34,10 @@ export const useAddExpense = () => {
 
     if (itemRegistered.status === 200) {
       router.push(`/dashboard`);
+    } else {
+      console.log('Error', itemRegistered.status);
     }
 
-    console.log('Error', itemRegistered.status);
     if (itemRegistered.status === 404) {
       setErrorMessage('El grupo no existe');
     }

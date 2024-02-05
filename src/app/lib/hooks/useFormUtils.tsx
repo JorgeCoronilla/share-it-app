@@ -89,7 +89,6 @@ export const useFormStates = (formType: formTypes) => {
         ...errors_INITIAL_STATE,
         [name]: true,
       };
-      console.log(data);
       setOnFocus(currentField);
     }
   };

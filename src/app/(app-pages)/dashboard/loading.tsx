@@ -12,8 +12,6 @@ export default function Loading() {
           width={280}
           height={400}
           viewBox="0 0 280 400"
-          // backgroundColor="#c96bff0c"
-          // foregroundColor="#f881ca44"
           backgroundColor="var(--background-color-transparent)"
           foregroundColor="var(--stain-2-color)"
         >

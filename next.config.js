@@ -45,6 +45,16 @@ const nextConfig = {
       ],
     },
     {
+      source: '/dashboard',
+
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'no-store',
+        },
+      ],
+    },
+    {
       source: '/dashboard/:slug',
 
       headers: [
