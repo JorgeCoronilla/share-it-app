@@ -18,15 +18,15 @@ export async function POST(request: NextRequest) {
     }
 
     // Checks if group exists and gets ID balance
-    const groupId = await client.execute({
+    const gruopInfo = await client.execute({
       sql: 'SELECT group_id FROM groups WHERE group_id = ?',
       args: [data.group_id],
     });
-    if (groupId.rows.length === 0) {
+    if (gruopInfo.rows.length === 0) {
       console.log('Group not found');
       return NextResponse.json({ message: 'Group not found' }, { status: 404 });
     }
-    console.log('group exists = ', groupId.rows[0].group_id);
+    console.log('group exists = ', gruopInfo.rows[0].group_id);
 
     // Checks if friend exists and gets IDs and name
     const friend = await client.execute({
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
       const sendInvitationEmail = await sendInvitaionMail({
         toEmail: data.email,
         hostName: data.hostName,
-        groupId: String(groupId.rows[0].group_id),
+        groupId: String(data.group_id),
         groupName: data.group_name,
       });
       console.log(sendInvitationEmail);
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
     // Checks if friend is member of the group and gets IDs and name
     const alreadyIn = await client.execute({
       sql: 'SELECT user_group_id FROM user_group WHERE user_id = ? AND group_id = ?',
-      args: [friend.rows[0].user_id, groupId.rows[0].group_id],
+      args: [friend.rows[0].user_id, data.group_id],
     });
     if (alreadyIn.rows.length > 0) {
       console.log('Friend Already in that group');
@@ -71,13 +71,7 @@ export async function POST(request: NextRequest) {
     // Join friend to group
     const newMember = await client.execute({
       sql: 'INSERT INTO user_group (user_group_id, user_id, group_id, user_balance, status) VALUES ( ?, ?, ?, ?, ?)',
-      args: [
-        user_group_id,
-        friend.rows[0].user_id,
-        groupId.rows[0].group_id,
-        0,
-        'joined',
-      ],
+      args: [user_group_id, friend.rows[0].user_id, data.group_id, 0, 'joined'],
     });
 
     console.log('newMember', newMember);
