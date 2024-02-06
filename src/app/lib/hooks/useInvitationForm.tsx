@@ -51,6 +51,9 @@ export const useInvitationForm = (token: string) => {
       setErrorMessage(
         'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
       );
+      setTimeout(() => {
+        router.push(`/`);
+      }, 5000);
     }
 
     setError(true);

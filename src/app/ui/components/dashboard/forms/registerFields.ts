@@ -1,11 +1,11 @@
 export const formFields = [
   {
-    label: 'Name',
+    label: 'Nombre',
     name: 'name',
     type: 'text',
     placeholder: 'John Doe',
     autoComplete: 'name',
-    message: 'Please provide a valid name',
+    message: 'Nombre no válido',
   },
   {
     label: 'Email',
@@ -13,24 +13,24 @@ export const formFields = [
     type: 'email',
     placeholder: 'email@me.com',
     autoComplete: 'email',
-    message: 'Please provide a valid email',
+    message: 'Email no válido',
   },
   {
-    label: 'Password',
+    label: 'Contraseña',
     name: 'password',
     type: 'password',
     placeholder: '********',
     autoComplete: 'new-password',
     message:
-      'Password must be at least 8 characters, contain at least one uppercase letter, one lowercase letter, one number and one special character',
+      'La contraseña debe tener al menos 8 caracteres, contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial',
   },
   {
-    label: 'Confirm Password',
+    label: 'Confirma contraseña',
     name: 'confirmPassword',
     type: 'password',
     placeholder: '********',
     autoComplete: 'new-password',
-    message: 'Please confirm your password',
+    message: 'Las contraseñas no coinciden',
   },
 ];
 
@@ -69,7 +69,7 @@ export const invitationFormFields = (value: string) => {
       type: 'password',
       placeholder: '********',
       autoComplete: 'new-password',
-      message: 'Please confirm your password',
+      message: 'Your passwords don’t match',
     },
   ];
 };

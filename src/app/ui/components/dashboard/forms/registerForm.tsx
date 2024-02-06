@@ -52,14 +52,14 @@ export default function RegisterForm() {
             disabled={showError.allfields}
           />
         </form>
+        <FormError
+          showError={error}
+          message={errorMessage}
+        />
       </div>
       <Loading
         showError={loading}
         message="... loading"
-      />
-      <FormError
-        showError={error}
-        message={errorMessage}
       />
     </>
   );

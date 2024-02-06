@@ -33,7 +33,7 @@ export default function LoginForm() {
         />
         <FormInput
           getData={getData}
-          label="Password"
+          label="Contraseña"
           type="password"
           name="password"
           autoComplete="current-password"

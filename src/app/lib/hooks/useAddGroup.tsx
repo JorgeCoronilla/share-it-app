@@ -33,28 +33,29 @@ export const useAddGroup = () => {
     setLoading(false);
 
     if (itemRegistered.ok) {
-      const data = await itemRegistered.json();
       router.push(`/dashboard`);
-    } else {
-      if (itemRegistered.status === 400) {
-        setErrorMessage('Complete todos los campos');
-      }
+    }
+    if (itemRegistered.status === 400) {
+      setErrorMessage('Complete todos los campos');
 
-      if (itemRegistered.status === 404) {
-        setErrorMessage('Ya existe un grupo con ese nombre');
-      } else {
-        setErrorMessage(
-          'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
-        );
-      }
-      setTimeout(() => {
-        router.push(`/dashboard`);
-      }, 2000);
-      setError(true);
-
-      console.log('Error', itemRegistered.status);
       setError(true);
     }
+
+    if (itemRegistered.status === 404) {
+      setErrorMessage('Ya existe un grupo con ese nombre');
+      setError(true);
+    }
+    if (itemRegistered.status === 500) {
+      setErrorMessage(
+        'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
+      );
+      setTimeout(() => {
+        router.push(`/dashboard`);
+      }, 5000);
+      setError(true);
+    }
+
+    console.log('Error', itemRegistered.status);
   };
   return {
     getData,

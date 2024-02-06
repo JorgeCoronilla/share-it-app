@@ -86,16 +86,15 @@ export default function ExpenseForm({ groups }: ExpenseFormProps) {
             disabled={!showError.allfields}
           />
         </form>
+        <Loading
+          showError={loading}
+          message="... Loading"
+        />
+        <FormError
+          showError={error}
+          message={errorMessage}
+        />
       </div>
-      <FormError
-        showError={error}
-        message={errorMessage}
-      />
-
-      <Loading
-        showError={loading}
-        message="... Loading"
-      />
     </>
   );
 }

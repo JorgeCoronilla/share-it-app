@@ -34,25 +34,29 @@ export const useRegister = () => {
       password: checkData.password,
     });
     setLoading(false);
-    if (userLogged.ok) {
+    if (userLogged.status === 200) {
       router.push(`/login`);
-    } else {
-      console.log('Error:', userLogged.status);
-      if (userLogged.status === 400) {
-        setErrorMessage('Complete todos los campos');
-      }
-      if (userLogged.status === 404) {
-        setErrorMessage('El usuario ya existe');
-      } else {
-        setErrorMessage(
-          'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
-        );
-      }
+    }
+    console.log('Error:', userLogged.status);
+    if (userLogged.status === 400) {
+      setErrorMessage('Complete todos los campos');
+    }
+    if (userLogged.status === 404) {
+      setErrorMessage('El usuario ya existe');
       setTimeout(() => {
         router.push(`/`);
-      }, 2000);
-      setError(true);
+      }, 5000);
     }
+    if (userLogged.status === 500) {
+      setErrorMessage(
+        'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
+      );
+      setTimeout(() => {
+        router.push(`/`);
+      }, 5000);
+    }
+
+    setError(true);
   };
   return { getData, submit, showError, onFocus, error, errorMessage, loading };
 };

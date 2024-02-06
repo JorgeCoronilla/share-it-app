@@ -116,9 +116,9 @@ export const useUpdateExpense = (
         );
 
         setError(true);
-        // setTimeout(() => {
-        //   router.push(`/dashboard/${groupId}`);
-        // }, 2000);
+        setTimeout(() => {
+          router.push(`/dashboard/${groupId}`);
+        }, 5000);
       }
     }
   };

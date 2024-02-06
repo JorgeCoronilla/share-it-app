@@ -40,19 +40,25 @@ export const useAddExpense = () => {
 
     if (itemRegistered.status === 404) {
       setErrorMessage('El grupo no existe');
+      setError(true);
     }
     if (itemRegistered.status === 500) {
       setErrorMessage(
         'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
       );
+      setError(true);
+      setTimeout(() => {
+        router.push(`/dashboard`);
+      }, 5000);
     }
     if (itemRegistered.status === 400) {
       setErrorMessage('Complete todos los campos');
+      setError(true);
     } else {
       setError(true);
       setTimeout(() => {
         router.push(`/dashboard`);
-      }, 2000);
+      }, 5000);
     }
   };
   return {

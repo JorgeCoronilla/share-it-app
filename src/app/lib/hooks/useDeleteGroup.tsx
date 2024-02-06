@@ -36,7 +36,7 @@ export const useDeleteGroup = (id: string, name: string) => {
       setTimeout(() => {
         router.push(`/dashboard`);
         setLoading(false);
-      }, 3000);
+      }, 5000);
     }
   };
 

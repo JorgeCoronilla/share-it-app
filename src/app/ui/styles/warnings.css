@@ -10,7 +10,6 @@
   border-radius: 3px;
   border-radius: 5px;
   font-size: 0.9em;
-  opacity: 0.8;
   font-weight: 800;
   line-height: 1.3em;
   letter-spacing: 0em;
@@ -34,7 +33,6 @@
   border-radius: 3px;
   border-radius: 5px;
   font-size: 0.9em;
-  opacity: 0.8;
   font-weight: 800;
   display: flex;
   align-items: center;
@@ -56,6 +54,7 @@
   perspective: 800px;
 
   margin-top: 10em;
+  z-index: 100;
 }
 
 .loader p {
@@ -126,7 +125,10 @@
 
 @media screen and (min-width: 768px) {
   .form-error {
-    width: 30em;
-    top: 4em;
+    top: 2.3em;
+    left: -2em;
+    max-width: 25em;
+    font-size: 1em;
+    padding: 0.5em 0.5em;
   }
 }

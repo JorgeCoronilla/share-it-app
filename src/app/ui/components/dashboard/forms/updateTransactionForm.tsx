@@ -85,12 +85,12 @@ export default function UpdateTransactionForm({
         >
           Eliminar
         </button>
+        <FormError
+          showError={error}
+          message={errorMessage}
+        />
       </div>
 
-      <FormError
-        showError={error}
-        message={errorMessage}
-      />
       <Loading
         showError={loading}
         message="... Loading"

@@ -107,7 +107,7 @@ export async function sendConfirmationMail(toEmail: string, name: string) {
           color: rgb(66, 66, 66);
         "
       >
-        Gracias por nirte a Share-it. Ya casi lo tienes, solo confirma tu email a
+        Gracias por unirte a Share-it. Ya casi lo tienes, solo confirma tu email a
         través del siguiente link:
       </p>
   

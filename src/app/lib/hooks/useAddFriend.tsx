@@ -52,31 +52,46 @@ export const useAddFriend = (user: User, groups: GroupData[]) => {
 
     if (itemRegistered.status === 200) {
       setErrorMessage('Amigo añadido a tu grupo');
+      setError(true);
+      setTimeout(() => {
+        router.push(`/dashboard`);
+      }, 5000);
     }
     if (itemRegistered.status === 201) {
       setErrorMessage(
         'Usuario no registrado. Hemos enviado un correo de invitación'
       );
+      setError(true);
+      setTimeout(() => {
+        router.push(`/dashboard`);
+      }, 5000);
     }
 
     if (itemRegistered.status === 400) {
       setErrorMessage('Complete todos los campos');
+      setError(true);
     }
     if (itemRegistered.status === 503) {
       setErrorMessage('El email no se ha podido enviar');
+      setError(true);
+      setTimeout(() => {
+        router.push(`/dashboard`);
+      }, 5000);
     }
     if (itemRegistered.status === 404) {
+      setError(true);
+
       setErrorMessage('El grupo no existe');
     }
     if (itemRegistered.status === 500) {
       setErrorMessage(
         'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
       );
+      setError(true);
+      setTimeout(() => {
+        router.push(`/dashboard`);
+      }, 5000);
     }
-    setError(true);
-    setTimeout(() => {
-      router.push(`/dashboard`);
-    }, 2000);
   };
   return {
     getData,

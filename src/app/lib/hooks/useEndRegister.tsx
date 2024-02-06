@@ -16,7 +16,6 @@ export const useEndRegistration = () => {
 
     if (userRegistration.ok) {
       router.push(`/dashboard`);
-      console.log('ok');
     } else {
       if (userRegistration.status === 400) {
         setMessage('Usuario o grupo no encontrado.');
@@ -39,7 +38,7 @@ export const useEndRegistration = () => {
         setError(false);
         setLoading(true);
         router.push(`/`);
-      }, 4000);
+      }, 5000);
     }
   };
   return { message, loading, error, EndRegistration };
