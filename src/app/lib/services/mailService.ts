@@ -55,23 +55,7 @@ export async function sendConfirmationMail(toEmail: string, name: string) {
     </div>
   
     <main style="padding: 0 10%">
-      <div style="width: fit-content; margin: 0 auto">
-        <br />
-        <h1
-          style="
-            background: linear-gradient(45deg, #6191c9, #3f51ee, #ff1b91);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-            font-size: clamp(1.5rem, -16.5rem + 40vw, 6.5rem);
-            font-family: Inter, sans-serif;
-            text-align: center;
-            color: white;
-          "
-        >
-          !Bienvenid@!
-        </h1>
-      </div>
+    
       <h3
         style="
           font-size: 1.2em;
@@ -256,23 +240,7 @@ export async function sendInvitaionMail({
     </div>
   
     <main style="padding: 0 15%">
-      <div style="width: fit-content; margin: 0 auto">
-        <br />
-        <h1
-          style="
-            background: linear-gradient(45deg, #6191c9, #3f51ee, #ff1b91);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-            font-size: clamp(1.5rem, -16.5rem + 40vw, 6.5rem);
-            font-family: Inter, sans-serif;
-            text-align: center;
-            color: white;
-          "
-        >
-          !Bienvenid@!
-        </h1>
-      </div>
+    
       <h6
         style="
           font-size: 1.2em;
