@@ -16,7 +16,6 @@ export default async function ActivitiesList() {
   if (!activity || activity.length === 0) {
     return <EmptyDash text="Todavía no tienes ninguna actividad." />;
   }
-  console.log(activity);
 
   return (
     <>
