@@ -71,7 +71,7 @@
   height: 100%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 480px) {
   .user-name {
     padding: 0.7em 1.2em 0 0;
   }

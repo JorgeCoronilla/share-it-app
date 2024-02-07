@@ -28,8 +28,6 @@ export default async function ActivitiesList() {
               key={id}
             >
               <div className="card-text-container">
-                <CardDescription description="Grupo:" />
-
                 <CardTitle title={group_name} />
                 <CarSubtitle subtitle={description} />
                 <CardDescription description={user_name} />

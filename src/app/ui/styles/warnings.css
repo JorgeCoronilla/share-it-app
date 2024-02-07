@@ -123,11 +123,28 @@
   }
 }
 
+@media screen and (min-width: 480px) {
+  .form-error {
+    top: 1.3em;
+    left: 8.5em;
+    max-width: 20em;
+    font-size: 1em;
+    padding: 0.5em 0.5em;
+  }
+  .loader {
+    top: 0;
+  }
+}
+
 @media screen and (min-width: 768px) {
+  .loader {
+    top: 40%;
+  }
+
   .form-error {
     top: 2.3em;
-    left: -2em;
-    max-width: 25em;
+    left: 0.5em;
+    max-width: 20em;
     font-size: 1em;
     padding: 0.5em 0.5em;
   }

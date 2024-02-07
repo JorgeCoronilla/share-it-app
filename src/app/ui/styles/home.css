@@ -174,7 +174,7 @@ footer {
   display: none;
 }
 /* --------- Desktop -------- */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 480px) {
   .title {
     font-size: 6em;
     font-size: clamp(6rem, -2.3333rem + 17.7778vw, 11rem);
@@ -191,7 +191,7 @@ footer {
   }
 
   .hero-container .title {
-    margin-top: 0.3em;
+    margin-top: 0;
     margin-bottom: 0.2em;
   }
 
@@ -249,13 +249,13 @@ footer {
   .blur-stain-1 {
     position: absolute;
     right: 10%;
-    height: 20em;
+    height: 50%;
     background-color: var(--stain-1-color);
     border-radius: 50%;
     z-index: -10;
-    width: 38em;
+    width: 45%;
     top: 23em;
-    /* filter: blur(10em); */
+    filter: blur(10em);
   }
 
   .blur-stain-2 {
@@ -267,8 +267,15 @@ footer {
 
     z-index: -10;
     left: 5em;
-    width: 30em;
+    width: 45%;
     top: 1em;
     /* filter: blur(10em); */
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero-container .title {
+    margin-top: 0.3em;
+    margin-bottom: 0.2em;
   }
 }

@@ -39,7 +39,7 @@
   bottom: 13em;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 480px) {
   .add-button-container {
     right: calc(50% - 22em);
   }
