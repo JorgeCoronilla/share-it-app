@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
       args: [friend.rows[0].user_id, data.group_id],
     });
     if (alreadyIn.rows.length > 0) {
-      console.log('Friend Already in that group');
+      console.log('Friend Already in that group', alreadyIn);
       return NextResponse.json(
         { message: 'Friend Already in that group' },
         { status: 404 }
