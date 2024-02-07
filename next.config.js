@@ -4,46 +4,46 @@ const nextConfig = {
     esmExternals: false,
   },
   headers: () => [
-    {
-      source: '/add/create-expense',
+    // {
+    //   source: '/add/create-expense',
 
-      headers: [
-        {
-          key: 'Cache-Control',
-          value: 'no-store',
-        },
-      ],
-    },
-    {
-      source: '/add/create-group',
+    //   headers: [
+    //     {
+    //       key: 'Cache-Control',
+    //       value: 'no-store',
+    //     },
+    //   ],
+    // },
+    // {
+    //   source: '/add/create-group',
 
-      headers: [
-        {
-          key: 'Cache-Control',
-          value: 'no-store',
-        },
-      ],
-    },
-    {
-      source: '/add/delete-group',
+    //   headers: [
+    //     {
+    //       key: 'Cache-Control',
+    //       value: 'no-store',
+    //     },
+    //   ],
+    // },
+    // {
+    //   source: '/add/delete-group',
 
-      headers: [
-        {
-          key: 'Cache-Control',
-          value: 'no-store',
-        },
-      ],
-    },
-    {
-      source: '/add/invite-user',
+    //   headers: [
+    //     {
+    //       key: 'Cache-Control',
+    //       value: 'no-store',
+    //     },
+    //   ],
+    // },
+    // {
+    //   source: '/add/invite-user',
 
-      headers: [
-        {
-          key: 'Cache-Control',
-          value: 'no-store',
-        },
-      ],
-    },
+    //   headers: [
+    //     {
+    //       key: 'Cache-Control',
+    //       value: 'no-store',
+    //     },
+    //   ],
+    // },
     {
       source: '/dashboard',
 
@@ -54,16 +54,16 @@ const nextConfig = {
         },
       ],
     },
-    {
-      source: '/dashboard/:slug',
+    // {
+    //   source: '/dashboard/:slug',
 
-      headers: [
-        {
-          key: 'Cache-Control',
-          value: 'no-store',
-        },
-      ],
-    },
+    //   headers: [
+    //     {
+    //       key: 'Cache-Control',
+    //       value: 'no-store',
+    //     },
+    //   ],
+    // },
     {
       source: '/dashboard/activity',
 
@@ -74,16 +74,16 @@ const nextConfig = {
         },
       ],
     },
-    {
-      source: '/dashboard/friends',
+    // {
+    //   source: '/dashboard/friends',
 
-      headers: [
-        {
-          key: 'Cache-Control',
-          value: 'no-store',
-        },
-      ],
-    },
+    //   headers: [
+    //     {
+    //       key: 'Cache-Control',
+    //       value: 'no-store',
+    //     },
+    //   ],
+    // },
   ],
 };
 
