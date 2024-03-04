@@ -81,7 +81,7 @@ export const useAddFriend = (user: User, groups: GroupData[]) => {
     if (itemRegistered.status === 404) {
       setError(true);
 
-      setErrorMessage('El grupo no existe');
+      setErrorMessage('Tu amig@ ya está en el grupo');
     }
     if (itemRegistered.status === 500) {
       setErrorMessage(

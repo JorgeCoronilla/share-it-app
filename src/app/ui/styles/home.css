@@ -273,7 +273,7 @@ footer {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 968px) {
   .hero-container .title {
     margin-top: 0.3em;
     margin-bottom: 0.2em;

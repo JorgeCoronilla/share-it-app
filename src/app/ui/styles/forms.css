@@ -168,7 +168,7 @@ label.icon:before {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 968px) {
   .form-body {
     width: 30em;
     height: fit-content;

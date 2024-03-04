@@ -97,7 +97,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 968px) {
   .section-title {
     color: var(--switcher);
     font-size: 2em;
