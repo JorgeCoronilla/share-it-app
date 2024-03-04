@@ -25,15 +25,15 @@ export default function Home() {
           <div className="steps-container">
             <div>
               <p>1</p>
-              <h5>Crea un grupo</h5>
+              <h2>Crea un grupo</h2>
             </div>
             <div>
               <p>2</p>
-              <h5>Invita a los participantes</h5>
+              <h2>Invita a los participantes</h2>
             </div>
             <div>
               <p>3</p>
-              <h5>Añade los gastos</h5>
+              <h2>Añade los gastos</h2>
             </div>
           </div>
           <footer className="footer">
