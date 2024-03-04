@@ -12,11 +12,17 @@ export default function Select({ getData, groups, name, label }: Props) {
   }
   return (
     <>
-      <label htmlFor={`id-n-rrrr`}>{label}</label>
+      <label
+        htmlFor={`id-n-rrrr`}
+        id={`id-label-${label}`}
+      >
+        {label}
+      </label>
       <select
         onClick={getData}
         id={`id-n-}`}
         name={name}
+        aria-labelledby={`id-label-${label}`}
       >
         {groups &&
           groups.map((item, index) => (

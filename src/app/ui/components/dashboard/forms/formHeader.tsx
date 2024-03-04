@@ -15,6 +15,7 @@ export default function FormHeader({ title }: Props) {
         <button
           onClick={() => router.push('/dashboard')}
           className="close-form"
+          aria-label="Close form"
         >
           <div className="close-container">
             <img

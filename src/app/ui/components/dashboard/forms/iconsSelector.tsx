@@ -38,10 +38,12 @@ export default function IconsSelector({
                   name="icon"
                   value={icon}
                   onClick={onClick}
+                  aria-labelledby={'icon-label' + index}
                 />
                 <label
                   className="icon"
                   htmlFor={`checkbox${index}`}
+                  id={'icon-label' + index}
                 >
                   <img
                     key={index}

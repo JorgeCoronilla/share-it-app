@@ -10,6 +10,7 @@ export default function AddExpenseButton() {
       <button
         onClick={() => router.push('/add/create-expense')}
         className="add-button "
+        aria-label="Add expense"
       >
         <div>
           <IconPencilFill />

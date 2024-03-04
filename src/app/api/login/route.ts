@@ -9,7 +9,6 @@ import client from '@/app/lib/db/db';
 export async function POST(request: NextRequest) {
   try {
     const data: userLogin = await request.json();
-    console.log(data.password);
 
     if (!data.email || !data.password) {
       return NextResponse.json(

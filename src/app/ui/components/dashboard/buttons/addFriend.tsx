@@ -10,6 +10,7 @@ export default function AddFriendButton() {
       <button
         onClick={() => router.push('/add/invite-user')}
         className="add-button "
+        aria-label="Add friend"
       >
         <div>
           <FriendsIcon />

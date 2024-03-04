@@ -12,6 +12,7 @@ export default function AddGroupButton() {
         <button
           className="add-button"
           onClick={() => router.push('/add/create-group')}
+          aria-label="Add group"
         >
           <div>
             <IconUsers />

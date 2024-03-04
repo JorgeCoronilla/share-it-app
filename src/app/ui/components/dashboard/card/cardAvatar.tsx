@@ -19,7 +19,12 @@ export default function CardAvatar({ user }: Props) {
       className="card-avatar-container"
       key={user.id}
     >
-      <p className="avatar-container">{user.name.charAt(0)}</p>
+      <p
+        className="avatar-container"
+        role="presentation"
+      >
+        {user.name.charAt(0)}
+      </p>
       {/* {!imageError ? (
         user.avatar === '' ? (
           <p className="avatar-container">{user.name.charAt(0)}</p>

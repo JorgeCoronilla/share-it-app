@@ -54,8 +54,6 @@ export const useAddGroup = () => {
       }, 5000);
       setError(true);
     }
-
-    console.log('Error', itemRegistered.status);
   };
   return {
     getData,

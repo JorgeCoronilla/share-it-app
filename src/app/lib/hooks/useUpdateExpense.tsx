@@ -74,7 +74,6 @@ export const useUpdateExpense = (
   };
 
   const updateTransaction = async () => {
-    console.log(icon, description, amount);
     if (
       (data as NewExpenseData).icon === '' &&
       (data as NewExpenseData).description === '' &&
@@ -110,7 +109,6 @@ export const useUpdateExpense = (
       if (update.status === 200) {
         router.push(`/dashboard/${groupId}`);
       } else {
-        console.log(update);
         setErrorMessage(
           'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
         );

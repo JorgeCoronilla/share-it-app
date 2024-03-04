@@ -28,7 +28,12 @@ export default function FormInput({
 }: Props) {
   return (
     <>
-      <label htmlFor={`id-n-${name}`}>{label}</label>
+      <label
+        htmlFor={`id-n-${name}`}
+        id={`id-label-${name}`}
+      >
+        {label}
+      </label>
       <input
         type={type}
         name={name}
@@ -41,6 +46,7 @@ export default function FormInput({
         readOnly={readOnly}
         onClick={onClick}
         maxLength={50}
+        aria-labelledby={`id-label-${name}`}
       />
     </>
   );

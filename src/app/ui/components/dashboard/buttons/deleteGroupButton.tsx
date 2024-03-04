@@ -16,6 +16,7 @@ export default function DeleteGroupButton() {
           onClick={() =>
             router.push(`/add/delete-group?group=${group}&name=${name}`)
           }
+          aria-label="Delete group"
         >
           <div>
             <IconDeleteBin />

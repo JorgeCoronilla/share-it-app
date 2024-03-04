@@ -46,7 +46,6 @@ export const useAddFriend = (user: User, groups: GroupData[]) => {
       group_name: groupName,
       hostName: user.name,
     };
-    console.log(newFriendPetition);
     const itemRegistered = await addFriendToGroup(newFriendPetition);
     setLoading(false);
 

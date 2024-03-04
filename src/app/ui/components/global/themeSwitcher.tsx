@@ -31,10 +31,12 @@ export default function ThemeSwitcher({ pageClass = '' }: ThemeSwitcherProps) {
         className="sr-only"
         id="darkmode-toggle"
         onChange={handleSwitchTheme}
+        aria-labelledby="switcher-label"
       />
       <label
         htmlFor="darkmode-toggle"
         className="toggle"
+        id="switcher-label"
       >
         <span>Toggle dark mode</span>
       </label>

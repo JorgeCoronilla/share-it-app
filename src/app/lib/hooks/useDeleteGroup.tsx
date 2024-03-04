@@ -30,7 +30,6 @@ export const useDeleteGroup = (id: string, name: string) => {
           'Algo ha ido mal, inténtelo más tarde o contacte con Share-it'
         );
       }
-      console.log('Error', deletedGroup.status);
 
       setError(true);
       setTimeout(() => {

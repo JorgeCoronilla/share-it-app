@@ -70,8 +70,6 @@ export const useForm = () => {
     }
 
     setError(true);
-
-    console.log('Error:', userLogged.status);
   };
   return { getData, submit, showError, onFocus, error, errorMessage, loading };
 };

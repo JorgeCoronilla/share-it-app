@@ -37,7 +37,6 @@ export const useRegister = () => {
     if (userLogged.status === 200) {
       router.push(`/login`);
     }
-    console.log('Error:', userLogged.status);
     if (userLogged.status === 400) {
       setErrorMessage('Complete todos los campos');
     }
