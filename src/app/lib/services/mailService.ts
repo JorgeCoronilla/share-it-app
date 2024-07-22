@@ -47,7 +47,7 @@ export async function sendConfirmationMail(toEmail: string, name: string) {
     >
       <div style="width: 100%">
         <img
-          src="https://i.ibb.co/YNymX3C/Captura-desde-2024-01-25-11-22-52.png"
+          src="https://pub-9ab46d589d8e491b8c9ca836b36772a2.r2.dev/share-it-header.png"
           alt="Share-it"
           style="width: 100%"
         />
@@ -232,7 +232,7 @@ export async function sendInvitaionMail({
     >
       <div style="width: 100%">
         <img
-          src="https://i.ibb.co/YNymX3C/Captura-desde-2024-01-25-11-22-52.png"
+          src="https://pub-9ab46d589d8e491b8c9ca836b36772a2.r2.dev/share-it-header.png"
           alt="Share-it"
           style="width: 100%"
         />
