@@ -10,5 +10,6 @@ export async function registerTransaction({
     headers: {
       'Content-Type': 'application/json',
     },
-  });
+  }
+);
 }

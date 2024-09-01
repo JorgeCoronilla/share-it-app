@@ -24,6 +24,7 @@ export default function ExpenseForm({ groups }: ExpenseFormProps) {
     onFocus,
     focusContainer,
     errorMessage,
+    
   } = useAddExpense();
 
   return (

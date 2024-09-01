@@ -16,8 +16,8 @@ export async function POST(request: NextRequest) {
     if (!client) {
       throw new Error('DB client not initialized: Wrong credentials');
     }
-
     // Checks if group exists and gets IDs and current balance
+
     const groupData = await client.execute({
       sql: 'SELECT group_id, group_balance FROM groups WHERE group_id = ?',
       args: [data.group],
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
       console.log('Group not found');
       return NextResponse.json({ message: 'Group not found' }, { status: 404 });
     }
-    console.log(groupData);
+    console.log("************************************Sent: ", data.group, "response: ",groupData);
 
     //Starts transaction to add expense
     const userID = await getUserId();
@@ -39,7 +39,6 @@ export async function POST(request: NextRequest) {
       year: '2-digit',
     });
     const transaction = await client.transaction('write');
-
     const newExpense = await transaction.execute({
       sql: 'INSERT INTO transactions (transaction_id, group_id, user_id, date, description, amount, transaction_icon) VALUES ( ?, ?, ?, ?, ?,?,?)',
       args: [
@@ -52,6 +51,7 @@ export async function POST(request: NextRequest) {
         data.icon,
       ],
     });
+    console.log("grupo 1111111111", data.group);
 
     console.log('newExpense', newExpense);
     var newBalance;
@@ -69,6 +69,8 @@ export async function POST(request: NextRequest) {
         sql: 'UPDATE groups SET group_balance = ? WHERE group_id = ?',
         args: [newBalance, data.group],
       });
+      console.log("grupo 22222222222", data.group);
+
       console.log('updateGroupBalance: ', updateGroupBalance.rowsAffected);
     }
 
@@ -91,6 +93,7 @@ export async function POST(request: NextRequest) {
       sql: 'UPDATE user_group SET user_balance = ? WHERE user_id = ? AND group_id = ?',
       args: [roundedBalance, userID, data.group],
     });
+    console.log("grupo 33333333333", data.group);
 
     console.log('updateBalance: ', updateBalance.rowsAffected);
 
@@ -104,7 +107,7 @@ export async function POST(request: NextRequest) {
       },
       { status: 200 }
     );
-    // }
+    // // }
   } catch (error) {
     console.log(error);
     return NextResponse.json(
